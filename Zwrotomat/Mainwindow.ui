@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1118</width>
+    <width>1157</width>
     <height>661</height>
    </rect>
   </property>
@@ -25,8 +25,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1118</width>
-     <height>21</height>
+     <width>1157</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>
@@ -36,16 +36,15 @@
     <number>2</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_2">
-    <widget class="QWidget" name="gridLayoutWidget_2">
+    <widget class="QTreeView" name="treeFileExplorer">
      <property name="geometry">
       <rect>
-       <x>-30</x>
-       <y>140</y>
-       <width>160</width>
-       <height>80</height>
+       <x>10</x>
+       <y>130</y>
+       <width>221</width>
+       <height>291</height>
       </rect>
      </property>
-     <layout class="QGridLayout" name="gridLayout_2"/>
     </widget>
    </widget>
   </widget>

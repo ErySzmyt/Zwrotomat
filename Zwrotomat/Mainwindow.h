@@ -2,9 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QtCore>
+#include <QtGui>
+#include <QFileSystemModel>
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -17,5 +21,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QFileSystemModel *model; // model for display
+
 };
 #endif // MAINWINDOW_H
