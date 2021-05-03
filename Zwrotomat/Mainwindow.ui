@@ -14,11 +14,16 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <layout class="QGridLayout" name="gridLayout"/>
-    </item>
-   </layout>
+   <widget class="QTextBrowser" name="textBrowser">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>661</width>
+      <height>331</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -29,6 +34,30 @@
      <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuNowy">
+    <property name="title">
+     <string>Nowy</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuEdytuj">
+    <property name="title">
+     <string>Edytuj</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuZapisz">
+    <property name="title">
+     <string>Zapisz</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuUstawienia">
+    <property name="title">
+     <string>Ustawienia</string>
+    </property>
+   </widget>
+   <addaction name="menuNowy"/>
+   <addaction name="menuEdytuj"/>
+   <addaction name="menuZapisz"/>
+   <addaction name="menuUstawienia"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QDockWidget" name="dockWidget">
@@ -40,14 +69,19 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>130</y>
-       <width>221</width>
-       <height>291</height>
+       <y>40</y>
+       <width>351</width>
+       <height>521</height>
       </rect>
      </property>
     </widget>
    </widget>
   </widget>
+  <action name="actionUstawienia">
+   <property name="text">
+    <string>Ustawienia</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

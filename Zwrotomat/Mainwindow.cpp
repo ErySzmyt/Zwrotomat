@@ -16,8 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     filemodel =new QFileSystemModel(this);
     filemodel->setRootPath(rootPath);           // set rooth path for C drive
     ui->treeFileExplorer->setModel(filemodel);
-
-
 }
 
 MainWindow::~MainWindow()
@@ -25,3 +23,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
+{
+    QString sPath = dirmodel->fileInfo(index).absoluteFilePath();
+
+}

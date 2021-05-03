@@ -19,6 +19,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_treeFileExplorer_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *dirmodel; // model for dir  display
