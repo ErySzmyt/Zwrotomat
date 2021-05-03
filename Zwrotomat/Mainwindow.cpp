@@ -7,11 +7,17 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     QString rootPath = "C:/";               // root path for file browser
-    model = new QFileSystemModel(this);
-    model->setRootPath(rootPath);           // set rooth path for C drive
+    dirmodel = new QFileSystemModel(this);
+    dirmodel->setRootPath(rootPath);           // set rooth path for C drive
     //below, filePath example for specific extensions only
     //QString filePath = QFileDialog::getOpenFileName(this, "select CSV file",".",'Comma Separated Values (*.csv)");
-    ui->treeFileExplorer->setModel(model);
+    ui->treeFileExplorer->setModel(dirmodel);
+
+    filemodel =new QFileSystemModel(this);
+    filemodel->setRootPath(rootPath);           // set rooth path for C drive
+    ui->treeFileExplorer->setModel(filemodel);
+
+
 }
 
 MainWindow::~MainWindow()

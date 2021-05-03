@@ -21,7 +21,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QFileSystemModel *model; // model for display
-
+    QFileSystemModel *dirmodel; // model for dir  display
+    QFileSystemModel *filemodel; // model for filed display
 };
 #endif // MAINWINDOW_H
