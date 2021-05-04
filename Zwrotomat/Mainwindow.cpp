@@ -27,5 +27,16 @@ MainWindow::~MainWindow()
 void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 {
     QString sPath = dirmodel->fileInfo(index).absoluteFilePath();
+    this->selectedPath = sPath;
+}
 
+void MainWindow::on_pushButton_clicked()
+{
+    // PATH FOR TEST
+    QFile file(this->selectedPath); // path
+    if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::information(0,"info",file.errorString());
+    }
+    QTextStream in(&file);
+    ui->textBrowser->setText(in.readAll());
 }

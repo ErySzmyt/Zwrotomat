@@ -17,8 +17,9 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
 
@@ -29,7 +30,7 @@ class Ui_MainWindow
 public:
     QAction *actionUstawienia;
     QWidget *centralwidget;
-    QTextEdit *textEdit;
+    QTextBrowser *textBrowser;
     QMenuBar *menubar;
     QMenu *menuNowy;
     QMenu *menuEdytuj;
@@ -39,6 +40,7 @@ public:
     QDockWidget *dockWidget;
     QWidget *dockWidgetContents_2;
     QTreeView *treeFileExplorer;
+    QPushButton *pushButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -49,9 +51,9 @@ public:
         actionUstawienia->setObjectName(QString::fromUtf8("actionUstawienia"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        textEdit = new QTextEdit(centralwidget);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(90, 100, 781, 431));
+        textBrowser = new QTextBrowser(centralwidget);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowser->setGeometry(QRect(30, 140, 661, 331));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -74,7 +76,10 @@ public:
         dockWidgetContents_2->setObjectName(QString::fromUtf8("dockWidgetContents_2"));
         treeFileExplorer = new QTreeView(dockWidgetContents_2);
         treeFileExplorer->setObjectName(QString::fromUtf8("treeFileExplorer"));
-        treeFileExplorer->setGeometry(QRect(10, 40, 351, 521));
+        treeFileExplorer->setGeometry(QRect(0, 40, 361, 421));
+        pushButton = new QPushButton(dockWidgetContents_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(120, 490, 121, 21));
         dockWidget->setWidget(dockWidgetContents_2);
         MainWindow->addDockWidget(Qt::RightDockWidgetArea, dockWidget);
 
@@ -96,6 +101,7 @@ public:
         menuEdytuj->setTitle(QCoreApplication::translate("MainWindow", "Edytuj", nullptr));
         menuZapisz->setTitle(QCoreApplication::translate("MainWindow", "Zapisz", nullptr));
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "ZA\305\201ADUJ PLIK", nullptr));
     } // retranslateUi
 
 };

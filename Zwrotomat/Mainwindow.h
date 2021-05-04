@@ -5,6 +5,9 @@
 #include <QtCore>
 #include <QtGui>
 #include <QFileSystemModel>
+#include <QFile>
+#include <QTextStream>
+#include<QMessageBox>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,9 +25,12 @@ public:
 private slots:
     void on_treeFileExplorer_clicked(const QModelIndex &index);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *dirmodel; // model for dir  display
     QFileSystemModel *filemodel; // model for filed display
+    QString selectedPath;
 };
 #endif // MAINWINDOW_H

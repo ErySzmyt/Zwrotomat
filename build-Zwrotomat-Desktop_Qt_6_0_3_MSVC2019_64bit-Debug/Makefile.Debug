@@ -516,6 +516,11 @@ debug\moc_Mainwindow.cpp: ..\Zwrotomat\Mainwindow.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\qvalidator.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\qtguiversion.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\QFileSystemModel \
+		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QFile \
+		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QTextStream \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QMessageBox \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qmessagebox.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qdialog.h \
 		debug\moc_predefs.h \
 		C:\Qt\6.0.3\msvc2019_64\bin\moc.exe
 	C:\Qt\6.0.3\msvc2019_64\bin\moc.exe $(DEFINES) --compiler-flavor=msvc --include C:/Users/User/Documents/GitHub/Zwrotomat/build-Zwrotomat-Desktop_Qt_6_0_3_MSVC2019_64bit-Debug/debug/moc_predefs.h -IC:/Qt/6.0.3/msvc2019_64/mkspecs/win32-msvc -IC:/Users/User/Documents/GitHub/Zwrotomat/Zwrotomat -IC:/Qt/6.0.3/msvc2019_64/include -IC:/Qt/6.0.3/msvc2019_64/include/QtWidgets -IC:/Qt/6.0.3/msvc2019_64/include/QtGui -IC:/Qt/6.0.3/msvc2019_64/include/QtCore -I. -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29910\ATLMFC\include" -I"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.28.29910\include" -I"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt" -I"C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\cppwinrt" ..\Zwrotomat\Mainwindow.h -o debug\moc_Mainwindow.cpp
@@ -883,6 +888,11 @@ debug\main.obj: ..\Zwrotomat\main.cpp ..\Zwrotomat\Mainwindow.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\qvalidator.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\qtguiversion.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\QFileSystemModel \
+		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QFile \
+		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QTextStream \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QMessageBox \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qmessagebox.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qdialog.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QApplication \
 		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qapplication.h
 
@@ -1226,7 +1236,42 @@ debug\Mainwindow.obj: ..\Zwrotomat\Mainwindow.cpp ..\Zwrotomat\Mainwindow.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\qvalidator.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\qtguiversion.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtGui\QFileSystemModel \
-		ui_Mainwindow.h
+		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QFile \
+		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QTextStream \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QMessageBox \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qmessagebox.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qdialog.h \
+		ui_Mainwindow.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QVariant \
+		C:\Qt\6.0.3\msvc2019_64\include\QtGui\QAction \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QApplication \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qapplication.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QDockWidget \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qdockwidget.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QHeaderView \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qheaderview.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qabstractitemview.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qabstractscrollarea.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qframe.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qabstractitemdelegate.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qstyleoption.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qabstractspinbox.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qslider.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qabstractslider.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qstyle.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qtabbar.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qrubberband.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QMenu \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qmenu.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QMenuBar \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qmenubar.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QStatusBar \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qstatusbar.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QTextEdit \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qtextedit.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QTreeView \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\qtreeview.h \
+		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QWidget
 
 debug\moc_Mainwindow.obj: debug\moc_Mainwindow.cpp 
 
