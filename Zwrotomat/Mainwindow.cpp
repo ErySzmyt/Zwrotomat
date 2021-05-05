@@ -16,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     filemodel =new QFileSystemModel(this);
     filemodel->setRootPath(rootPath);           // set rooth path for C drive
     ui->treeFileExplorer->setModel(filemodel);
+    ui->textBrowser->lineWrapColumnOrWidth();
 }
 
 MainWindow::~MainWindow()
@@ -32,11 +33,11 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 
 void MainWindow::on_pushButton_clicked()
 {
-    // PATH FOR TEST
-    QFile file(this->selectedPath); // path
+    QFile file(this->selectedPath); // path from on_treeFileExplorer_clicked
     if (!file.open(QIODevice::ReadOnly)){
-        QMessageBox::information(0,"info",file.errorString());
+        QMessageBox::information(0,"info",file.errorString()); // if unable to open throw error in msg box
     }
-    QTextStream in(&file);
+    QTextStream in(&file);// else open file and put it in browser
     ui->textBrowser->setText(in.readAll());
+
 }

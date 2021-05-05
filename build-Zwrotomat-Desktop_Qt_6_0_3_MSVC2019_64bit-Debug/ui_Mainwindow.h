@@ -76,7 +76,7 @@ public:
         dockWidgetContents_2->setObjectName(QString::fromUtf8("dockWidgetContents_2"));
         treeFileExplorer = new QTreeView(dockWidgetContents_2);
         treeFileExplorer->setObjectName(QString::fromUtf8("treeFileExplorer"));
-        treeFileExplorer->setGeometry(QRect(0, 40, 361, 421));
+        treeFileExplorer->setGeometry(QRect(0, 40, 641, 421));
         pushButton = new QPushButton(dockWidgetContents_2);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(120, 490, 121, 21));
