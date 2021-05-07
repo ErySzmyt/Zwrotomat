@@ -13,16 +13,21 @@ Highlighter::Highlighter(QTextDocument *parent)
     keywordFormat.setForeground(Qt::darkBlue);
     keywordFormat.setFontWeight(QFont::Bold);
     const QString keywordPatterns[] = {
-        QStringLiteral("\\bchar\\b"), QStringLiteral("\\bclass\\b"), QStringLiteral("\\bconst\\b"),
+        QStringLiteral("\\bclass\\b"), QStringLiteral("\\bconst\\b"), QStringLiteral("\\bvirtual\\b"),
         QStringLiteral("\\bdouble\\b"), QStringLiteral("\\benum\\b"), QStringLiteral("\\bexplicit\\b"),
-        QStringLiteral("\\bfriend\\b"), QStringLiteral("\\binline\\b"), QStringLiteral("\\bint\\b"),
-        QStringLiteral("\\blong\\b"), QStringLiteral("\\bnamespace\\b"), QStringLiteral("\\boperator\\b"),
+        QStringLiteral("\\bfriend\\b"), QStringLiteral("\\binline\\b"), QStringLiteral("\\btypename\\b"),
+        QStringLiteral("\\bnamespace\\b"), QStringLiteral("\\boperator\\b"), QStringLiteral("\\bstruct\\b"),
         QStringLiteral("\\bprivate\\b"), QStringLiteral("\\bprotected\\b"), QStringLiteral("\\bpublic\\b"),
-        QStringLiteral("\\bshort\\b"), QStringLiteral("\\bsignals\\b"), QStringLiteral("\\bsigned\\b"),
-        QStringLiteral("\\bslots\\b"), QStringLiteral("\\bstatic\\b"), QStringLiteral("\\bstruct\\b"),
-        QStringLiteral("\\btemplate\\b"), QStringLiteral("\\btypedef\\b"), QStringLiteral("\\btypename\\b"),
-        QStringLiteral("\\bunion\\b"), QStringLiteral("\\bunsigned\\b"), QStringLiteral("\\bvirtual\\b"),
-        QStringLiteral("\\bvoid\\b"), QStringLiteral("\\bvolatile\\b"), QStringLiteral("\\bbool\\b")
+        QStringLiteral("\\bsignals\\b"), QStringLiteral("\\bsigned\\b"),
+        QStringLiteral("\\bslots\\b"), QStringLiteral("\\bstatic\\b"),
+        QStringLiteral("\\btemplate\\b"), QStringLiteral("\\btypedef\\b"),
+        QStringLiteral("\\bunion\\b"), QStringLiteral("\\bunsigned\\b"),
+        QStringLiteral("\\bvoid\\b"), QStringLiteral("\\bvolatile\\b"),
+
+        QStringLiteral("\\bdelete\\b"), QStringLiteral("\\bdelete[]\\b"), QStringLiteral("\\bdelete[][]\\b"),
+
+        QStringLiteral("\\bvoid\\b"),QStringLiteral("\\bchar\\b"), QStringLiteral("\\bdouble\\b"),
+        QStringLiteral("\\blong\\b"),QStringLiteral("\\bint\\b"), QStringLiteral("\\bbool\\b"), QStringLiteral("\\bshort\\b"),
     };
     for (const QString &pattern : keywordPatterns) {
         rule.pattern = QRegularExpression(pattern);
@@ -47,12 +52,12 @@ Highlighter::Highlighter(QTextDocument *parent)
     rule.format = functionFormat;
     highlightingRules.append(rule);
 
-    singleLineCommentFormat.setForeground(Qt::red);
+    singleLineCommentFormat.setForeground(Qt::darkGreen);
        rule.pattern = QRegularExpression(QStringLiteral("//[^\n]*"));
        rule.format = singleLineCommentFormat;
        highlightingRules.append(rule);
 
-       multiLineCommentFormat.setForeground(Qt::red);
+       multiLineCommentFormat.setForeground(Qt::darkGreen);
 
        commentStartExpression = QRegularExpression(QStringLiteral("/\\*"));
        commentEndExpression = QRegularExpression(QStringLiteral("\\*/"));

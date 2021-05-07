@@ -11,8 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 \
     highlighter = new Highlighter(ui->textBrowser->document());
-    //ui->textBrowser->lineWrapColumnOrWidth();
-
+    fileModel = new QFileSystemModel(this);
+    ui->textBrowser->lineWrapColumnOrWidth();
 }
 
 MainWindow::~MainWindow()
@@ -48,7 +48,6 @@ void MainWindow::on_actionZ_Folderu_triggered()
 
     qDebug() << dir;
 
-    fileModel = new QFileSystemModel(this);
     //fileModel->setFilter(QDir::NoDotAndDotDot | QDir::Files);
     //set root path
     fileModel->setRootPath(dir.path());
