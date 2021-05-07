@@ -32,8 +32,13 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
     }
     QTextStream in(&file);// else open file and put it in browser
 
+    QString text = in.readAll();
 
-    ui->textBrowser->setText(in.readAll());
+    if(sPath.endsWith(".cpp", Qt::CaseInsensitive) || sPath.endsWith(".h", Qt::CaseInsensitive)){
+        text.replace("\t", "    ");
+    }
+
+    ui->textBrowser->setText(text);
 }
 
 void MainWindow::on_actionZ_Folderu_triggered()
