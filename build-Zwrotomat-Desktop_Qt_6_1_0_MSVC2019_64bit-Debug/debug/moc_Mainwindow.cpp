@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     const uint offsetsAndSize[12];
-    char stringdata0[80];
+    char stringdata0[87];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -36,11 +36,11 @@ QT_MOC_LITERAL(11, 27), // "on_treeFileExplorer_clicked"
 QT_MOC_LITERAL(39, 0), // ""
 QT_MOC_LITERAL(40, 11), // "QModelIndex"
 QT_MOC_LITERAL(52, 5), // "index"
-QT_MOC_LITERAL(58, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(58, 28) // "on_actionZ_Folderu_triggered"
 
     },
     "MainWindow\0on_treeFileExplorer_clicked\0"
-    "\0QModelIndex\0index\0on_pushButton_clicked"
+    "\0QModelIndex\0index\0on_actionZ_Folderu_triggered"
 };
 #undef QT_MOC_LITERAL
 
@@ -75,7 +75,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->on_treeFileExplorer_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 1: _t->on_pushButton_clicked(); break;
+        case 1: _t->on_actionZ_Folderu_triggered(); break;
         default: ;
         }
     }

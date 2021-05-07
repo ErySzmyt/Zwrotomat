@@ -25,14 +25,11 @@ public:
 private slots:
     void on_treeFileExplorer_clicked(const QModelIndex &index);
 
-    void on_pushButton_clicked();
-
     void on_actionZ_Folderu_triggered();
 
 private:
     Ui::MainWindow *ui;
-    QFileSystemModel *dirmodel; // model for dir  display
-    QFileSystemModel *filemodel; // model for filed display
+    QFileSystemModel *fileModel; // model for filed display
     QString selectedPath;
 };
 #endif // MAINWINDOW_H

@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
@@ -30,6 +31,14 @@ class Ui_MainWindow
 {
 public:
     QAction *actionUstawienia;
+    QAction *actionTheme;
+    QAction *actionZ_Folderu;
+    QAction *actionPusty;
+    QAction *actionGit;
+    QAction *actionZapisz;
+    QAction *actionEksportuj;
+    QAction *actionImportuj;
+    QAction *actionGenerowanie;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout;
@@ -37,13 +46,15 @@ public:
     QDockWidget *dockWidget_2;
     QWidget *dockWidgetContents_5;
     QGridLayout *gridLayout_3;
+    QGridLayout *gridLayout_4;
     QTreeView *treeFileExplorer;
-    QMenuBar *menubar;
-    QMenu *menuNowy;
-    QMenu *menuEdytuj;
-    QMenu *menuZapisz;
-    QMenu *menuUstawienia;
+    QGroupBox *gridGroupBox;
+    QGridLayout *gridLayout;
     QStatusBar *statusbar;
+    QMenuBar *menubar;
+    QMenu *menuProjekt;
+    QMenu *menuNowy;
+    QMenu *menuUstawienia;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -52,6 +63,22 @@ public:
         MainWindow->resize(1157, 661);
         actionUstawienia = new QAction(MainWindow);
         actionUstawienia->setObjectName(QString::fromUtf8("actionUstawienia"));
+        actionTheme = new QAction(MainWindow);
+        actionTheme->setObjectName(QString::fromUtf8("actionTheme"));
+        actionZ_Folderu = new QAction(MainWindow);
+        actionZ_Folderu->setObjectName(QString::fromUtf8("actionZ_Folderu"));
+        actionPusty = new QAction(MainWindow);
+        actionPusty->setObjectName(QString::fromUtf8("actionPusty"));
+        actionGit = new QAction(MainWindow);
+        actionGit->setObjectName(QString::fromUtf8("actionGit"));
+        actionZapisz = new QAction(MainWindow);
+        actionZapisz->setObjectName(QString::fromUtf8("actionZapisz"));
+        actionEksportuj = new QAction(MainWindow);
+        actionEksportuj->setObjectName(QString::fromUtf8("actionEksportuj"));
+        actionImportuj = new QAction(MainWindow);
+        actionImportuj->setObjectName(QString::fromUtf8("actionImportuj"));
+        actionGenerowanie = new QAction(MainWindow);
+        actionGenerowanie->setObjectName(QString::fromUtf8("actionGenerowanie"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -78,24 +105,41 @@ public:
         sizePolicy1.setVerticalStretch(1);
         sizePolicy1.setHeightForWidth(dockWidget_2->sizePolicy().hasHeightForWidth());
         dockWidget_2->setSizePolicy(sizePolicy1);
-        dockWidget_2->setMinimumSize(QSize(80, 93));
+        dockWidget_2->setMinimumSize(QSize(81, 128));
         dockWidgetContents_5 = new QWidget();
         dockWidgetContents_5->setObjectName(QString::fromUtf8("dockWidgetContents_5"));
         gridLayout_3 = new QGridLayout(dockWidgetContents_5);
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
         gridLayout_3->setSizeConstraint(QLayout::SetMaximumSize);
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
+        gridLayout_4 = new QGridLayout();
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
         treeFileExplorer = new QTreeView(dockWidgetContents_5);
         treeFileExplorer->setObjectName(QString::fromUtf8("treeFileExplorer"));
         treeFileExplorer->setEnabled(true);
         QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setVerticalStretch(2);
         sizePolicy2.setHeightForWidth(treeFileExplorer->sizePolicy().hasHeightForWidth());
         treeFileExplorer->setSizePolicy(sizePolicy2);
         treeFileExplorer->setMaximumSize(QSize(16777215, 16777215));
 
-        gridLayout_3->addWidget(treeFileExplorer, 0, 0, 1, 1);
+        gridLayout_4->addWidget(treeFileExplorer, 0, 0, 1, 1);
+
+        gridGroupBox = new QGroupBox(dockWidgetContents_5);
+        gridGroupBox->setObjectName(QString::fromUtf8("gridGroupBox"));
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(1);
+        sizePolicy3.setHeightForWidth(gridGroupBox->sizePolicy().hasHeightForWidth());
+        gridGroupBox->setSizePolicy(sizePolicy3);
+        gridLayout = new QGridLayout(gridGroupBox);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+
+        gridLayout_4->addWidget(gridGroupBox, 1, 0, 1, 1);
+
+
+        gridLayout_3->addLayout(gridLayout_4, 0, 0, 1, 1);
 
         dockWidget_2->setWidget(dockWidgetContents_5);
 
@@ -105,31 +149,36 @@ public:
         gridLayout_2->addLayout(horizontalLayout, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1157, 21));
-        QSizePolicy sizePolicy3(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(menubar->sizePolicy().hasHeightForWidth());
-        menubar->setSizePolicy(sizePolicy3);
-        menuNowy = new QMenu(menubar);
-        menuNowy->setObjectName(QString::fromUtf8("menuNowy"));
-        menuEdytuj = new QMenu(menubar);
-        menuEdytuj->setObjectName(QString::fromUtf8("menuEdytuj"));
-        menuZapisz = new QMenu(menubar);
-        menuZapisz->setObjectName(QString::fromUtf8("menuZapisz"));
-        menuUstawienia = new QMenu(menubar);
-        menuUstawienia->setObjectName(QString::fromUtf8("menuUstawienia"));
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+        menubar = new QMenuBar(MainWindow);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 1157, 20));
+        QSizePolicy sizePolicy4(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(menubar->sizePolicy().hasHeightForWidth());
+        menubar->setSizePolicy(sizePolicy4);
+        menuProjekt = new QMenu(menubar);
+        menuProjekt->setObjectName(QString::fromUtf8("menuProjekt"));
+        menuNowy = new QMenu(menuProjekt);
+        menuNowy->setObjectName(QString::fromUtf8("menuNowy"));
+        menuUstawienia = new QMenu(menubar);
+        menuUstawienia->setObjectName(QString::fromUtf8("menuUstawienia"));
+        MainWindow->setMenuBar(menubar);
 
-        menubar->addAction(menuNowy->menuAction());
-        menubar->addAction(menuEdytuj->menuAction());
-        menubar->addAction(menuZapisz->menuAction());
+        menubar->addAction(menuProjekt->menuAction());
         menubar->addAction(menuUstawienia->menuAction());
+        menuProjekt->addAction(menuNowy->menuAction());
+        menuProjekt->addAction(actionZapisz);
+        menuProjekt->addAction(actionEksportuj);
+        menuProjekt->addAction(actionImportuj);
+        menuNowy->addAction(actionZ_Folderu);
+        menuNowy->addAction(actionPusty);
+        menuNowy->addAction(actionGit);
+        menuUstawienia->addAction(actionTheme);
+        menuUstawienia->addAction(actionGenerowanie);
 
         retranslateUi(MainWindow);
 
@@ -140,9 +189,16 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionUstawienia->setText(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));
+        actionTheme->setText(QCoreApplication::translate("MainWindow", "Theme", nullptr));
+        actionZ_Folderu->setText(QCoreApplication::translate("MainWindow", "Z Folderu", nullptr));
+        actionPusty->setText(QCoreApplication::translate("MainWindow", "Pusty", nullptr));
+        actionGit->setText(QCoreApplication::translate("MainWindow", "Git", nullptr));
+        actionZapisz->setText(QCoreApplication::translate("MainWindow", "Zapisz", nullptr));
+        actionEksportuj->setText(QCoreApplication::translate("MainWindow", "Eksportuj", nullptr));
+        actionImportuj->setText(QCoreApplication::translate("MainWindow", "Importuj", nullptr));
+        actionGenerowanie->setText(QCoreApplication::translate("MainWindow", "Generowanie", nullptr));
+        menuProjekt->setTitle(QCoreApplication::translate("MainWindow", "Projekt", nullptr));
         menuNowy->setTitle(QCoreApplication::translate("MainWindow", "Nowy", nullptr));
-        menuEdytuj->setTitle(QCoreApplication::translate("MainWindow", "Edytuj", nullptr));
-        menuZapisz->setTitle(QCoreApplication::translate("MainWindow", "Zapisz", nullptr));
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));
     } // retranslateUi
 
