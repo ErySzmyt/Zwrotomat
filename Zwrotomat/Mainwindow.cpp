@@ -41,3 +41,14 @@ void MainWindow::on_pushButton_clicked()
     ui->textBrowser->setText(in.readAll());
 
 }
+
+void MainWindow::on_actionZ_Folderu_triggered()
+{
+    /* choosing file from folder and opening */
+    QFile file(this->selectedPath); // path from on_treeFileExplorer_clicked
+    if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::information(0,"info",file.errorString()); // if unable to open throw error in msg box
+    }
+    QTextStream in(&file);// else open file and put it in browser
+    ui->textBrowser->setText(in.readAll());
+}

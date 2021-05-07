@@ -27,6 +27,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_actionZ_Folderu_triggered();
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *dirmodel; // model for dir  display
