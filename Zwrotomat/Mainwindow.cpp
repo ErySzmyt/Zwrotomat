@@ -19,46 +19,34 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 {
     QString sPath = fileModel->fileInfo(index).absoluteFilePath();
-    this->selectedPath = sPath;
-}
-/*
-void MainWindow::on_pushButton_clicked()
-{
-    QFile file(this->selectedPath); // path from on_treeFileExplorer_clicked
+    QFile file(sPath); // path from on_treeFileExplorer_clicked
+    this->selectedFile = &file;
+
+
     if (!file.open(QIODevice::ReadOnly)){
-        QMessageBox::information(0,"info",file.errorString()); // if unable to open throw error in msg box
+        QMessageBox::information(0, "error", file.errorString()); // if unable to open throw error in msg box
     }
     QTextStream in(&file);// else open file and put it in browser
     ui->textBrowser->setText(in.readAll());
-
 }
-*/
+
 void MainWindow::on_actionZ_Folderu_triggered()
 {
-    QString dir = QFileDialog::getExistingDirectory(0, ("Select Output Folder"), QDir::currentPath());
+    QDir dir = QFileDialog::getExistingDirectory(0, ("Select Output Folder"), QDir::currentPath());
+    this->selectedDir = &dir;
 
     qDebug() << dir;
-
-
-
 
     fileModel = new QFileSystemModel(this);
     //fileModel->setFilter(QDir::NoDotAndDotDot | QDir::Files);
     //set root path
-    fileModel->setRootPath(dir);
-
+    fileModel->setRootPath(dir.path());
 
     ui->treeFileExplorer->setModel(fileModel);
 
-
-    QModelIndex indx = fileModel->index(dir);
+    QModelIndex indx = fileModel->index(dir.path());
     ui->treeFileExplorer->setRootIndex(indx);
-
-
-    //QTextStream in(&file);// else open file and put it in browser
-    //ui->textBrowser->setText(in.readAll());
 }

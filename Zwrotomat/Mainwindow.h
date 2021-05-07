@@ -30,6 +30,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *fileModel; // model for filed display
-    QString selectedPath;
+    QFile *selectedFile;
+    QDir *selectedDir;
 };
 #endif // MAINWINDOW_H
