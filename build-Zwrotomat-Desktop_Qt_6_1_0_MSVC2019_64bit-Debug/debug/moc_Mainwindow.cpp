@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'Mainwindow.h'
+** Meta object code from reading C++ file 'mainwindow.h'
 **
 ** Created by: The Qt Meta Object Compiler version 68 (Qt 6.1.0)
 **
@@ -7,13 +7,13 @@
 *****************************************************************************/
 
 #include <memory>
-#include "../../Zwrotomat/Mainwindow.h"
+#include "../../Zwrotomat/mainwindow.h"
 #include <QtGui/qtextcursor.h>
 #include <QScreen>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'Mainwindow.h' doesn't include <QObject>."
+#error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
 #error "This file was generated using the moc from 6.1.0. It"
 #error "cannot be used with the include files from this version of Qt."
