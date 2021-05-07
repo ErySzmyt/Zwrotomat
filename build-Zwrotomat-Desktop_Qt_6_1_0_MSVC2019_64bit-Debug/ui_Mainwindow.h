@@ -56,6 +56,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setContentsMargins(0, 0, 0, -1);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(4);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -107,6 +108,11 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1157, 21));
+        QSizePolicy sizePolicy3(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(menubar->sizePolicy().hasHeightForWidth());
+        menubar->setSizePolicy(sizePolicy3);
         menuNowy = new QMenu(menubar);
         menuNowy->setObjectName(QString::fromUtf8("menuNowy"));
         menuEdytuj = new QMenu(menubar);

@@ -15,6 +15,15 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
     <item row="0" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
@@ -91,6 +100,7 @@
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -100,35 +110,82 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuNowy">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QMenu" name="menuProjekt">
     <property name="title">
-     <string>Nowy</string>
+     <string>Projekt</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menuEdytuj">
-    <property name="title">
-     <string>Edytuj</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuZapisz">
-    <property name="title">
-     <string>Zapisz</string>
-    </property>
+    <widget class="QMenu" name="menuNowy">
+     <property name="title">
+      <string>Nowy</string>
+     </property>
+     <addaction name="actionZ_Folderu"/>
+     <addaction name="actionPusty"/>
+     <addaction name="actionGit"/>
+    </widget>
+    <addaction name="menuNowy"/>
+    <addaction name="actionZapisz"/>
+    <addaction name="actionEksportuj"/>
+    <addaction name="actionImportuj"/>
    </widget>
    <widget class="QMenu" name="menuUstawienia">
     <property name="title">
      <string>Ustawienia</string>
     </property>
+    <addaction name="actionTheme"/>
+    <addaction name="actionGenerowanie"/>
    </widget>
-   <addaction name="menuNowy"/>
-   <addaction name="menuEdytuj"/>
-   <addaction name="menuZapisz"/>
+   <addaction name="menuProjekt"/>
    <addaction name="menuUstawienia"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionUstawienia">
    <property name="text">
     <string>Ustawienia</string>
+   </property>
+  </action>
+  <action name="actionTheme">
+   <property name="text">
+    <string>Theme</string>
+   </property>
+  </action>
+  <action name="actionZ_Folderu">
+   <property name="text">
+    <string>Z Folderu</string>
+   </property>
+  </action>
+  <action name="actionPusty">
+   <property name="text">
+    <string>Pusty</string>
+   </property>
+  </action>
+  <action name="actionGit">
+   <property name="text">
+    <string>Git</string>
+   </property>
+  </action>
+  <action name="actionZapisz">
+   <property name="text">
+    <string>Zapisz</string>
+   </property>
+  </action>
+  <action name="actionEksportuj">
+   <property name="text">
+    <string>Eksportuj</string>
+   </property>
+  </action>
+  <action name="actionImportuj">
+   <property name="text">
+    <string>Importuj</string>
+   </property>
+  </action>
+  <action name="actionGenerowanie">
+   <property name="text">
+    <string>Generowanie</string>
    </property>
   </action>
  </widget>
