@@ -95,6 +95,8 @@ public:
         sizePolicy.setVerticalStretch(1);
         sizePolicy.setHeightForWidth(textBrowser->sizePolicy().hasHeightForWidth());
         textBrowser->setSizePolicy(sizePolicy);
+        textBrowser->setOverwriteMode(true);
+        textBrowser->setTextInteractionFlags(Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         horizontalLayout->addWidget(textBrowser);
 
@@ -154,7 +156,7 @@ public:
         MainWindow->setStatusBar(statusbar);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1157, 20));
+        menubar->setGeometry(QRect(0, 0, 1157, 21));
         QSizePolicy sizePolicy4(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         sizePolicy4.setHorizontalStretch(0);
         sizePolicy4.setVerticalStretch(0);
@@ -197,6 +199,12 @@ public:
         actionEksportuj->setText(QCoreApplication::translate("MainWindow", "Eksportuj", nullptr));
         actionImportuj->setText(QCoreApplication::translate("MainWindow", "Importuj", nullptr));
         actionGenerowanie->setText(QCoreApplication::translate("MainWindow", "Generowanie", nullptr));
+        textBrowser->setMarkdown(QString());
+        textBrowser->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         menuProjekt->setTitle(QCoreApplication::translate("MainWindow", "Projekt", nullptr));
         menuNowy->setTitle(QCoreApplication::translate("MainWindow", "Nowy", nullptr));
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));

@@ -9,7 +9,8 @@
 #include <QFileSystemModel>
 #include <QFile>
 #include <QTextStream>
-#include<QMessageBox>
+#include <QMessageBox>
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -26,8 +27,9 @@ public:
 
 private slots:
     void on_treeFileExplorer_clicked(const QModelIndex &index);
-
     void on_actionZ_Folderu_triggered();
+
+    void on_textBrowser_cursorPositionChanged();
 
 private:
     Ui::MainWindow *ui;
