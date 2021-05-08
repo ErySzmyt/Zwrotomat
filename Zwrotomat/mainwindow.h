@@ -28,8 +28,10 @@ public:
 private slots:
     void on_treeFileExplorer_clicked(const QModelIndex &index);
     void on_actionZ_Folderu_triggered();
+    void on_actionPliki_triggered();
 
     void on_textBrowser_cursorPositionChanged();
+
 
 private:
     Ui::MainWindow *ui;

@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 \
     highlighter = new Highlighter(ui->textBrowser->document());
     fileModel = new QFileSystemModel(this);
-    ui->textBrowser->lineWrapColumnOrWidth();
+    ui->dockWidget_2->setAllowedAreas(Qt::AllDockWidgetAreas);
 }
 
 MainWindow::~MainWindow()
@@ -49,7 +49,7 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
         text.replace("\t", "    ");
     }
 
-    ui->textBrowser->setText(text);
+    ui->textBrowser->document()->setPlainText(text);
     // ui->textBrowser->setStyleSheet("outline: 0px; outline: none; outline-style: none;"); not working :(
 }
 
@@ -69,4 +69,9 @@ void MainWindow::on_actionZ_Folderu_triggered()
 
     QModelIndex indx = fileModel->index(dir.path());
     ui->treeFileExplorer->setRootIndex(indx);
+}
+
+void MainWindow::on_actionPliki_triggered()
+{
+
 }

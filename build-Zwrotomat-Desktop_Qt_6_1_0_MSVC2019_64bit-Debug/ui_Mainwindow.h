@@ -21,9 +21,9 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
+#include <codeeditor.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -39,10 +39,12 @@ public:
     QAction *actionEksportuj;
     QAction *actionImportuj;
     QAction *actionGenerowanie;
+    QAction *actionPliki;
+    QAction *actionKomentarze;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout;
-    QTextBrowser *textBrowser;
+    CodeEditor *textBrowser;
     QDockWidget *dockWidget_2;
     QWidget *dockWidgetContents_5;
     QGridLayout *gridLayout_3;
@@ -55,6 +57,7 @@ public:
     QMenu *menuProjekt;
     QMenu *menuNowy;
     QMenu *menuUstawienia;
+    QMenu *menuOkna;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -79,24 +82,28 @@ public:
         actionImportuj->setObjectName(QString::fromUtf8("actionImportuj"));
         actionGenerowanie = new QAction(MainWindow);
         actionGenerowanie->setObjectName(QString::fromUtf8("actionGenerowanie"));
+        actionPliki = new QAction(MainWindow);
+        actionPliki->setObjectName(QString::fromUtf8("actionPliki"));
+        actionKomentarze = new QAction(MainWindow);
+        actionKomentarze->setObjectName(QString::fromUtf8("actionKomentarze"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, -1);
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(4);
+        horizontalLayout->setSpacing(5);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setSizeConstraint(QLayout::SetMaximumSize);
-        textBrowser = new QTextBrowser(centralwidget);
+        textBrowser = new CodeEditor(centralwidget);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(4);
         sizePolicy.setVerticalStretch(1);
         sizePolicy.setHeightForWidth(textBrowser->sizePolicy().hasHeightForWidth());
         textBrowser->setSizePolicy(sizePolicy);
-        textBrowser->setOverwriteMode(true);
-        textBrowser->setTextInteractionFlags(Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
+        textBrowser->setOverwriteMode(false);
+        textBrowser->setTextInteractionFlags(Qt::TextBrowserInteraction);
 
         horizontalLayout->addWidget(textBrowser);
 
@@ -168,10 +175,13 @@ public:
         menuNowy->setObjectName(QString::fromUtf8("menuNowy"));
         menuUstawienia = new QMenu(menubar);
         menuUstawienia->setObjectName(QString::fromUtf8("menuUstawienia"));
+        menuOkna = new QMenu(menubar);
+        menuOkna->setObjectName(QString::fromUtf8("menuOkna"));
         MainWindow->setMenuBar(menubar);
 
         menubar->addAction(menuProjekt->menuAction());
         menubar->addAction(menuUstawienia->menuAction());
+        menubar->addAction(menuOkna->menuAction());
         menuProjekt->addAction(menuNowy->menuAction());
         menuProjekt->addAction(actionZapisz);
         menuProjekt->addAction(actionEksportuj);
@@ -181,6 +191,8 @@ public:
         menuNowy->addAction(actionGit);
         menuUstawienia->addAction(actionTheme);
         menuUstawienia->addAction(actionGenerowanie);
+        menuOkna->addAction(actionPliki);
+        menuOkna->addAction(actionKomentarze);
 
         retranslateUi(MainWindow);
 
@@ -199,15 +211,12 @@ public:
         actionEksportuj->setText(QCoreApplication::translate("MainWindow", "Eksportuj", nullptr));
         actionImportuj->setText(QCoreApplication::translate("MainWindow", "Importuj", nullptr));
         actionGenerowanie->setText(QCoreApplication::translate("MainWindow", "Generowanie", nullptr));
-        textBrowser->setMarkdown(QString());
-        textBrowser->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+        actionPliki->setText(QCoreApplication::translate("MainWindow", "Pliki", nullptr));
+        actionKomentarze->setText(QCoreApplication::translate("MainWindow", "Komentarze", nullptr));
         menuProjekt->setTitle(QCoreApplication::translate("MainWindow", "Projekt", nullptr));
         menuNowy->setTitle(QCoreApplication::translate("MainWindow", "Nowy", nullptr));
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));
+        menuOkna->setTitle(QCoreApplication::translate("MainWindow", "Okna", nullptr));
     } // retranslateUi
 
 };
