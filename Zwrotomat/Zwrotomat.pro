@@ -13,13 +13,15 @@ SOURCES += \
     highlighter.cpp \
     linenumberarea.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    multifilecomment.cpp
 
 HEADERS += \
     codeeditor.h \
     highlighter.h \
     linenumberarea.h \
-    mainwindow.h
+    mainwindow.h \
+    multifilecomment.h
 
 FORMS += \
     Mainwindow.ui

@@ -44,6 +44,7 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout;
+    CodeEditor *textBrowser;
     QDockWidget *dockWidget_2;
     QWidget *dockWidgetContents_5;
     QGridLayout *gridLayout_3;
@@ -51,7 +52,6 @@ public:
     QTreeView *treeFileExplorer;
     QGroupBox *gridGroupBox;
     QGridLayout *gridLayout;
-    CodeEditor *textBrowser;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuProjekt;
@@ -95,13 +95,25 @@ public:
         horizontalLayout->setSpacing(5);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setSizeConstraint(QLayout::SetMaximumSize);
+        textBrowser = new CodeEditor(centralwidget);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(4);
+        sizePolicy.setVerticalStretch(1);
+        sizePolicy.setHeightForWidth(textBrowser->sizePolicy().hasHeightForWidth());
+        textBrowser->setSizePolicy(sizePolicy);
+        textBrowser->setOverwriteMode(false);
+        textBrowser->setTextInteractionFlags(Qt::TextBrowserInteraction);
+
+        horizontalLayout->addWidget(textBrowser);
+
         dockWidget_2 = new QDockWidget(centralwidget);
         dockWidget_2->setObjectName(QString::fromUtf8("dockWidget_2"));
-        QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
-        sizePolicy.setHorizontalStretch(1);
-        sizePolicy.setVerticalStretch(1);
-        sizePolicy.setHeightForWidth(dockWidget_2->sizePolicy().hasHeightForWidth());
-        dockWidget_2->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Maximum, QSizePolicy::Maximum);
+        sizePolicy1.setHorizontalStretch(1);
+        sizePolicy1.setVerticalStretch(1);
+        sizePolicy1.setHeightForWidth(dockWidget_2->sizePolicy().hasHeightForWidth());
+        dockWidget_2->setSizePolicy(sizePolicy1);
         dockWidget_2->setMinimumSize(QSize(81, 128));
         dockWidgetContents_5 = new QWidget();
         dockWidgetContents_5->setObjectName(QString::fromUtf8("dockWidgetContents_5"));
@@ -114,22 +126,22 @@ public:
         treeFileExplorer = new QTreeView(dockWidgetContents_5);
         treeFileExplorer->setObjectName(QString::fromUtf8("treeFileExplorer"));
         treeFileExplorer->setEnabled(true);
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(2);
-        sizePolicy1.setHeightForWidth(treeFileExplorer->sizePolicy().hasHeightForWidth());
-        treeFileExplorer->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(2);
+        sizePolicy2.setHeightForWidth(treeFileExplorer->sizePolicy().hasHeightForWidth());
+        treeFileExplorer->setSizePolicy(sizePolicy2);
         treeFileExplorer->setMaximumSize(QSize(16777215, 16777215));
 
         gridLayout_4->addWidget(treeFileExplorer, 0, 0, 1, 1);
 
         gridGroupBox = new QGroupBox(dockWidgetContents_5);
         gridGroupBox->setObjectName(QString::fromUtf8("gridGroupBox"));
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(1);
-        sizePolicy2.setHeightForWidth(gridGroupBox->sizePolicy().hasHeightForWidth());
-        gridGroupBox->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(1);
+        sizePolicy3.setHeightForWidth(gridGroupBox->sizePolicy().hasHeightForWidth());
+        gridGroupBox->setSizePolicy(sizePolicy3);
         gridLayout = new QGridLayout(gridGroupBox);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
 
@@ -141,18 +153,6 @@ public:
         dockWidget_2->setWidget(dockWidgetContents_5);
 
         horizontalLayout->addWidget(dockWidget_2);
-
-        textBrowser = new CodeEditor(centralwidget);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy3.setHorizontalStretch(4);
-        sizePolicy3.setVerticalStretch(1);
-        sizePolicy3.setHeightForWidth(textBrowser->sizePolicy().hasHeightForWidth());
-        textBrowser->setSizePolicy(sizePolicy3);
-        textBrowser->setOverwriteMode(false);
-        textBrowser->setTextInteractionFlags(Qt::TextBrowserInteraction);
-
-        horizontalLayout->addWidget(textBrowser);
 
 
         gridLayout_2->addLayout(horizontalLayout, 0, 0, 1, 1);
