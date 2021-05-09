@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
     highlighter = new Highlighter(ui->textBrowser->document());
     fileModel = new QFileSystemModel(this);
     ui->dockWidget_2->setAllowedAreas(Qt::AllDockWidgetAreas);
+
+    this->multiFileComment = new MultiFileComment();
+
 }
 
 MainWindow::~MainWindow()
@@ -22,19 +25,58 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_textBrowser_cursorPositionChanged()
 {
-    QTextCursor cur = ui->textBrowser->textCursor();
-    QTextBlockFormat f;
-    f.setBackground(Qt::gray);
-    cur.select(QTextCursor::LineUnderCursor);
-    cur.setBlockFormat(f);
-    ui->textBrowser->setTextCursor(cur);
+    const QString fileName = this->selectedFile;
+
+    if(fileJustOpen)
+        multiFileComment->addNewFile(fileName);
+    else {
+
+        qDebug() << ui->textBrowser->textCursor().blockNumber();
+
+        QTextCursor cur = ui->textBrowser->textCursor();
+        QTextBlockFormat f;
+
+        qDebug() << fileName;
+
+        if(multiFileComment->getLinesByName(fileName)->contains(ui->textBrowser->textCursor().blockNumber()))
+        {
+            multiFileComment->
+                    getLinesByName(this->selectedFile)->
+                    removeAt(multiFileComment->getLinesByName(this->selectedFile)->
+                             indexOf(ui->textBrowser->textCursor().blockNumber())
+                             );
+
+            f.setBackground(Qt::white);
+        }else{
+
+            multiFileComment->getLinesByName(fileName)->append(ui->textBrowser->textCursor().blockNumber());
+
+            f.setBackground(Qt::gray);
+        }
+
+        ui->textBrowser->setTextCursor(cur);
+        cur.select(QTextCursor::LineUnderCursor);
+        cur.setBlockFormat(f);
+    }
+    fileJustOpen = false;
+}
+
+
+//TODO loading cooments while lodaing new file
+void MainWindow::loadSelectedLines()
+{
+    if(multiFileComment->containFile(this->selectedFile)){
+
+    }
 }
 
 void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 {
     QString sPath = fileModel->fileInfo(index).absoluteFilePath();
     QFile file(sPath); // path from on_treeFileExplorer_clicked
-    this->selectedFile = &file;
+    this->selectedFile = sPath;
+
+    qDebug() << sPath;
 
     if (!file.open(QIODevice::ReadOnly))
         QMessageBox::information(0, "error", file.errorString()); // if unable to open throw error in msg box
@@ -51,12 +93,14 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 
     ui->textBrowser->document()->setPlainText(text);
     // ui->textBrowser->setStyleSheet("outline: 0px; outline: none; outline-style: none;"); not working :(
+
+    fileJustOpen = true;
 }
 
 void MainWindow::on_actionZ_Folderu_triggered()
 {
     QDir dir = QFileDialog::getExistingDirectory(0, ("Select Output Folder"), QDir::currentPath());
-    this->selectedDir = &dir;
+    this->selectedDir = dir;
 
     qDebug() << "Initilizing TreeView with " << dir;
 

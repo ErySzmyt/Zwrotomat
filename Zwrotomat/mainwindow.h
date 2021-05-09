@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "highlighter.h"
+#include "multifilecomment.h"
 
 #include <QMainWindow>
 #include <QtCore>
@@ -34,10 +35,16 @@ private slots:
 
 
 private:
+    void loadSelectedLines();
+
     Ui::MainWindow *ui;
     QFileSystemModel *fileModel; // model for filed display
-    QFile *selectedFile;
-    QDir *selectedDir;
+
+    QString selectedFile;
+    QDir selectedDir;
+
     Highlighter *highlighter;
+    MultiFileComment *multiFileComment;
+    bool fileJustOpen = true;
 };
 #endif // MAINWINDOW_H

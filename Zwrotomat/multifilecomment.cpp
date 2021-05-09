@@ -2,7 +2,7 @@
 
 MultiFileComment::MultiFileComment()
 {
-
+    this->files = new QHash<QString, QVector<int>*>;
 }
 
 bool MultiFileComment::containFile(QString fileName)
@@ -13,9 +13,15 @@ bool MultiFileComment::containFile(QString fileName)
 QVector<int> *MultiFileComment::getLinesByName(QString fileName)
 {
     if(!this->containFile(fileName))
-        this->files->insert(fileName, new QVector<int>);
+        addNewFile(fileName);
 
     return this->files->value(fileName);
+}
+
+void MultiFileComment::addNewFile(QString fileName)
+{
+    if(!this->containFile(fileName))
+        this->files->insert(fileName, new QVector<int>);
 }
 
 void MultiFileComment::setComment(QString comment)
