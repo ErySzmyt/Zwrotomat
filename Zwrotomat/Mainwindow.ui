@@ -32,19 +32,16 @@
       <property name="sizeConstraint">
        <enum>QLayout::SetMaximumSize</enum>
       </property>
-	  <item>
-       <widget class="CodeEditor" name="textBrowser">
+      <item>
+       <widget class="CodeEditor" name="textBrowser" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
           <horstretch>4</horstretch>
           <verstretch>1</verstretch>
          </sizepolicy>
         </property>
-        <property name="overwriteMode">
+        <property name="overwriteMode" stdset="0">
          <bool>false</bool>
-        </property>
-        <property name="textInteractionFlags">
-         <set>Qt::TextBrowserInteraction</set>
         </property>
        </widget>
       </item>
@@ -98,6 +95,18 @@
                 <height>16777215</height>
                </size>
               </property>
+              <property name="dragEnabled">
+               <bool>true</bool>
+              </property>
+              <property name="dragDropOverwriteMode">
+               <bool>true</bool>
+              </property>
+              <property name="dragDropMode">
+               <enum>QAbstractItemView::DragDrop</enum>
+              </property>
+              <property name="defaultDropAction">
+               <enum>Qt::ActionMask</enum>
+              </property>
              </widget>
             </item>
             <item row="1" column="0">
@@ -128,7 +137,7 @@
      <x>0</x>
      <y>0</y>
      <width>1157</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -228,6 +237,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QWidget</extends>
+   <header>codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

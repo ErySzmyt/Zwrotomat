@@ -4,6 +4,13 @@
 
 #include "highlighter.h"
 
+
+#include <QDragEnterEvent>
+#include <QUrl>
+#include <QFile>
+#include <QTextStream>
+#include <QMimeData>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -15,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->dockWidget_2->setAllowedAreas(Qt::AllDockWidgetAreas);
 
     this->multiFileComment = new MultiFileComment();
+    setAcceptDrops(true);
 
 }
 
@@ -117,5 +125,42 @@ void MainWindow::on_actionZ_Folderu_triggered()
 
 void MainWindow::on_actionPliki_triggered()
 {
-
+    int i =1; // debug
 }
+
+void MainWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if (event->mimeData()->hasUrls()) //If the data contains Url
+    {
+        event->acceptProposedAction(); //Receive action
+    }
+    else
+    {
+        event->ignore();          //Otherwise ignore the event
+    }
+}
+
+void MainWindow::dropEvent(QDropEvent *event)
+{
+    const QMimeData *mimeData = event->mimeData(); //Get MIME data
+    if (mimeData->hasUrls())    //If the data contains Url
+    {
+        QList<QUrl> urlList = mimeData->urls();   //Get Url list
+        QString fileName = urlList.at(0).toLocalFile();//Express the first URL as a local file path
+       /* if (!fileName.isEmpty())   //File name is not empty
+        {
+            QFile file(fileName);   //Create QFile object
+            if(!file.open(QIODevice::ReadOnly)) //Open the file in read-only mode
+            {
+                return;
+            }
+            QTextStream fileIn(&file);    //Create a text flow object
+            */
+            fileModel->setRootPath(fileName);
+
+            ui->treeFileExplorer->setModel(fileModel);
+
+            QModelIndex indx = fileModel->index(fileName);
+            ui->treeFileExplorer->setRootIndex(indx);   //Display the text content in the Text Browser
+        }
+    }

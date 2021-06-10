@@ -26,10 +26,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void dragEnterEvent(QDragEnterEvent *event); //Drag event
+    void dropEvent(QDropEvent *event); //Let down the event
 private slots:
     void on_treeFileExplorer_clicked(const QModelIndex &index);
     void on_actionZ_Folderu_triggered();
-    void on_actionPliki_triggered();
+    void on_actionPliki_triggered(); //debug
 
     void on_textBrowser_cursorPositionChanged();
 
