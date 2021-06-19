@@ -44,7 +44,7 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout;
-    CodeEditor *textBrowser;
+    CodeDisplay *textBrowser;
     QDockWidget *dockWidget_2;
     QWidget *dockWidgetContents_5;
     QGridLayout *gridLayout_3;
@@ -95,13 +95,14 @@ public:
         horizontalLayout->setSpacing(5);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setSizeConstraint(QLayout::SetMaximumSize);
-        textBrowser = new CodeEditor(centralwidget);
+        textBrowser = new CodeDisplay(centralwidget);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(4);
         sizePolicy.setVerticalStretch(1);
         sizePolicy.setHeightForWidth(textBrowser->sizePolicy().hasHeightForWidth());
         textBrowser->setSizePolicy(sizePolicy);
+        textBrowser->setFocusPolicy(Qt::NoFocus);
         textBrowser->setProperty("overwriteMode", QVariant(false));
 
         horizontalLayout->addWidget(textBrowser);

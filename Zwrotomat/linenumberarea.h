@@ -7,7 +7,7 @@
 class LineNumberArea : public QWidget
 {
 public:
-    LineNumberArea(CodeEditor *editor) : QWidget(editor), codeEditor(editor)
+    LineNumberArea(CodeDisplay *editor) : QWidget(editor), codeEditor(editor)
     {}
 
     QSize sizeHint() const override
@@ -22,7 +22,7 @@ protected:
     }
 
 private:
-    CodeEditor *codeEditor;
+    CodeDisplay *codeEditor;
 };
 
 #endif // LINENUMBERAREA_H

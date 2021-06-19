@@ -35,8 +35,6 @@ private slots:
 
 
 private:
-    void loadSelectedLines();
-
     Ui::MainWindow *ui;
     QFileSystemModel *fileModel; // model for filed display
 
@@ -45,6 +43,5 @@ private:
 
     Highlighter *highlighter;
     MultiFileComment *multiFileComment;
-    bool fileJustOpen = true;
 };
 #endif // MAINWINDOW_H

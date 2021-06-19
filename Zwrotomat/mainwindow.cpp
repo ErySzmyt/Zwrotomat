@@ -4,6 +4,8 @@
 
 #include "highlighter.h"
 
+#include <multiFileComment.h>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,62 +29,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_textBrowser_cursorPositionChanged()
 {
-    const QString fileName = this->selectedFile;
-    Qt::KeyboardModifiers key = QGuiApplication::queryKeyboardModifiers();
-
-    if(fileJustOpen)
-        multiFileComment->addNewFile(fileName);
-    else if(ui->textBrowser->isMouseOver()) {
-
-        QTextCursor cur = ui->textBrowser->textCursor();
-        QTextBlockFormat f;
-
-        if(multiFileComment->getLinesByName(fileName)->contains(ui->textBrowser->textCursor().blockNumber())) {
-            if(key == Qt::ShiftModifier){
-
-                multiFileComment->
-                        getLinesByName(this->selectedFile)->
-                        removeAt(multiFileComment->getLinesByName(this->selectedFile)->
-                                 indexOf(ui->textBrowser->textCursor().blockNumber())
-                                 );
-
-                f.setBackground(Qt::white);
-            }else{
-                return;
-            }
-
-        }else{
-             if(key != Qt::ShiftModifier){
-                 multiFileComment->getLinesByName(fileName)->append(ui->textBrowser->textCursor().blockNumber());
-                 f.setBackground(Qt::gray);
-             }
-        }
-
-        ui->textBrowser->setTextCursor(cur);
-        cur.select(QTextCursor::LineUnderCursor);
-        cur.setBlockFormat(f);
-    }
-    fileJustOpen = false;
-}
-
-
-//TODO loading cooments while lodaing new file
-void MainWindow::loadSelectedLines()
-{
-    for(int i : *multiFileComment->getLinesByName(this->selectedFile)) {
-        QTextCursor coursor(ui->textBrowser->document()->findBlockByLineNumber(i));
-        QTextBlockFormat frmt = coursor.blockFormat();
-        frmt.setBackground(QBrush(Qt::gray));
-        coursor.setBlockFormat(frmt);
-    }
+    ui->textBrowser->processCurrentLine(*this->multiFileComment, this->selectedFile);
 }
 
 void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 {
     QString sPath = fileModel->fileInfo(index).absoluteFilePath();
     QFile file(sPath); // path from on_treeFileExplorer_clicked
-
-   // qDebug() << ui->textBrowser->tex;
 
     this->selectedFile = sPath;
 
@@ -97,19 +50,13 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 
     QString text = in.readAll();
 
-    if(sPath.endsWith(".cpp", Qt::CaseInsensitive) || sPath.endsWith(".h", Qt::CaseInsensitive) || sPath.endsWith(".c", Qt::CaseInsensitive)){
+    if(sPath.endsWith(".cpp", Qt::CaseInsensitive) || sPath.endsWith(".h", Qt::CaseInsensitive) || sPath.endsWith(".c", Qt::CaseInsensitive))
         text.replace("\t", "    ");
-    }
 
     ui->textBrowser->document()->setPlainText(text.toUtf8());
 
-
-
-    if(multiFileComment->containFile(this->selectedFile)){
-        loadSelectedLines();
-    }
-
-    fileJustOpen = true;
+    if(multiFileComment->containFile(this->selectedFile))
+        ui->textBrowser->loadSelectedLines(*this->multiFileComment, this->selectedFile);
 
     // ui->textBrowser->setStyleSheet("outline: 0px; outline: none; outline-style: none;"); not working :(
 }

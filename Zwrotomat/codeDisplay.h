@@ -1,20 +1,24 @@
 #ifndef CODEDISPLAY_H
 #define CODEDISPLAY_H
 
+#include "multifilecomment.h"
+
 #include <QObject>
 #include <QPlainTextEdit>
 
-class CodeEditor : public QPlainTextEdit
+class CodeDisplay : public QPlainTextEdit
 {
     Q_OBJECT
 
 public:
-    CodeEditor(QWidget *parent = nullptr);
+    CodeDisplay(QWidget *parent = nullptr);
 
     void lineNumberAreaPaintEvent(QPaintEvent *event);
     int lineNumberAreaWidth();
     bool isMouseOver();
 
+    void loadSelectedLines(MultiFileComment &multiFileComment, QString selectedFile);
+    void processCurrentLine(MultiFileComment &multiFileComment, QString selectedFile);
 
     virtual void enterEvent(QEnterEvent *event) override;
     virtual void leaveEvent(QEvent * event) override;
@@ -24,7 +28,7 @@ protected:
 
 private slots:
     void updateLineNumberAreaWidth(int newBlockCount);
-    void highlightCurrentLine();
+
     void updateLineNumberArea(const QRect &rect, int dy);
 
 
