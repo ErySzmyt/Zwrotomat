@@ -5,6 +5,7 @@
 
 #include <QPainter.h>
 #include <QTextObject.h>
+#include <QWidget>
 
 CodeEditor::CodeEditor(QWidget *parent) : QPlainTextEdit(parent)
 {
@@ -54,6 +55,25 @@ int CodeEditor::lineNumberAreaWidth()
     int space = 5 + fontMetrics().horizontalAdvance(QLatin1Char('9')) * digits;
 
     return space;
+}
+
+bool CodeEditor::isMouseOver()
+{
+    return this->mouseOver;
+}
+
+void CodeEditor::enterEvent(QEnterEvent *event)
+{
+    this->mouseOver = true;
+
+    QWidget::enterEvent(event);
+}
+
+void CodeEditor::leaveEvent(QEvent * event)
+{
+     this->mouseOver = false;
+
+    QWidget::leaveEvent(event);
 }
 
 void CodeEditor::resizeEvent(QResizeEvent *e)

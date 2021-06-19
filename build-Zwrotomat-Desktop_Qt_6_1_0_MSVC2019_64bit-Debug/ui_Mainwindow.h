@@ -23,7 +23,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
-#include <codeeditor.h>
+#include "codeeditor.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -97,13 +97,12 @@ public:
         horizontalLayout->setSizeConstraint(QLayout::SetMaximumSize);
         textBrowser = new CodeEditor(centralwidget);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy.setHorizontalStretch(4);
         sizePolicy.setVerticalStretch(1);
         sizePolicy.setHeightForWidth(textBrowser->sizePolicy().hasHeightForWidth());
         textBrowser->setSizePolicy(sizePolicy);
-        textBrowser->setOverwriteMode(false);
-        textBrowser->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        textBrowser->setProperty("overwriteMode", QVariant(false));
 
         horizontalLayout->addWidget(textBrowser);
 
@@ -114,7 +113,9 @@ public:
         sizePolicy1.setVerticalStretch(1);
         sizePolicy1.setHeightForWidth(dockWidget_2->sizePolicy().hasHeightForWidth());
         dockWidget_2->setSizePolicy(sizePolicy1);
-        dockWidget_2->setMinimumSize(QSize(81, 128));
+        dockWidget_2->setMinimumSize(QSize(95, 128));
+        dockWidget_2->setFloating(false);
+        dockWidget_2->setFeatures(QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable);
         dockWidgetContents_5 = new QWidget();
         dockWidgetContents_5->setObjectName(QString::fromUtf8("dockWidgetContents_5"));
         gridLayout_3 = new QGridLayout(dockWidgetContents_5);

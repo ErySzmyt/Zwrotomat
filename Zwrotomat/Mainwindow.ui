@@ -32,19 +32,16 @@
       <property name="sizeConstraint">
        <enum>QLayout::SetMaximumSize</enum>
       </property>
-	  <item>
-       <widget class="CodeEditor" name="textBrowser">
+      <item>
+       <widget class="CodeEditor" name="textBrowser" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>4</horstretch>
           <verstretch>1</verstretch>
          </sizepolicy>
         </property>
-        <property name="overwriteMode">
+        <property name="overwriteMode" stdset="0">
          <bool>false</bool>
-        </property>
-        <property name="textInteractionFlags">
-         <set>Qt::TextBrowserInteraction</set>
         </property>
        </widget>
       </item>
@@ -58,9 +55,15 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>81</width>
+          <width>95</width>
           <height>128</height>
          </size>
+        </property>
+        <property name="floating">
+         <bool>false</bool>
+        </property>
+        <property name="features">
+         <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
         </property>
         <widget class="QWidget" name="dockWidgetContents_5">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -228,6 +231,13 @@
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>CodeEditor</class>
+   <extends>QWidget</extends>
+   <header>codeeditor.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

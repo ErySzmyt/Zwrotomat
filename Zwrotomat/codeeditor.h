@@ -13,6 +13,11 @@ public:
 
     void lineNumberAreaPaintEvent(QPaintEvent *event);
     int lineNumberAreaWidth();
+    bool isMouseOver();
+
+
+    virtual void enterEvent(QEnterEvent *event) override;
+    virtual void leaveEvent(QEvent * event) override;
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -22,8 +27,10 @@ private slots:
     void highlightCurrentLine();
     void updateLineNumberArea(const QRect &rect, int dy);
 
+
 private:
     QWidget *lineNumberArea;
+    bool mouseOver = false;
 };
 
 #endif // CODEEDITOR_H

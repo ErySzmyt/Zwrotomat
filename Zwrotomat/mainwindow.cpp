@@ -9,10 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-\
+    setCentralWidget(ui->centralwidget);
+
+    ui->textBrowser->setMouseTracking(true);
+
     highlighter = new Highlighter(ui->textBrowser->document());
     fileModel = new QFileSystemModel(this);
-    ui->dockWidget_2->setAllowedAreas(Qt::AllDockWidgetAreas);
 
     this->multiFileComment = new MultiFileComment();
 
@@ -26,11 +28,11 @@ MainWindow::~MainWindow()
 void MainWindow::on_textBrowser_cursorPositionChanged()
 {
     const QString fileName = this->selectedFile;
+    Qt::KeyboardModifiers key = QGuiApplication::queryKeyboardModifiers();
 
     if(fileJustOpen)
         multiFileComment->addNewFile(fileName);
-    else {
-
+    else if(ui->textBrowser->isMouseOver()) {
         qDebug() << ui->textBrowser->textCursor().blockNumber();
 
         QTextCursor cur = ui->textBrowser->textCursor();
@@ -38,20 +40,31 @@ void MainWindow::on_textBrowser_cursorPositionChanged()
 
         qDebug() << fileName;
 
+
         if(multiFileComment->getLinesByName(fileName)->contains(ui->textBrowser->textCursor().blockNumber()))
         {
-            multiFileComment->
-                    getLinesByName(this->selectedFile)->
-                    removeAt(multiFileComment->getLinesByName(this->selectedFile)->
-                             indexOf(ui->textBrowser->textCursor().blockNumber())
-                             );
 
-            f.setBackground(Qt::white);
+
+            qDebug() << key;
+
+            if(key == Qt::ShiftModifier){
+
+                multiFileComment->
+                        getLinesByName(this->selectedFile)->
+                        removeAt(multiFileComment->getLinesByName(this->selectedFile)->
+                                 indexOf(ui->textBrowser->textCursor().blockNumber())
+                                 );
+
+                f.setBackground(Qt::white);
+            }else{
+                return;
+            }
+
         }else{
-
-            multiFileComment->getLinesByName(fileName)->append(ui->textBrowser->textCursor().blockNumber());
-
-            f.setBackground(Qt::gray);
+             if(key != Qt::ShiftModifier){
+                 multiFileComment->getLinesByName(fileName)->append(ui->textBrowser->textCursor().blockNumber());
+                 f.setBackground(Qt::gray);
+             }
         }
 
         ui->textBrowser->setTextCursor(cur);
@@ -65,8 +78,11 @@ void MainWindow::on_textBrowser_cursorPositionChanged()
 //TODO loading cooments while lodaing new file
 void MainWindow::loadSelectedLines()
 {
-    if(multiFileComment->containFile(this->selectedFile)){
-
+    for(int i : *multiFileComment->getLinesByName(this->selectedFile)) {
+        QTextCursor coursor(ui->textBrowser->document()->findBlockByLineNumber(i));
+        QTextBlockFormat frmt = coursor.blockFormat();
+        frmt.setBackground(QBrush(Qt::gray));
+        coursor.setBlockFormat(frmt);
     }
 }
 
@@ -74,6 +90,9 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 {
     QString sPath = fileModel->fileInfo(index).absoluteFilePath();
     QFile file(sPath); // path from on_treeFileExplorer_clicked
+
+   // qDebug() << ui->textBrowser->tex;
+
     this->selectedFile = sPath;
 
     qDebug() << sPath;
@@ -87,14 +106,21 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 
     QString text = in.readAll();
 
-    if(sPath.endsWith(".cpp", Qt::CaseInsensitive) || sPath.endsWith(".h", Qt::CaseInsensitive)){
+    if(sPath.endsWith(".cpp", Qt::CaseInsensitive) || sPath.endsWith(".h", Qt::CaseInsensitive) || sPath.endsWith(".c", Qt::CaseInsensitive)){
         text.replace("\t", "    ");
     }
 
-    ui->textBrowser->document()->setPlainText(text);
-    // ui->textBrowser->setStyleSheet("outline: 0px; outline: none; outline-style: none;"); not working :(
+    ui->textBrowser->document()->setPlainText(text.toUtf8());
+
+
+
+    if(multiFileComment->containFile(this->selectedFile)){
+        loadSelectedLines();
+    }
 
     fileJustOpen = true;
+
+    // ui->textBrowser->setStyleSheet("outline: 0px; outline: none; outline-style: none;"); not working :(
 }
 
 void MainWindow::on_actionZ_Folderu_triggered()
@@ -104,15 +130,11 @@ void MainWindow::on_actionZ_Folderu_triggered()
 
     qDebug() << "Initilizing TreeView with " << dir;
 
-    //fileModel->setFilter(QDir::NoDotAndDotDot | QDir::Files);
-
     //set root path
     fileModel->setRootPath(dir.path());
 
     ui->treeFileExplorer->setModel(fileModel);
-
-    QModelIndex indx = fileModel->index(dir.path());
-    ui->treeFileExplorer->setRootIndex(indx);
+    ui->treeFileExplorer->setRootIndex(fileModel->index(dir.path()));
 }
 
 void MainWindow::on_actionPliki_triggered()

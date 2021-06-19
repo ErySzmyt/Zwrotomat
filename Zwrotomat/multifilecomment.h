@@ -13,14 +13,14 @@ public:
     ~MultiFileComment();
 
     bool containFile(QString fileName);
-    QVector<int>* getLinesByName(QString fileName);
+    QList<int>* getLinesByName(QString fileName);
     void addNewFile(QString fileName);
 
     void setComment(QString comment);
     QString* getComment();
 
 private:
-    QHash<QString, QVector<int>*> *files;
+    QHash<QString, QList<int>*> *files;
     QString *comment;
 };
 
