@@ -4,8 +4,6 @@
 #include <QHash>
 #include <QString>
 
-
-
 class MultiFileComment
 {
 public:

@@ -23,7 +23,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
-#include "codeeditor.h"
+#include "codeDisplay.h"
 
 QT_BEGIN_NAMESPACE
 

@@ -33,20 +33,11 @@ void MainWindow::on_textBrowser_cursorPositionChanged()
     if(fileJustOpen)
         multiFileComment->addNewFile(fileName);
     else if(ui->textBrowser->isMouseOver()) {
-        qDebug() << ui->textBrowser->textCursor().blockNumber();
 
         QTextCursor cur = ui->textBrowser->textCursor();
         QTextBlockFormat f;
 
-        qDebug() << fileName;
-
-
-        if(multiFileComment->getLinesByName(fileName)->contains(ui->textBrowser->textCursor().blockNumber()))
-        {
-
-
-            qDebug() << key;
-
+        if(multiFileComment->getLinesByName(fileName)->contains(ui->textBrowser->textCursor().blockNumber())) {
             if(key == Qt::ShiftModifier){
 
                 multiFileComment->
