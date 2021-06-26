@@ -1,10 +1,16 @@
 #include "mainwindow.h"
 #include "ui_Mainwindow.h"
-#include "QFileDialog.h"
+#include <QFileDialog>
+#include <QInputDialog>
+
+#include <QLineEdit>
+
+
+
 
 #include "highlighter.h"
 
-#include <multiFileComment.h>
+#include "multifilecomment.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -77,5 +83,18 @@ void MainWindow::on_actionZ_Folderu_triggered()
 
 void MainWindow::on_actionPliki_triggered()
 {
+
+}
+
+void MainWindow::on_addingCommentButton_clicked()
+{
+    bool ok;
+
+    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                             tr("Nazwa kom:"), QLineEdit::Normal,
+                                             QDir::home().dirName(), &ok);
+
+    if(ok && !text.isEmpty())
+        qDebug() << text;
 
 }

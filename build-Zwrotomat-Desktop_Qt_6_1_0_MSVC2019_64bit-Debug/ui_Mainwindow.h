@@ -17,13 +17,16 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QWidget>
-#include "codeDisplay.h"
+#include "codedisplay.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -52,6 +55,10 @@ public:
     QTreeView *treeFileExplorer;
     QGroupBox *gridGroupBox;
     QGridLayout *gridLayout;
+    QListWidget *listWidget;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *addingCommentButton;
+    QRadioButton *radioButton;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuProjekt;
@@ -114,7 +121,7 @@ public:
         sizePolicy1.setVerticalStretch(1);
         sizePolicy1.setHeightForWidth(dockWidget_2->sizePolicy().hasHeightForWidth());
         dockWidget_2->setSizePolicy(sizePolicy1);
-        dockWidget_2->setMinimumSize(QSize(95, 128));
+        dockWidget_2->setMinimumSize(QSize(169, 207));
         dockWidget_2->setFloating(false);
         dockWidget_2->setFeatures(QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable);
         dockWidgetContents_5 = new QWidget();
@@ -146,6 +153,32 @@ public:
         gridGroupBox->setSizePolicy(sizePolicy3);
         gridLayout = new QGridLayout(gridGroupBox);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        listWidget = new QListWidget(gridGroupBox);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+
+        gridLayout->addWidget(listWidget, 1, 0, 1, 1);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        addingCommentButton = new QPushButton(gridGroupBox);
+        addingCommentButton->setObjectName(QString::fromUtf8("addingCommentButton"));
+        QSizePolicy sizePolicy4(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(addingCommentButton->sizePolicy().hasHeightForWidth());
+        addingCommentButton->setSizePolicy(sizePolicy4);
+
+        horizontalLayout_2->addWidget(addingCommentButton);
+
+        radioButton = new QRadioButton(gridGroupBox);
+        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+
+        horizontalLayout_2->addWidget(radioButton);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 0, 0, 1, 1);
+
 
         gridLayout_4->addWidget(gridGroupBox, 1, 0, 1, 1);
 
@@ -166,11 +199,11 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 1157, 21));
-        QSizePolicy sizePolicy4(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(menubar->sizePolicy().hasHeightForWidth());
-        menubar->setSizePolicy(sizePolicy4);
+        QSizePolicy sizePolicy5(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(menubar->sizePolicy().hasHeightForWidth());
+        menubar->setSizePolicy(sizePolicy5);
         menuProjekt = new QMenu(menubar);
         menuProjekt->setObjectName(QString::fromUtf8("menuProjekt"));
         menuNowy = new QMenu(menuProjekt);
@@ -215,6 +248,8 @@ public:
         actionGenerowanie->setText(QCoreApplication::translate("MainWindow", "Generowanie", nullptr));
         actionPliki->setText(QCoreApplication::translate("MainWindow", "Pliki", nullptr));
         actionKomentarze->setText(QCoreApplication::translate("MainWindow", "Komentarze", nullptr));
+        addingCommentButton->setText(QCoreApplication::translate("MainWindow", "Dodaj kom", nullptr));
+        radioButton->setText(QCoreApplication::translate("MainWindow", "Pozytywny", nullptr));
         menuProjekt->setTitle(QCoreApplication::translate("MainWindow", "Projekt", nullptr));
         menuNowy->setTitle(QCoreApplication::translate("MainWindow", "Nowy", nullptr));
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));

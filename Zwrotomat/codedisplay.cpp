@@ -1,11 +1,11 @@
-#include "codeDisplay.h"
+#include "codedisplay.h"
 
-#include "lineNumberArea.h"
+#include "linenumberarea.h"
 #include "multifilecomment.h"
 
 #include <QGuiApplication>
-#include <QPainter.h>
-#include <QTextObject.h>
+#include <QPainter>
+#include <QTextObject>
 #include <QWidget>
 
 CodeDisplay::CodeDisplay(QWidget *parent) : QPlainTextEdit(parent)

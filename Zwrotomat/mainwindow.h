@@ -34,6 +34,8 @@ private slots:
     void on_textBrowser_cursorPositionChanged();
 
 
+    void on_addingCommentButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *fileModel; // model for filed display

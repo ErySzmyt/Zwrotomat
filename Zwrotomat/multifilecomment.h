@@ -13,13 +13,19 @@ public:
     bool containFile(QString fileName);
     QList<int>* getLinesByName(QString fileName);
     void addNewFile(QString fileName);
-
     void setComment(QString comment);
+
+    bool isPositive();
+
+    void setPositive();
+    void setNegative();
+
     QString* getComment();
 
 private:
-    QHash<QString, QList<int>*> *files;
-    QString *comment;
+    QHash<QString, QList<int>*> *m_files;
+    QString *m_comment;
+    bool m_isPositvie = true;
 };
 
 #endif // MULTIFILECOMMENT_H
