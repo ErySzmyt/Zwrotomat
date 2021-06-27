@@ -79,8 +79,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->on_treeFileExplorer_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 1: _t->on_pushButton_clicked(); break;
-        case 2: _t->on_actionZ_Folderu_triggered(); break;
+        case 1: _t->on_actionZ_Folderu_triggered(); break;
         default: ;
         }
     }

@@ -5,7 +5,7 @@
 
 #include <QLineEdit>
 
-
+#include "codedisplay.h"
 
 
 #include "highlighter.h"
@@ -35,6 +35,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_textBrowser_cursorPositionChanged()
 {
+
     ui->textBrowser->processCurrentLine(*this->multiFileComment, this->selectedFile);
 }
 
@@ -85,16 +86,48 @@ void MainWindow::on_actionPliki_triggered()
 {
 
 }
-
+void on_pushButton_clicked();
 void MainWindow::on_addingCommentButton_clicked()
 {
+    /*
+    // Func to add comment ( name + content)
     bool ok;
-
+    //var to handle comment name
     QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
-                                             tr("Nazwa kom:"), QLineEdit::Normal,
+                                             tr("Nazwa komentarza:"), QLineEdit::Normal,
                                              QDir::home().dirName(), &ok);
+    //var to handle comment content
+    QString textContent = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                             tr("Treść komentarza:"), QLineEdit::Normal,
+                                             QDir::home().dirName(), &ok);
+    int positive = ui->radioButton->isChecked();
 
+    QString allComment = "nazwa:"+text + " tresc:"+textContent + " pos:"+ QString::number(positive);
+    ui->listWidget->addItem(allComment);
     if(ok && !text.isEmpty())
         qDebug() << text;
+*/
+    // Function to Add comment to listWidget
+    MultiFileComment* comment = new MultiFileComment;
+    bool ok;
+    //var to handle comment name
+    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                             tr("Nazwa komentarza:"), QLineEdit::Normal,
+                                             QDir::home().dirName(), &ok);
+    //var to handle comment content
+    QString textContent = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                             tr("Treść komentarza:"), QLineEdit::Normal,
+                                             QDir::home().dirName(), &ok);
+    // comment.addNewFile(); // adding fiel name
+    int positive = ui->radioButton->isChecked();
+    if (positive){
+        comment->setPositive();
+    }
+    else{
+        comment->setNegative();
+    }
+    QString allComment = "nazwa:"+text + " tresc:"+textContent;
+    comment->setComment(allComment);
+    ui->listWidget->addItem(allComment);
 
 }
