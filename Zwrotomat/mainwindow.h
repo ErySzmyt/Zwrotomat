@@ -36,16 +36,24 @@ private slots:
 
     void on_addingCommentButton_clicked();
 
-    void removeItem(const QString &text);
+    void removeComment(const QString &text);
+    void selectComment(const QString &text);
+
 
 private:
     Ui::MainWindow *ui;
-    QFileSystemModel *fileModel; // model for filed display
+    QFileSystemModel *m_fileModel; // model for filed display
 
-    QString selectedFile;
-    QDir selectedDir;
+    QString m_selectedFile;
+    QDir m_selectedDir;
 
-    Highlighter *highlighter;
-    MultiFileComment *multiFileComment;
+    Highlighter *m_highlighter;
+
+    MultiFileComment *m_currentComment;
+
+    QHash<QString, MultiFileComment*> *m_Comments;
+
+    void loadCurrentFile();
+
 };
 #endif // MAINWINDOW_H

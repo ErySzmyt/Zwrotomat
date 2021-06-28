@@ -7,7 +7,8 @@ ItemDisplay::ItemDisplay(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(this, SIGNAL(sendRemoveItem(const QString &)), parent, SLOT(removeItem(const QString &)));
+    connect(this, SIGNAL(sendRemoveItem(const QString &)), parent, SLOT(removeComment(const QString &)));
+    connect(this, SIGNAL(sendCommentClicked(const QString &)), parent, SLOT(selectComment(const QString &)));
 }
 
 ItemDisplay::~ItemDisplay()
@@ -30,5 +31,5 @@ QString ItemDisplay::getText() {
 
 void ItemDisplay::on_pushButton_clicked()
 {
-    //TODO połączyć z podmianą komentarza
+    emit sendCommentClicked(ui->pushButton->text());
 }

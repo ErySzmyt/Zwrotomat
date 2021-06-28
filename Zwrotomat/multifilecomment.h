@@ -7,6 +7,7 @@
 class MultiFileComment
 {
 public:
+    //TODO still no constructor :)
     MultiFileComment();
     ~MultiFileComment();
 
