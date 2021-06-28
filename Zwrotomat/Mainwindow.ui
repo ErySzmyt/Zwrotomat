@@ -33,7 +33,7 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="CodeEditor" name="textBrowser" native="true">
+       <widget class="CodeDisplay" name="textBrowser" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>4</horstretch>
@@ -276,9 +276,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>CodeEditor</class>
+   <class>CodeDisplay</class>
    <extends>QWidget</extends>
-   <header>codeeditor.h</header>
+   <header>codedisplay.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

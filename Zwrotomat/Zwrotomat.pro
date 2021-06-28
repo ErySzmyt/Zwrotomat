@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     codedisplay.cpp \
     highlighter.cpp \
+    itemdisplay.cpp \
     linenumberarea.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,12 +20,14 @@ SOURCES += \
 HEADERS += \
     codedisplay.h \
     highlighter.h \
+    itemdisplay.h \
     linenumberarea.h \
     mainwindow.h \
     multifilecomment.h \
 
 FORMS += \
-    Mainwindow.ui
+    Mainwindow.ui \
+    itemdisplay.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

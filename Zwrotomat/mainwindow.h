@@ -36,6 +36,8 @@ private slots:
 
     void on_addingCommentButton_clicked();
 
+    void removeItem(const QString &text);
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *fileModel; // model for filed display

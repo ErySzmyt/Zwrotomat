@@ -10,16 +10,10 @@ public:
     LineNumberArea(CodeDisplay *editor) : QWidget(editor), codeEditor(editor)
     {}
 
-    QSize sizeHint() const override
-    {
-        return QSize(codeEditor->lineNumberAreaWidth(), 0);
-    }
+    QSize sizeHint() const override;
 
 protected:
-    void paintEvent(QPaintEvent *event) override
-    {
-        codeEditor->lineNumberAreaPaintEvent(event);
-    }
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     CodeDisplay *codeEditor;
