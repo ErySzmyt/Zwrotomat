@@ -33,42 +33,90 @@
        <enum>QLayout::SetMaximumSize</enum>
       </property>
       <item>
-       <widget class="CodeDisplay" name="textBrowser" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>4</horstretch>
-          <verstretch>1</verstretch>
-         </sizepolicy>
+       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0">
+        <property name="spacing">
+         <number>4</number>
         </property>
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMaximumSize</enum>
         </property>
-        <property name="overwriteMode" stdset="0">
-         <bool>false</bool>
-        </property>
-       </widget>
+        <item>
+         <widget class="CodeDisplay" name="textBrowser" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>4</horstretch>
+            <verstretch>5</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="overwriteMode" stdset="0">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDockWidget" name="dockWidget_1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>1</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+          <widget class="QWidget" name="dockWidgetContents">
+           <layout class="QGridLayout" name="gridLayout_1">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMaximumSize</enum>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTextEdit" name="commentEdit"/>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <widget class="QDockWidget" name="dockWidget_2">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
           <horstretch>1</horstretch>
           <verstretch>1</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>169</width>
-          <height>207</height>
+          <width>180</width>
+          <height>215</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>260</width>
+          <height>524287</height>
          </size>
         </property>
         <property name="floating">
          <bool>false</bool>
         </property>
         <property name="features">
-         <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+         <set>QDockWidget::AllDockWidgetFeatures</set>
         </property>
-        <widget class="QWidget" name="dockWidgetContents_5">
+        <widget class="QWidget" name="dockWidgetContents_2">
          <layout class="QGridLayout" name="gridLayout_3">
           <property name="sizeConstraint">
            <enum>QLayout::SetMaximumSize</enum>
@@ -95,7 +143,7 @@
               <property name="sizePolicy">
                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                 <horstretch>0</horstretch>
-                <verstretch>2</verstretch>
+                <verstretch>5</verstretch>
                </sizepolicy>
               </property>
               <property name="maximumSize">
@@ -111,7 +159,7 @@
               <property name="sizePolicy">
                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                 <horstretch>0</horstretch>
-                <verstretch>1</verstretch>
+                <verstretch>2</verstretch>
                </sizepolicy>
               </property>
               <layout class="QGridLayout" name="gridLayout">

@@ -40,6 +40,8 @@ private slots:
     void selectComment(const QString &text);
 
 
+    void on_commentEdit_textChanged();
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *m_fileModel; // model for filed display

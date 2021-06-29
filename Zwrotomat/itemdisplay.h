@@ -18,6 +18,8 @@ public:
     void setText(const QString &text);
     QString getText();
 
+protected:
+    void mouseReleaseEvent ( QMouseEvent * event ) override;
 
 signals:
     void sendRemoveItem(const QString &text);
@@ -25,8 +27,6 @@ signals:
 
 private slots:
     void on_removeButton_clicked();
-
-    void on_pushButton_clicked();
 
 private:
     Ui::ItemDisplay *ui;

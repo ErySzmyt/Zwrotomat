@@ -21,11 +21,11 @@ public:
     void setPositive();
     void setNegative();
 
-    QString* getComment();
+    QString getComment();
 
 private:
     QHash<QString, QList<int>*> *m_files;
-    QString *m_comment;
+    QString m_comment = "";
     bool m_isPositvie = true;
 };
 

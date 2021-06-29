@@ -12,7 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QPushButton>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QWidget>
@@ -23,7 +23,7 @@ class Ui_ItemDisplay
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton;
+    QLabel *label;
     QSpacerItem *horizontalSpacer;
     QToolButton *removeButton;
 
@@ -34,10 +34,10 @@ public:
         ItemDisplay->resize(250, 60);
         horizontalLayout = new QHBoxLayout(ItemDisplay);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        pushButton = new QPushButton(ItemDisplay);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        label = new QLabel(ItemDisplay);
+        label->setObjectName(QString::fromUtf8("label"));
 
-        horizontalLayout->addWidget(pushButton);
+        horizontalLayout->addWidget(label);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -57,7 +57,7 @@ public:
     void retranslateUi(QWidget *ItemDisplay)
     {
         ItemDisplay->setWindowTitle(QCoreApplication::translate("ItemDisplay", "Form", nullptr));
-        pushButton->setText(QCoreApplication::translate("ItemDisplay", "PushButton", nullptr));
+        label->setText(QCoreApplication::translate("ItemDisplay", "TextLabel", nullptr));
         removeButton->setText(QCoreApplication::translate("ItemDisplay", "x", nullptr));
     } // retranslateUi
 

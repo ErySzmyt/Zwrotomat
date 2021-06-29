@@ -18,18 +18,18 @@ ItemDisplay::~ItemDisplay()
 
 void ItemDisplay::on_removeButton_clicked()
 {
-    emit sendRemoveItem(ui->pushButton->text());
+    emit sendRemoveItem(ui->label->text());
 }
 
 void ItemDisplay::setText(const QString &text) {
-    ui->pushButton->setText(text);
+    ui->label->setText(text);
 }
 
 QString ItemDisplay::getText() {
-    return ui->pushButton->text();
+    return ui->label->text();
 }
 
-void ItemDisplay::on_pushButton_clicked()
+void ItemDisplay::mouseReleaseEvent(QMouseEvent *event)
 {
-    emit sendCommentClicked(ui->pushButton->text());
+    emit sendCommentClicked(ui->label->text());
 }

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ItemDisplay_t {
-    const uint offsetsAndSize[14];
-    char stringdata0[98];
+    const uint offsetsAndSize[12];
+    char stringdata0[76];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_ItemDisplay_t, stringdata0) + ofs), len 
@@ -34,13 +34,11 @@ QT_MOC_LITERAL(12, 14), // "sendRemoveItem"
 QT_MOC_LITERAL(27, 0), // ""
 QT_MOC_LITERAL(28, 4), // "text"
 QT_MOC_LITERAL(33, 18), // "sendCommentClicked"
-QT_MOC_LITERAL(52, 23), // "on_removeButton_clicked"
-QT_MOC_LITERAL(76, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(52, 23) // "on_removeButton_clicked"
 
     },
     "ItemDisplay\0sendRemoveItem\0\0text\0"
-    "sendCommentClicked\0on_removeButton_clicked\0"
-    "on_pushButton_clicked"
+    "sendCommentClicked\0on_removeButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -50,7 +48,7 @@ static const uint qt_meta_data_ItemDisplay[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -58,19 +56,17 @@ static const uint qt_meta_data_ItemDisplay[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   38,    2, 0x06,    0 /* Public */,
-       4,    1,   41,    2, 0x06,    2 /* Public */,
+       1,    1,   32,    2, 0x06,    0 /* Public */,
+       4,    1,   35,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    0,   44,    2, 0x08,    4 /* Private */,
-       6,    0,   45,    2, 0x08,    5 /* Private */,
+       5,    0,   38,    2, 0x08,    4 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString,    3,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -85,7 +81,6 @@ void ItemDisplay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 0: _t->sendRemoveItem((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 1: _t->sendCommentClicked((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 2: _t->on_removeButton_clicked(); break;
-        case 3: _t->on_pushButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -115,7 +110,7 @@ const QMetaObject ItemDisplay::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_ItemDisplay_t
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -142,13 +137,13 @@ int ItemDisplay::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 3;
     }
     return _id;
 }

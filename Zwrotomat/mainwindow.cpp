@@ -24,7 +24,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->m_currentComment = new MultiFileComment();
     this->m_Comments = new QHash<QString, MultiFileComment*>();
-
 }
 
 MainWindow::~MainWindow()
@@ -86,7 +85,6 @@ void MainWindow::on_addingCommentButton_clicked()
 
         if(m_Comments->size() > 0){
             MultiFileComment* comment = new MultiFileComment();
-
             (ui->radioButton->isChecked()) ? comment->setPositive() : comment->setNegative();
 
             this->m_Comments->insert(text, comment);
@@ -107,8 +105,9 @@ void MainWindow::on_addingCommentButton_clicked()
  * Removes the item from the comment list
  */
 void MainWindow::removeComment(const QString &text) {
-    if(m_Comments->size() < 2){
-        return;
+    if(m_Comments->size() == 1){
+        this->m_currentComment = new MultiFileComment();
+        loadCurrentFile();
     }
 
     for (int i = 0; i < ui->listWidget->count(); ++i) {
@@ -116,7 +115,12 @@ void MainWindow::removeComment(const QString &text) {
         auto itemWidget = dynamic_cast<ItemDisplay*>(ui->listWidget->itemWidget(item));
         if (itemWidget->getText() == text){
 
+            if(m_Comments->value(text) == this->m_currentComment){
+                ui->textBrowser->document()->setPlainText("");
+            }
+
             //TODO free memory of removed comment, and remove it from HashMap
+            m_Comments->remove(text);
 
             delete item;
             break;
@@ -133,6 +137,7 @@ void MainWindow::selectComment(const QString &text)
     //reloading lines
     this->loadCurrentFile();
     ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
+    ui->commentEdit->setText(m_currentComment->getComment());
 }
 
 void MainWindow::loadCurrentFile()
@@ -155,4 +160,9 @@ void MainWindow::loadCurrentFile()
 
     if(m_currentComment->containFile(this->m_selectedFile))
         ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
+}
+
+void MainWindow::on_commentEdit_textChanged()
+{
+    m_currentComment->setComment(ui->commentEdit->toPlainText());
 }

@@ -26,10 +26,10 @@ void MultiFileComment::addNewFile(QString fileName)
 
 void MultiFileComment::setComment(QString comment)
 {
-    this->m_comment = &comment;
+    this->m_comment = comment;
 }
 
-QString* MultiFileComment::getComment()
+QString MultiFileComment::getComment()
 {
     return this->m_comment;
 }
