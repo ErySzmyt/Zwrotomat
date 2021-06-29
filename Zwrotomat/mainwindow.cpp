@@ -64,7 +64,9 @@ void MainWindow::on_actionPliki_triggered()
 {
 
 }
-
+/*
+ *  Add new comment
+ */
 void MainWindow::on_addingCommentButton_clicked()
 {
     bool ok;
@@ -85,11 +87,10 @@ void MainWindow::on_addingCommentButton_clicked()
 
         if(m_Comments->size() > 0){
             MultiFileComment* comment = new MultiFileComment();
-            (ui->radioButton->isChecked()) ? comment->setPositive() : comment->setNegative();
 
             this->m_Comments->insert(text, comment);
         }else{
-            (ui->radioButton->isChecked()) ? this->m_currentComment->setPositive() : this->m_currentComment->setNegative();
+
             this->m_Comments->insert(text, this->m_currentComment);
         }
 
@@ -138,6 +139,20 @@ void MainWindow::selectComment(const QString &text)
     this->loadCurrentFile();
     ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
     ui->commentEdit->setText(m_currentComment->getComment());
+    /*// open comment edit window
+    QWidget *wdg = new QWidget; // 2nd window for comment editor
+    QTextEdit *textEditor = new QTextEdit(QApplication::);    // text editor widget
+
+    wdg->adjustSize();
+    wdg->show();*/
+}
+
+void MainWindow::changePoitivityOfComment(const QString &text, const bool &isChecked)
+{
+
+      MultiFileComment* com = m_Comments->value(text);
+      (isChecked)? com->setPositive() : com->setNegative();
+      qDebug()<<"Positivity changed"<< com<<" "<<com->isPositive();
 }
 
 void MainWindow::loadCurrentFile()

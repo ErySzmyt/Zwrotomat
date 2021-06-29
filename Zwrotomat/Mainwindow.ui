@@ -193,13 +193,6 @@
                    </property>
                   </widget>
                  </item>
-                 <item>
-                  <widget class="QRadioButton" name="radioButton">
-                   <property name="text">
-                    <string>Pozytywny</string>
-                   </property>
-                  </widget>
-                 </item>
                 </layout>
                </item>
               </layout>
@@ -222,7 +215,7 @@
      <x>0</x>
      <y>0</y>
      <width>1157</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="sizePolicy">

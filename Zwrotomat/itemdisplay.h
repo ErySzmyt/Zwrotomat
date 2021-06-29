@@ -24,9 +24,12 @@ protected:
 signals:
     void sendRemoveItem(const QString &text);
     void sendCommentClicked(const QString &text);
+    void sendPositiveCheckChanged(const QString &text, const bool &isPositive);
 
 private slots:
     void on_removeButton_clicked();
+
+    void on_wskaznikPozytyw_clicked();
 
 private:
     Ui::ItemDisplay *ui;

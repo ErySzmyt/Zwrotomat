@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>250</width>
+    <width>243</width>
     <height>60</height>
    </rect>
   </property>
@@ -33,6 +33,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item>
+    <widget class="QRadioButton" name="wskaznikPozytyw">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QToolButton" name="removeButton">

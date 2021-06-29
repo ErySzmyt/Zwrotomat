@@ -39,7 +39,7 @@ private slots:
     void removeComment(const QString &text);
     void selectComment(const QString &text);
 
-
+    void changePoitivityOfComment(const QString &text, const bool &isChecked);
     void on_commentEdit_textChanged();
 
 private:
