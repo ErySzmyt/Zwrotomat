@@ -64,6 +64,7 @@ public:
     QListWidget *listWidget;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *addingCommentButton;
+    QPushButton *pushButton;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuProjekt;
@@ -205,6 +206,11 @@ public:
 
         horizontalLayout_2->addWidget(addingCommentButton);
 
+        pushButton = new QPushButton(gridGroupBox);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        horizontalLayout_2->addWidget(pushButton);
+
 
         gridLayout->addLayout(horizontalLayout_2, 0, 0, 1, 1);
 
@@ -278,6 +284,7 @@ public:
         actionPliki->setText(QCoreApplication::translate("MainWindow", "Pliki", nullptr));
         actionKomentarze->setText(QCoreApplication::translate("MainWindow", "Komentarze", nullptr));
         addingCommentButton->setText(QCoreApplication::translate("MainWindow", "Dodaj kom", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Generuj Raport", nullptr));
         menuProjekt->setTitle(QCoreApplication::translate("MainWindow", "Projekt", nullptr));
         menuNowy->setTitle(QCoreApplication::translate("MainWindow", "Nowy", nullptr));
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));

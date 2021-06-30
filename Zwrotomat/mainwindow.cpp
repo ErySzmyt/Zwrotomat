@@ -181,3 +181,32 @@ void MainWindow::on_commentEdit_textChanged()
 {
     m_currentComment->setComment(ui->commentEdit->toPlainText());
 }
+void MainWindow::on_pushButton_clicked(bool){};
+/*
+ *  Generate Raport with all entered comments
+ */
+void MainWindow::on_pushButton_clicked()
+{
+    /* Format  */
+    // Name, surname, section
+    // File name, positivity, lines, comment
+    // ...
+    // Points/ Grade: ...
+    bool ok;
+
+    QString studentName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                             tr("Imie i Nazwisko:"), QLineEdit::Normal,
+                                             QDir::home().dirName(), &ok);
+    if (ok && !studentName.isEmpty()){
+        qDebug() << studentName;
+        for (auto const& x : *m_Comments)
+        {
+            qDebug() << x->getComment()
+                     << ':'
+                     << x->isPositive()
+                     << ':'
+                     << x->getFile();
+
+        }
+    }
+}

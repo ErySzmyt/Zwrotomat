@@ -42,6 +42,10 @@ private slots:
     void changePoitivityOfComment(const QString &text, const bool &isChecked);
     void on_commentEdit_textChanged();
 
+    void on_pushButton_clicked(bool checked);
+
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *m_fileModel; // model for filed display

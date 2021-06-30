@@ -22,7 +22,7 @@ public:
     void setNegative();
 
     QString getComment();
-
+    QString getFile();
 private:
     QHash<QString, QList<int>*> *m_files;
     QString m_comment = "";
