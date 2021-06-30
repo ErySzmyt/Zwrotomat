@@ -34,9 +34,13 @@ QString MultiFileComment::getComment()
     return this->m_comment;
 }
 
-<<<<<<< Updated upstream
-bool MultiFileComment::isPositive(){
-=======
+/*
+* Returns is m_isPositvie equal to true
+*/
+bool MultiFileComment::isPositive()
+{
+    return this->m_isPositvie;
+}
 /*
 * Accesor of m_comment value
 * @returns assigned file (QString)
@@ -53,14 +57,7 @@ QString MultiFileComment::getFile()
     return files;
 }
 
-/*
-* Returns is m_isPositvie equal to true
-*/
-bool MultiFileComment::isPositive()
-{
->>>>>>> Stashed changes
-    return this->m_isPositvie;
-};
+
 
 void MultiFileComment::setPositive(){
     this->m_isPositvie = true;

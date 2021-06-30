@@ -2,14 +2,12 @@
 #include "ui_Mainwindow.h"
 #include <QFileDialog>
 #include <QInputDialog>
-
 #include <QLineEdit>
-
 #include "highlighter.h"
-
 #include "itemdisplay.h"
 #include "multifilecomment.h"
-
+#include <iostream>
+#include <fstream>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -146,7 +144,9 @@ void MainWindow::selectComment(const QString &text)
     wdg->adjustSize();
     wdg->show();*/
 }
-
+/*
+ * Change if comment is positive or not
+ */
 void MainWindow::changePoitivityOfComment(const QString &text, const bool &isChecked)
 {
 
@@ -176,7 +176,9 @@ void MainWindow::loadCurrentFile()
     if(m_currentComment->containFile(this->m_selectedFile))
         ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
 }
-
+/*
+ *  Updates comment data every time it is changed
+ */
 void MainWindow::on_commentEdit_textChanged()
 {
     m_currentComment->setComment(ui->commentEdit->toPlainText());
@@ -184,29 +186,38 @@ void MainWindow::on_commentEdit_textChanged()
 void MainWindow::on_pushButton_clicked(bool){};
 /*
  *  Generate Raport with all entered comments
+ *  Creates .txt file named Comment_studentName on desktop
  */
 void MainWindow::on_pushButton_clicked()
 {
-    /* Format  */
-    // Name, surname, section
-    // File name, positivity, lines, comment
-    // ...
-    // Points/ Grade: ...
-    bool ok;
+
+    bool ok, ok2;
 
     QString studentName = QInputDialog::getText(this, tr("QInputDialog::getText()"),
                                              tr("Imie i Nazwisko:"), QLineEdit::Normal,
                                              QDir::home().dirName(), &ok);
+    QString grade = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                             tr("Ocena"), QLineEdit::Normal,
+                                             QDir::home().dirName(), &ok2);
     if (ok && !studentName.isEmpty()){
+        std::ofstream myfile;
+        std::string fileName = "Comment"+studentName.toStdString()+".txt";
+        myfile.open (fileName);
         qDebug() << studentName;
         for (auto const& x : *m_Comments)
         {
-            qDebug() << x->getComment()
-                     << ':'
-                     << x->isPositive()
-                     << ':'
-                     << x->getFile();
 
+            myfile <<"Komentarz:"<<x->getComment().toStdString()<< "Pozytywnosc:"<< x->isPositive()<< "Plik:"  << x->getFile().toStdString();
         }
+
+        if (ok2 && !studentName.isEmpty()){
+            myfile << "ocena:"+grade.toStdString();
+        }
+        else{
+             myfile << "ocena: nie wprowadzono";
+        }
+         myfile.close();
     }
+
+
 }
