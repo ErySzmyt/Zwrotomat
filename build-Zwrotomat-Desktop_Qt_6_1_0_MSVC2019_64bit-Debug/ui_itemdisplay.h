@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QWidget>
@@ -25,13 +26,14 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QSpacerItem *horizontalSpacer;
+    QRadioButton *wskaznikPozytyw;
     QToolButton *removeButton;
 
     void setupUi(QWidget *ItemDisplay)
     {
         if (ItemDisplay->objectName().isEmpty())
             ItemDisplay->setObjectName(QString::fromUtf8("ItemDisplay"));
-        ItemDisplay->resize(250, 60);
+        ItemDisplay->resize(243, 60);
         horizontalLayout = new QHBoxLayout(ItemDisplay);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(ItemDisplay);
@@ -42,6 +44,11 @@ public:
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
+
+        wskaznikPozytyw = new QRadioButton(ItemDisplay);
+        wskaznikPozytyw->setObjectName(QString::fromUtf8("wskaznikPozytyw"));
+
+        horizontalLayout->addWidget(wskaznikPozytyw);
 
         removeButton = new QToolButton(ItemDisplay);
         removeButton->setObjectName(QString::fromUtf8("removeButton"));
@@ -58,6 +65,7 @@ public:
     {
         ItemDisplay->setWindowTitle(QCoreApplication::translate("ItemDisplay", "Form", nullptr));
         label->setText(QCoreApplication::translate("ItemDisplay", "TextLabel", nullptr));
+        wskaznikPozytyw->setText(QString());
         removeButton->setText(QCoreApplication::translate("ItemDisplay", "x", nullptr));
     } // retranslateUi
 

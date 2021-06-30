@@ -14,7 +14,6 @@ CodeDisplay::CodeDisplay(QWidget *parent) : QPlainTextEdit(parent)
 
     connect(this, &CodeDisplay::blockCountChanged, this, &CodeDisplay::updateLineNumberAreaWidth);
     connect(this, &CodeDisplay::updateRequest, this, &CodeDisplay::updateLineNumberArea);
-    //connect(this, &CodeDisplay::cursorPositionChanged, this, &CodeDisplay::highlightCurrentLine);
 
     updateLineNumberAreaWidth(0);
 }
@@ -42,7 +41,10 @@ void CodeDisplay::lineNumberAreaPaintEvent(QPaintEvent *event)
             }
 }
 
-
+/*
+* Calculte lenght of Number Area
+* @returns int number of pixels
+*/
 int CodeDisplay::lineNumberAreaWidth()
 {
     int digits = 1;
@@ -57,11 +59,19 @@ int CodeDisplay::lineNumberAreaWidth()
     return space;
 }
 
+/*
+* Returns bool is mouse over current CodeDisplay widget
+*/
 bool CodeDisplay::isMouseOver()
 {
     return this->mouseOver;
 }
 
+/*
+* Painting lines given by numbers(indexes) from multiFileComment for given file
+* @param &multiFileComment comment containing lines to select
+* @param selectedFile
+*/
 void CodeDisplay::loadSelectedLines(MultiFileComment &multiFileComment, QString selectedFile)
 {
     for(int i : *multiFileComment.getLinesByName(selectedFile)) {
@@ -72,12 +82,17 @@ void CodeDisplay::loadSelectedLines(MultiFileComment &multiFileComment, QString 
     }
 }
 
+/*
+* adding or removing lines from given &multiFileComment
+* @param &multiFileComment comment containing lines
+* @param selectedFile
+*/
 void CodeDisplay::processCurrentLine(MultiFileComment &multiFileComment, QString selectedFile)
 {
     const QString fileName = selectedFile;
     Qt::KeyboardModifiers key = QGuiApplication::queryKeyboardModifiers();
 
-    int selectedline = this->textCursor().blockNumber();
+    int selectedline = this->textCursor().blockNumber(); //selected line index
 
     if(!multiFileComment.containFile(fileName))
         multiFileComment.addNewFile(fileName);
@@ -87,27 +102,30 @@ void CodeDisplay::processCurrentLine(MultiFileComment &multiFileComment, QString
         QTextBlockFormat f;
 
         if(multiFileComment.getLinesByName(fileName)->contains(selectedline)) {
-            if(key != Qt::ShiftModifier)
+            if(key != Qt::ShiftModifier) //if shift isn't pressed
                 return;
 
             multiFileComment.
                     getLinesByName(selectedFile)->
                     removeAt(multiFileComment.getLinesByName(selectedFile)->
-                             indexOf(selectedline));
+                             indexOf(selectedline)); //removing selected line
 
-            f.setBackground(Qt::white);
+            f.setBackground(Qt::white); //painting white
         }else
              if(key != Qt::ShiftModifier){
-                 multiFileComment.getLinesByName(fileName)->append(selectedline);
-                 f.setBackground(Qt::gray);
+                 multiFileComment.getLinesByName(fileName)->append(selectedline); //adding selected line
+                 f.setBackground(Qt::gray); //painting gray
              }
 
         this->setTextCursor(cur);
         cur.select(QTextCursor::LineUnderCursor);
-        cur.setBlockFormat(f);
+        cur.setBlockFormat(f); //highlighting line
       }
 }
 
+/*
+* Overring on mouse over Event
+*/
 void CodeDisplay::enterEvent(QEnterEvent *event)
 {
     this->mouseOver = true;
@@ -115,6 +133,9 @@ void CodeDisplay::enterEvent(QEnterEvent *event)
     QWidget::enterEvent(event);
 }
 
+/*
+* Overring on mouse leave Event
+*/
 void CodeDisplay::leaveEvent(QEvent * event)
 {
      this->mouseOver = false;
@@ -122,6 +143,9 @@ void CodeDisplay::leaveEvent(QEvent * event)
     QWidget::leaveEvent(event);
 }
 
+/*
+* Overring resize Event to modify LineNumberArea
+*/
 void CodeDisplay::resizeEvent(QResizeEvent *e)
 {
     QPlainTextEdit::resizeEvent(e);
@@ -130,11 +154,17 @@ void CodeDisplay::resizeEvent(QResizeEvent *e)
     lineNumberArea->setGeometry(QRect(cr.left(), cr.top(), lineNumberAreaWidth(), cr.height()));
 }
 
+/*
+* updating LineNumberArea Width
+*/
 void CodeDisplay::updateLineNumberAreaWidth(int /* newBlockCount */)
 {
     setViewportMargins(lineNumberAreaWidth(), 0, 0, 0);
 }
 
+/*
+* updating LineNumberArea
+*/
 void CodeDisplay::updateLineNumberArea(const QRect &rect, int dy)
 {
     if (dy)

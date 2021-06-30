@@ -22,7 +22,6 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QTreeView>
@@ -65,7 +64,6 @@ public:
     QListWidget *listWidget;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *addingCommentButton;
-    QRadioButton *radioButton;
     QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuProjekt;
@@ -207,11 +205,6 @@ public:
 
         horizontalLayout_2->addWidget(addingCommentButton);
 
-        radioButton = new QRadioButton(gridGroupBox);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-
-        horizontalLayout_2->addWidget(radioButton);
-
 
         gridLayout->addLayout(horizontalLayout_2, 0, 0, 1, 1);
 
@@ -234,7 +227,7 @@ public:
         MainWindow->setStatusBar(statusbar);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1157, 21));
+        menubar->setGeometry(QRect(0, 0, 1157, 20));
         QSizePolicy sizePolicy6(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         sizePolicy6.setHorizontalStretch(0);
         sizePolicy6.setVerticalStretch(0);
@@ -285,7 +278,6 @@ public:
         actionPliki->setText(QCoreApplication::translate("MainWindow", "Pliki", nullptr));
         actionKomentarze->setText(QCoreApplication::translate("MainWindow", "Komentarze", nullptr));
         addingCommentButton->setText(QCoreApplication::translate("MainWindow", "Dodaj kom", nullptr));
-        radioButton->setText(QCoreApplication::translate("MainWindow", "Pozytywny", nullptr));
         menuProjekt->setTitle(QCoreApplication::translate("MainWindow", "Projekt", nullptr));
         menuNowy->setTitle(QCoreApplication::translate("MainWindow", "Nowy", nullptr));
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));

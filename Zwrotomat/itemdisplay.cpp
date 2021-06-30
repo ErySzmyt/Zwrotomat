@@ -17,24 +17,43 @@ ItemDisplay::~ItemDisplay()
     delete ui;
 }
 
+/*
+* Action on clicking remove Button
+* emiting sendRemoveItem(...)
+*/
 void ItemDisplay::on_removeButton_clicked()
 {
     emit sendRemoveItem(ui->label->text());
 }
 
-void ItemDisplay::setText(const QString &text) {
+/*
+* Setting text displayed on label in widget
+*/
+void ItemDisplay::setText(const QString &text)
+{
     ui->label->setText(text);
 }
 
-QString ItemDisplay::getText() {
+/*
+* Getting text displayed on label in widget
+*/
+QString ItemDisplay::getText()
+{
     return ui->label->text();
 }
 
+/*
+* Action on mouse release on whole widget
+* @note mousePressed dosent work, because it colides with QWidgetLayout methods
+*/
 void ItemDisplay::mouseReleaseEvent(QMouseEvent *event)
 {
     emit sendCommentClicked(ui->label->text());
 }
 
+/*
+* Action on mouse click on radio button in the widget
+*/
 void ItemDisplay::on_wskaznikPozytyw_clicked()
 {
     emit sendPositiveCheckChanged(ui->label->text(), ui->wskaznikPozytyw->isChecked());
