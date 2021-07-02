@@ -201,8 +201,8 @@ void MainWindow::on_pushButton_clicked()
                                              QDir::home().dirName(), &ok2);
     if (ok && !studentName.isEmpty()){
         std::ofstream myfile;
-        std::string fileName = "Comment"+studentName.toStdString()+".txt";
-        myfile.open (fileName);
+        std::string fileName = "C:\\Users\\User\\Desktop\\Comment"+studentName.toStdString()+".txt";
+        myfile.open ("C:\\Users\\User\\Desktop\\Comment.txt");
         qDebug() << studentName;
         for (auto const& x : *m_Comments)
         {
@@ -217,6 +217,7 @@ void MainWindow::on_pushButton_clicked()
              myfile << "ocena: nie wprowadzono";
         }
          myfile.close();
+         qDebug() << "ok";
     }
 
 
