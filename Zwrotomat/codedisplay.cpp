@@ -11,6 +11,7 @@
 CodeDisplay::CodeDisplay(QWidget *parent) : QPlainTextEdit(parent)
 {
     lineNumberArea = new LineNumberArea(this);
+    setReadOnly(true);
 
     connect(this, &CodeDisplay::blockCountChanged, this, &CodeDisplay::updateLineNumberAreaWidth);
     connect(this, &CodeDisplay::updateRequest, this, &CodeDisplay::updateLineNumberArea);

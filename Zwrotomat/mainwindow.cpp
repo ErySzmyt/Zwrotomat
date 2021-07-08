@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QInputDialog>
 
+#include <GeneratorWindow.h>
 #include <QLineEdit>
 
 #include "highlighter.h"
@@ -71,10 +72,9 @@ void MainWindow::on_addingCommentButton_clicked()
 {
     bool ok;
 
-    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
-                                             tr("Nazwa kom:"), QLineEdit::Normal,
-                                             QDir::home().dirName(), &ok);
-
+    QString text = QInputDialog::getText(this, tr("Dodawanie Komentarza"),
+                                             tr("Wyświetlana Nazwa:"), QLineEdit::Normal,
+                                             "", &ok);
     if(ok && !text.isEmpty()){
         qDebug() << text;
 
@@ -89,6 +89,7 @@ void MainWindow::on_addingCommentButton_clicked()
             MultiFileComment* comment = new MultiFileComment();
 
             this->m_Comments->insert(text, comment);
+
         }else{
 
             this->m_Comments->insert(text, this->m_currentComment);
@@ -139,12 +140,6 @@ void MainWindow::selectComment(const QString &text)
     this->loadCurrentFile();
     ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
     ui->commentEdit->setText(m_currentComment->getComment());
-    /*// open comment edit window
-    QWidget *wdg = new QWidget; // 2nd window for comment editor
-    QTextEdit *textEditor = new QTextEdit(QApplication::);    // text editor widget
-
-    wdg->adjustSize();
-    wdg->show();*/
 }
 
 void MainWindow::changePoitivityOfComment(const QString &text, const bool &isChecked)
@@ -180,4 +175,10 @@ void MainWindow::loadCurrentFile()
 void MainWindow::on_commentEdit_textChanged()
 {
     m_currentComment->setComment(ui->commentEdit->toPlainText());
+}
+
+void MainWindow::on_actionGeneruj_triggered()
+{
+    GeneratorWindow* generatorWindow = new GeneratorWindow(this);
+    generatorWindow->show();
 }

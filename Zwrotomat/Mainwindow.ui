@@ -64,6 +64,9 @@
             <verstretch>2</verstretch>
            </sizepolicy>
           </property>
+          <property name="windowTitle">
+           <string>Treść Komentarza</string>
+          </property>
           <widget class="QWidget" name="dockWidgetContents">
            <layout class="QGridLayout" name="gridLayout_1">
             <property name="sizeConstraint">
@@ -81,7 +84,7 @@
             <property name="bottomMargin">
              <number>0</number>
             </property>
-            <item row="0" column="0">
+            <item row="1" column="0">
              <widget class="QTextEdit" name="commentEdit"/>
             </item>
            </layout>
@@ -115,6 +118,9 @@
         </property>
         <property name="features">
          <set>QDockWidget::AllDockWidgetFeatures</set>
+        </property>
+        <property name="windowTitle">
+         <string>Drzewo Projektu</string>
         </property>
         <widget class="QWidget" name="dockWidgetContents_2">
          <layout class="QGridLayout" name="gridLayout_3">
@@ -180,16 +186,22 @@
                </item>
                <item row="0" column="0">
                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="sizeConstraint">
+                  <enum>QLayout::SetMaximumSize</enum>
+                 </property>
                  <item>
                   <widget class="QPushButton" name="addingCommentButton">
                    <property name="sizePolicy">
-                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>1</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
                    <property name="text">
-                    <string>Dodaj kom</string>
+                    <string>Dodaj komentarz</string>
                    </property>
                   </widget>
                  </item>
@@ -215,7 +227,7 @@
      <x>0</x>
      <y>0</y>
      <width>1157</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -255,9 +267,16 @@
     <addaction name="actionPliki"/>
     <addaction name="actionKomentarze"/>
    </widget>
+   <widget class="QMenu" name="menuGeneruj">
+    <property name="title">
+     <string>Raport</string>
+    </property>
+    <addaction name="actionGeneruj"/>
+   </widget>
    <addaction name="menuProjekt"/>
    <addaction name="menuUstawienia"/>
    <addaction name="menuOkna"/>
+   <addaction name="menuGeneruj"/>
   </widget>
   <action name="actionUstawienia">
    <property name="text">
@@ -312,6 +331,11 @@
   <action name="actionKomentarze">
    <property name="text">
     <string>Komentarze</string>
+   </property>
+  </action>
+  <action name="actionGeneruj">
+   <property name="text">
+    <string>Generuj</string>
    </property>
   </action>
  </widget>

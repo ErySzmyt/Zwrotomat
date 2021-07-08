@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     codedisplay.cpp \
+    generatorwindow.cpp \
     highlighter.cpp \
     itemdisplay.cpp \
     linenumberarea.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     codedisplay.h \
+    generatorwindow.h \
     highlighter.h \
     itemdisplay.h \
     linenumberarea.h \
@@ -27,6 +29,7 @@ HEADERS += \
 
 FORMS += \
     Mainwindow.ui \
+    generatorwindow.ui \
     itemdisplay.ui
 
 # Default rules for deployment.
