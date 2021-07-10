@@ -49,7 +49,7 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 
 void MainWindow::on_actionZ_Folderu_triggered()
 {
-    QDir dir = QFileDialog::getExistingDirectory(0, ("Select Output Folder"), QDir::currentPath());
+    QDir dir = QFileDialog::getExistingDirectory(0, ("Select Project"), QDir::currentPath());
     this->m_selectedDir = dir;
 
     qDebug() << "Initilizing TreeView with " << dir;
@@ -84,17 +84,14 @@ void MainWindow::on_addingCommentButton_clicked()
         ItemDisplay* buttons = new ItemDisplay(this);
         buttons->setText(text);
 
-
         if(m_Comments->size() > 0){
             MultiFileComment* comment = new MultiFileComment();
 
             this->m_Comments->insert(text, comment);
 
         }else{
-
             this->m_Comments->insert(text, this->m_currentComment);
         }
-
 
         item->setSizeHint(buttons->sizeHint());
 
@@ -144,7 +141,6 @@ void MainWindow::selectComment(const QString &text)
 
 void MainWindow::changePoitivityOfComment(const QString &text, const bool &isChecked)
 {
-
       MultiFileComment* com = m_Comments->value(text);
       (isChecked)? com->setPositive() : com->setNegative();
       qDebug()<<"Positivity changed"<< com<<" "<<com->isPositive();
@@ -179,6 +175,6 @@ void MainWindow::on_commentEdit_textChanged()
 
 void MainWindow::on_actionGeneruj_triggered()
 {
-    GeneratorWindow* generatorWindow = new GeneratorWindow(this);
+    GeneratorWindow* generatorWindow = new GeneratorWindow(this, m_Comments);
     generatorWindow->show();
 }

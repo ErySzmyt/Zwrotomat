@@ -15,6 +15,14 @@ bool MultiFileComment::containFile(QString fileName)
 }
 
 /*
+ * Returns data contained in multifilecomment
+ */
+QHash<QString, QList<int> *> *MultiFileComment::getData()
+{
+    return this->m_files;
+}
+
+/*
 * Getting selected lines indexes for given file
 * @param fileName file
 */

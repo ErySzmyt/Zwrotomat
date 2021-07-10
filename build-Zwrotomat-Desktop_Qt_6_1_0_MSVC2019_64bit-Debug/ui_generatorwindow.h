@@ -33,17 +33,21 @@ public:
     QGridLayout *gridLayout_2;
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
-    QPlainTextEdit *plainTextEdit;
     QLabel *label;
+    QPlainTextEdit *subjectTextEdit;
     QLabel *label_2;
-    QPlainTextEdit *plainTextEdit_2;
+    QPlainTextEdit *topicTextEdit;
     QLabel *label_3;
-    QPlainTextEdit *plainTextEdit_3;
+    QPlainTextEdit *checkerTextEdit;
     QLabel *label_4;
-    QLabel *label_5;
+    QPlainTextEdit *scoreTextEdit;
     QSpacerItem *verticalSpacer;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *outputDirPicker;
+    QLabel *outputDirDisplay;
+    QLabel *label_6;
     QHBoxLayout *horizontalLayout_2;
-    QPushButton *pushButton;
+    QPushButton *generateButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -59,79 +63,101 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(-1, 10, -1, -1);
+        verticalLayout->setContentsMargins(-1, 0, -1, -1);
         formLayout = new QFormLayout();
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setRowWrapPolicy(QFormLayout::WrapAllRows);
         formLayout->setLabelAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
-        plainTextEdit = new QPlainTextEdit(centralwidget);
-        plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
-        plainTextEdit->setMaximumSize(QSize(16777215, 40));
-
-        formLayout->setWidget(0, QFormLayout::FieldRole, plainTextEdit);
-
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
+
+        subjectTextEdit = new QPlainTextEdit(centralwidget);
+        subjectTextEdit->setObjectName(QString::fromUtf8("subjectTextEdit"));
+        subjectTextEdit->setMaximumSize(QSize(16777215, 40));
+
+        formLayout->setWidget(0, QFormLayout::FieldRole, subjectTextEdit);
 
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
-        plainTextEdit_2 = new QPlainTextEdit(centralwidget);
-        plainTextEdit_2->setObjectName(QString::fromUtf8("plainTextEdit_2"));
-        plainTextEdit_2->setMaximumSize(QSize(16777215, 40));
+        topicTextEdit = new QPlainTextEdit(centralwidget);
+        topicTextEdit->setObjectName(QString::fromUtf8("topicTextEdit"));
+        topicTextEdit->setMaximumSize(QSize(16777215, 40));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, plainTextEdit_2);
+        formLayout->setWidget(1, QFormLayout::FieldRole, topicTextEdit);
 
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         formLayout->setWidget(2, QFormLayout::FieldRole, label_3);
 
-        plainTextEdit_3 = new QPlainTextEdit(centralwidget);
-        plainTextEdit_3->setObjectName(QString::fromUtf8("plainTextEdit_3"));
+        checkerTextEdit = new QPlainTextEdit(centralwidget);
+        checkerTextEdit->setObjectName(QString::fromUtf8("checkerTextEdit"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(plainTextEdit_3->sizePolicy().hasHeightForWidth());
-        plainTextEdit_3->setSizePolicy(sizePolicy);
-        plainTextEdit_3->setMinimumSize(QSize(0, 20));
-        plainTextEdit_3->setMaximumSize(QSize(16777215, 40));
+        sizePolicy.setHeightForWidth(checkerTextEdit->sizePolicy().hasHeightForWidth());
+        checkerTextEdit->setSizePolicy(sizePolicy);
+        checkerTextEdit->setMinimumSize(QSize(0, 20));
+        checkerTextEdit->setMaximumSize(QSize(16777215, 40));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, plainTextEdit_3);
+        formLayout->setWidget(3, QFormLayout::FieldRole, checkerTextEdit);
 
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        formLayout->setWidget(5, QFormLayout::FieldRole, label_4);
+        formLayout->setWidget(4, QFormLayout::FieldRole, label_4);
 
-        label_5 = new QLabel(centralwidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
+        scoreTextEdit = new QPlainTextEdit(centralwidget);
+        scoreTextEdit->setObjectName(QString::fromUtf8("scoreTextEdit"));
+        scoreTextEdit->setMaximumSize(QSize(16777215, 40));
 
-        formLayout->setWidget(5, QFormLayout::LabelRole, label_5);
+        formLayout->setWidget(5, QFormLayout::FieldRole, scoreTextEdit);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        formLayout->setItem(4, QFormLayout::LabelRole, verticalSpacer);
+        formLayout->setItem(6, QFormLayout::FieldRole, verticalSpacer);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        outputDirPicker = new QPushButton(centralwidget);
+        outputDirPicker->setObjectName(QString::fromUtf8("outputDirPicker"));
+        outputDirPicker->setMaximumSize(QSize(60, 16777215));
+
+        horizontalLayout->addWidget(outputDirPicker);
+
+        outputDirDisplay = new QLabel(centralwidget);
+        outputDirDisplay->setObjectName(QString::fromUtf8("outputDirDisplay"));
+
+        horizontalLayout->addWidget(outputDirDisplay);
+
+
+        formLayout->setLayout(8, QFormLayout::FieldRole, horizontalLayout);
+
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, label_6);
 
 
         verticalLayout->addLayout(formLayout);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        generateButton = new QPushButton(centralwidget);
+        generateButton->setObjectName(QString::fromUtf8("generateButton"));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy1);
-        pushButton->setLayoutDirection(Qt::LeftToRight);
+        sizePolicy1.setHeightForWidth(generateButton->sizePolicy().hasHeightForWidth());
+        generateButton->setSizePolicy(sizePolicy1);
+        generateButton->setLayoutDirection(Qt::LeftToRight);
 
-        horizontalLayout_2->addWidget(pushButton);
+        horizontalLayout_2->addWidget(generateButton);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -157,11 +183,13 @@ public:
     {
         GeneratorWindow->setWindowTitle(QCoreApplication::translate("GeneratorWindow", "MainWindow", nullptr));
         label->setText(QCoreApplication::translate("GeneratorWindow", "Przedmiot", nullptr));
-        label_2->setText(QCoreApplication::translate("GeneratorWindow", "Ocena", nullptr));
+        label_2->setText(QCoreApplication::translate("GeneratorWindow", "Temat", nullptr));
         label_3->setText(QCoreApplication::translate("GeneratorWindow", "Sprawdzaj\304\205cy", nullptr));
-        label_4->setText(QCoreApplication::translate("GeneratorWindow", "TextLabel", nullptr));
-        label_5->setText(QCoreApplication::translate("GeneratorWindow", "TextLabel", nullptr));
-        pushButton->setText(QCoreApplication::translate("GeneratorWindow", "Generate", nullptr));
+        label_4->setText(QCoreApplication::translate("GeneratorWindow", "Ocena", nullptr));
+        outputDirPicker->setText(QCoreApplication::translate("GeneratorWindow", "Wybierz", nullptr));
+        outputDirDisplay->setText(QCoreApplication::translate("GeneratorWindow", "TextLabel", nullptr));
+        label_6->setText(QCoreApplication::translate("GeneratorWindow", "Wyj\305\233ciowy Folder", nullptr));
+        generateButton->setText(QCoreApplication::translate("GeneratorWindow", "Generate", nullptr));
     } // retranslateUi
 
 };

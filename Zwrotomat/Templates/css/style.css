@@ -1,0 +1,60 @@
+.body-content {
+  background-color: white;
+  box-shadow: 0 0 25px hsla(0, 0%, 0%, 0.60);
+  margin-top: 2%;
+  padding: 10%;
+  padding-top: 2%;
+  text-align: center;
+}
+
+.personal-details-list {
+  margin-top: 25px;
+  list-style: none;
+}
+
+.personal-details-list .detail-item {
+  border-bottom: 1px solid #e1e1e1;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-size: 17px;
+  list-style: none;
+}
+
+ul.checked-list li {
+	margin-top: 13px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.top-Margin {
+	margin-top: 50px;
+}
+
+.detail-item {
+	margin-top: 3px;
+}
+
+.leftText {
+  text-align:left;
+}
+
+.blueColor{
+  color: #1d5495;
+  font-family: 'Arial';
+  font-weight: bold;
+}
+
+.negativeComment {
+  background-color: rgb(237, 150, 138, 0.3);
+}
+
+#header {
+  color: #1d5495;
+  font-family: 'Arial';
+  font-weight: bold;
+  margin-bottom: 70px;
+}
+
+#codeDisplay {
+  padding-top: 8px;
+  padding-bottom: 10px;
+}

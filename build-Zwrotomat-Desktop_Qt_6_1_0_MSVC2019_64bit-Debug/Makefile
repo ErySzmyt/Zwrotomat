@@ -240,6 +240,7 @@ Makefile: ..\Zwrotomat\Zwrotomat.pro ..\..\..\Qt\6.1.0\msvc2019_64\mkspecs\win32
 		..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Core.prl \
 		..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6EntryPoint.prl \
 		..\..\..\Qt\6.1.0\msvc2019_64\mkspecs\features\build_pass.prf \
+		..\Zwrotomat\resources.qrc \
 		..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Widgetsd.prl \
 		..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Guid.prl \
 		..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Cored.prl \
@@ -401,6 +402,7 @@ Makefile: ..\Zwrotomat\Zwrotomat.pro ..\..\..\Qt\6.1.0\msvc2019_64\mkspecs\win32
 ..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Core.prl:
 ..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6EntryPoint.prl:
 ..\..\..\Qt\6.1.0\msvc2019_64\mkspecs\features\build_pass.prf:
+..\Zwrotomat\resources.qrc:
 ..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Widgetsd.prl:
 ..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Guid.prl:
 ..\..\..\Qt\6.1.0\msvc2019_64\lib\Qt6Cored.prl:
