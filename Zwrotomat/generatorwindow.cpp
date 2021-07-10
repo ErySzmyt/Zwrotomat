@@ -30,7 +30,11 @@ GeneratorWindow::~GeneratorWindow()
 
 void GeneratorWindow::on_generateButton_clicked()
 {
+	//TODO: Figure out why it's broken :( 
     QString outputPage = QFile(":/Res/Templates/main_index.html").readAll();
+
+    outputPage.replace("${body}", "Dupa");
+
     qDebug() << outputPage;
 
 
