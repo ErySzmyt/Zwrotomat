@@ -10,8 +10,10 @@ CONFIG += c++11
 
 SOURCES += \
     codedisplay.cpp \
+    filereadingutils.cpp \
     generatorwindow.cpp \
     highlighter.cpp \
+    htmlformater.cpp \
     itemdisplay.cpp \
     linenumberarea.cpp \
     main.cpp \
@@ -20,8 +22,10 @@ SOURCES += \
 
 HEADERS += \
     codedisplay.h \
+    filereadingutils.h \
     generatorwindow.h \
     highlighter.h \
+    htmlformater.h \
     itemdisplay.h \
     linenumberarea.h \
     mainwindow.h \
@@ -37,5 +41,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    resources.qrc
+RESOURCES = resources.qrc

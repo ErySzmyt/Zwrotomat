@@ -1,9 +1,13 @@
+#include "filereadingutils.h"
 #include "generatorwindow.h"
+#include "htmlformater.h"
 #include "ui_generatorwindow.h"
 
 #include <algorithm>
 #include <algorithm>
 #include <QStringBuilder>
+#include <QDateTime>
+
 
 #include <MultiFileComment.h>
 #include <QFileDialog>
@@ -30,18 +34,26 @@ GeneratorWindow::~GeneratorWindow()
 
 void GeneratorWindow::on_generateButton_clicked()
 {
-	//TODO: Figure out why it's broken :( 
-    QString outputPage = QFile(":/Res/Templates/main_index.html").readAll();
+    // loadMainTemplate(QString Subject, QString Topic, QString Checker, QString date, QString score);
+    QString mainPage = HtmlFormater::loadMainTemplate(
+                ui->subjectTextEdit->toPlainText(),
+                ui->topicTextEdit->toPlainText(),
+                ui->checkerTextEdit->toPlainText(),
+                QDateTime::currentDateTime().toString("dd-MM-yyyy"),
+                ui->scoreTextEdit->toPlainText()
+                );
 
-    outputPage.replace("${body}", "Dupa");
-
-    qDebug() << outputPage;
-
+    QString body = "";
 
     QHashIterator<QString, MultiFileComment*> i(*m_Comments);
     while (i.hasNext()) {
         i.next();
+
+        QString comment = "";
         qDebug() << "::Comment Name::: " << i.key();
+
+        comment += HtmlFormater::loadTextDisplayTemplate(i.key());
+
 
         MultiFileComment* multifileComment = i.value();
         qDebug() << "::Comment::: " << multifileComment->getComment();
@@ -54,10 +66,28 @@ void GeneratorWindow::on_generateButton_clicked()
             qDebug() << "::File::: " << z.key();
             std::sort(z.value()->begin(), z.value()->end()); //sorting lines
 
+            QString selectedLines = FileReadingUtils::readGivenLines(z.value(), z.key());
 
-
+            if(multifileComment->isPositive())
+                comment += HtmlFormater::loadPositiveCommentTemplate(z.key(), selectedLines);
+            else
+                comment += HtmlFormater::loadNegativeCommentTemplate(z.key(), selectedLines);
         }
+
+        comment += HtmlFormater::loadTextDisplayTemplate(multifileComment->getComment());
+
+        body += comment;
     }
+
+    mainPage.replace("${body}", body);
+
+    const QString qPath("testQTextStreamEncoding.txt");
+    QFile qFile(qPath);
+    if (qFile.open(QIODevice::WriteOnly)) {
+      QTextStream out(&qFile); out << mainPage;
+      qFile.close();
+    }
+
 }
 
 void GeneratorWindow::on_subjectTextEdit_textChanged()

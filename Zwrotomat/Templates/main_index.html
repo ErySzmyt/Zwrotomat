@@ -3,7 +3,72 @@
   <head>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="css/style.css"/>
+    <style>
+    .body-content {
+      background-color: white;
+      box-shadow: 0 0 25px hsla(0, 0%, 0%, 0.60);
+      margin-top: 2%;
+      padding: 10%;
+      padding-top: 2%;
+      text-align: center;
+    }
+
+    .personal-details-list {
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    .personal-details-list .detail-item {
+      border-bottom: 1px solid #e1e1e1;
+      font-family: 'PT Sans Narrow', sans-serif;
+      font-size: 17px;
+      list-style: none;
+    }
+
+    ul.checked-list li {
+            margin-top: 13px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .bottom-Margin {
+            margin-bottom: 300px;
+    }
+
+    .top-Margin {
+            margin-top: 50px;
+    }
+
+    .detail-item {
+            margin-top: 3px;
+    }
+
+    .leftText {
+      text-align:left;
+    }
+
+    .blueColor{
+      color: #1d5495;
+      font-family: 'Arial';
+      font-weight: bold;
+    }
+
+    .negativeComment {
+      background-color: rgb(237, 150, 138, 0.3);
+    }
+
+    #header {
+      color: #1d5495;
+      font-family: 'Arial';
+      font-weight: bold;
+      margin-bottom: 70px;
+    }
+
+    #codeDisplay {
+      padding-top: 8px;
+      padding-bottom: 10px;
+    }
+    </style>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Latest compiled and minified CSS -->
@@ -21,7 +86,7 @@
 
         <div class="row justify-content-md-center">
           <div class="col-lg-5">
-            <img src="img/logo.png" class="img-fluid" alt="">
+            <img src="https://i.ibb.co/W3TsP63/logo.png" class="img-fluid" alt="">
           </div>
         </div>
 
@@ -41,7 +106,7 @@
           </div>
         </div>
 
-        <div class="row justify-content-end top-Margin">
+        <div class="row justify-content-end top-Margin bottom-Margin">
           <div class="col-lg-6">
             <ul class="leftText personal-details-list">
               <li class="detail-item">Sprawdzający<span class="colon">:</span> ${Checker} </li>
@@ -52,7 +117,7 @@
         </div>
 
 
-		${body}
+                  ${body}
 
 
         </div>

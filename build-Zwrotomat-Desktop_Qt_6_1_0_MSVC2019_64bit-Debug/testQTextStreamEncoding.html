@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <style>
+    .body-content {
+      background-color: white;
+      box-shadow: 0 0 25px hsla(0, 0%, 0%, 0.60);
+      margin-top: 2%;
+      padding: 10%;
+      padding-top: 2%;
+      text-align: center;
+    }
+
+    .personal-details-list {
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    .personal-details-list .detail-item {
+      border-bottom: 1px solid #e1e1e1;
+      font-family: 'PT Sans Narrow', sans-serif;
+      font-size: 17px;
+      list-style: none;
+    }
+
+    ul.checked-list li {
+            margin-top: 13px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .bottom-Margin {
+            margin-top: 300px;
+    }
+
+    .top-Margin {
+            margin-top: 50px;
+    }
+
+    .detail-item {
+            margin-top: 3px;
+    }
+
+    .leftText {
+      text-align:left;
+    }
+
+    .blueColor{
+      color: #1d5495;
+      font-family: 'Arial';
+      font-weight: bold;
+    }
+
+    .negativeComment {
+      background-color: rgb(237, 150, 138, 0.3);
+    }
+
+    #header {
+      color: #1d5495;
+      font-family: 'Arial';
+      font-weight: bold;
+      margin-bottom: 70px;
+    }
+
+    #codeDisplay {
+      padding-top: 8px;
+      padding-bottom: 10px;
+    }
+    </style>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- https://github.com/googlearchive/code-prettify -->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+    <title>Raport Zwrotny</title>
+  </head>
+  <body>
+    <div class="container container-table">
+      <div class="body-content">
+
+        <div class="row justify-content-md-center">
+          <div class="col-lg-5">
+            <img src="https://i.ibb.co/W3TsP63/logo.png" class="img-fluid" alt="">
+          </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+          <div class="col-lg-8">
+            <br>
+            <h2 class="blueColor">Politechnika</h2>
+            <h2 class="blueColor">Śląska</h2>
+            <br>
+            <h3 class="blueColor">Wydział Inżynierii Materiałowej</h3>
+            <br>
+            <ul class="leftText personal-details-list">
+              <li class="detail-item blueColor">Przedmiot<span class="colon">:</span> Pk </li>
+              <li class="detail-item blueColor">Temat<span class="colon">:</span> Agentowanie </li>
+            </ul>
+            <br>
+          </div>
+        </div>
+
+        <div class="row justify-content-end top-Margin bottom-Margin">
+          <div class="col-lg-6">
+            <ul class="leftText personal-details-list">
+              <li class="detail-item">Sprawdzający<span class="colon">:</span> Majster </li>
+              <li class="detail-item">Data<span class="colon">:</span> 11-07-2021 </li>
+              <li class="detail-item">Ocena<span class="colon">:</span> -3 </li>
+            </ul>
+          </div>
+        </div>
+
+
+                  <div class="row justify-content-md-center">
+  <div class="col-lg-8">
+
+    <p id="commentDisplay" class="leftText">
+           Konstruktor
+    </p>
+  </div>
+</div>
+        <div class="row justify-content-md-center">
+          <div class="col-lg-8">
+
+            <div class="row" style="margin: 0px;">
+              <h5 class="leftText">Plik:</h5>
+              <h5 id="fileName" class="leftText" style="margin-left: 5px;"> F:/Github/lab08-ErySzmyt-1/Circle.cpp </h5>
+            </div>
+
+            <pre id="codeDisplay" class="prettyprint leftText">
+               	Circle::Circle(Point* center, double radius)
+	{
+		this->m_p1 = center;
+		this->m_radius = radius;
+	}
+
+	Circle::Circle(Point* center, double radius, bool filled, float outline_size, ALLEGRO_COLOR color)
+	{
+		this->m_p1 = center;
+		this->m_radius = radius;
+		this->m_filled = filled;
+		this->m_outline_size = outline_size;
+		this->m_color = color;
+	}
+
+            </pre>
+
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-lg-8">
+
+            <div class="row" style="margin: 0px;">
+              <h5 class="leftText">Plik:</h5>
+              <h5 id="fileName" class="leftText" style="margin-left: 5px;"> F:/Github/lab08-ErySzmyt-1/Circle.h </h5>
+            </div>
+
+            <pre id="codeDisplay" class="prettyprint leftText">
+               		Circle(Point* center, double radius);
+		Circle(Point* center, double radius, bool filled, float outline_size, ALLEGRO_COLOR color);
+
+            </pre>
+
+          </div>
+        </div>
+<div class="row justify-content-md-center">
+  <div class="col-lg-8">
+
+    <p id="commentDisplay" class="leftText">
+           Bardzo chujowy konstruktor szanowny panie ...;..
+    </p>
+  </div>
+</div>
+
+
+
+        </div>
+    </div>
+  </body>
+</html>
