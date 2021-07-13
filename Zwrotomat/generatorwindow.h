@@ -1,7 +1,7 @@
 #ifndef GENERATORWINDOW_H
 #define GENERATORWINDOW_H
 
-#include <MultiFileComment.h>
+#include "multifilecomment.h"
 #include <QDir>
 #include <QMainWindow>
 
@@ -19,13 +19,9 @@ public:
 
 private slots:
     void on_generateButton_clicked();
-
     void on_subjectTextEdit_textChanged();
-
     void on_topicTextEdit_textChanged();
-
     void on_checkerTextEdit_textChanged();
-
     void on_outputDirPicker_clicked();
 
 private:
@@ -36,7 +32,6 @@ private:
     static inline QString s_last_checker = "";
     static inline QDir s_last_selectedDir = QDir("C:/");
     QHash<QString, MultiFileComment*> *m_Comments;
-
 
 };
 

@@ -25,7 +25,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     const uint offsetsAndSize[32];
-    char stringdata0[302];
+    char stringdata0[303];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -43,10 +43,10 @@ QT_MOC_LITERAL(149, 30), // "on_addingCommentButton_clicked"
 QT_MOC_LITERAL(180, 13), // "removeComment"
 QT_MOC_LITERAL(194, 4), // "text"
 QT_MOC_LITERAL(199, 13), // "selectComment"
-QT_MOC_LITERAL(213, 24), // "changePoitivityOfComment"
-QT_MOC_LITERAL(238, 9), // "isChecked"
-QT_MOC_LITERAL(248, 26), // "on_commentEdit_textChanged"
-QT_MOC_LITERAL(275, 26) // "on_actionGeneruj_triggered"
+QT_MOC_LITERAL(213, 25), // "changePositivityOfComment"
+QT_MOC_LITERAL(239, 9), // "isChecked"
+QT_MOC_LITERAL(249, 26), // "on_commentEdit_textChanged"
+QT_MOC_LITERAL(276, 26) // "on_actionGeneruj_triggered"
 
     },
     "MainWindow\0on_treeFileExplorer_clicked\0"
@@ -55,7 +55,7 @@ QT_MOC_LITERAL(275, 26) // "on_actionGeneruj_triggered"
     "on_textBrowser_cursorPositionChanged\0"
     "on_addingCommentButton_clicked\0"
     "removeComment\0text\0selectComment\0"
-    "changePoitivityOfComment\0isChecked\0"
+    "changePositivityOfComment\0isChecked\0"
     "on_commentEdit_textChanged\0"
     "on_actionGeneruj_triggered"
 };
@@ -114,7 +114,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->on_addingCommentButton_clicked(); break;
         case 5: _t->removeComment((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 6: _t->selectComment((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 7: _t->changePoitivityOfComment((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const bool(*)>(_a[2]))); break;
+        case 7: _t->changePositivityOfComment((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const bool(*)>(_a[2]))); break;
         case 8: _t->on_commentEdit_textChanged(); break;
         case 9: _t->on_actionGeneruj_triggered(); break;
         default: ;

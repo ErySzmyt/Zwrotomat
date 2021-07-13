@@ -9,6 +9,7 @@
 #include <QStringBuilder>
 #include <QDateTime>
 #include <QFileInfo>
+#include <QMessageBox>
 
 #include <QFileDialog>
 
@@ -87,7 +88,8 @@ void GeneratorWindow::on_generateButton_clicked()
     QString filename = ui->fileNameTextEdit->toPlainText();
 
     if(filename.isEmpty()){
-       filename = "1234";
+       QMessageBox::information(0, "Error", "Missing file name");
+       return;
     }
 
     if(!filename.endsWith(".html")){

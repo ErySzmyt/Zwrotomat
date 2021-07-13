@@ -57,7 +57,7 @@ public:
     {
         if (GeneratorWindow->objectName().isEmpty())
             GeneratorWindow->setObjectName(QString::fromUtf8("GeneratorWindow"));
-        GeneratorWindow->resize(270, 514);
+        GeneratorWindow->resize(244, 574);
         centralwidget = new QWidget(GeneratorWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -120,7 +120,7 @@ public:
 
         formLayout->setWidget(5, QFormLayout::FieldRole, scoreTextEdit);
 
-        verticalSpacer = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         formLayout->setItem(6, QFormLayout::FieldRole, verticalSpacer);
 
@@ -181,7 +181,7 @@ public:
         GeneratorWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(GeneratorWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 270, 21));
+        menubar->setGeometry(QRect(0, 0, 244, 21));
         GeneratorWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(GeneratorWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

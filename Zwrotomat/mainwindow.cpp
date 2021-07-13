@@ -119,6 +119,7 @@ void MainWindow::removeComment(const QString &text) {
             }
 
             //TODO free memory of removed comment, and remove it from HashMap
+            delete m_Comments->value(text);
             m_Comments->remove(text);
 
             delete item;
@@ -139,7 +140,7 @@ void MainWindow::selectComment(const QString &text)
     ui->commentEdit->setText(m_currentComment->getComment());
 }
 
-void MainWindow::changePoitivityOfComment(const QString &text, const bool &isChecked)
+void MainWindow::changePositivityOfComment(const QString &text, const bool &isChecked)
 {
       MultiFileComment* com = m_Comments->value(text);
       (isChecked)? com->setPositive() : com->setNegative();
@@ -151,13 +152,16 @@ void MainWindow::loadCurrentFile()
     QFile file(this->m_selectedFile);
 
     if (!file.open(QIODevice::ReadOnly))
-        QMessageBox::information(0, "error", file.errorString()); // if unable to open throw error in msg box
+        QMessageBox::information(0, "Error", file.errorString()); // if unable to open throw error in msg box
 
     QTextStream in(&file); // else open file and put it in browser
 
     qDebug() << "Reding File " << this->m_selectedFile;
 
     QString text = in.readAll();
+
+    file.close();
+
 
     if(this->m_selectedFile.endsWith(".cpp", Qt::CaseInsensitive) || this->m_selectedFile.endsWith(".h", Qt::CaseInsensitive) || this->m_selectedFile.endsWith(".c", Qt::CaseInsensitive))
         text.replace("\t", "    ");

@@ -36,5 +36,7 @@ QString FileReadingUtils::readGivenLines(QList<int>* lineList, QString file)
         i++;
     }
 
+    inputFile.close();
+
     return result;
 }

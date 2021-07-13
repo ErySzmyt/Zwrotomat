@@ -32,14 +32,12 @@ private slots:
     void on_actionPliki_triggered();
 
     void on_textBrowser_cursorPositionChanged();
-
-
     void on_addingCommentButton_clicked();
 
     void removeComment(const QString &text);
     void selectComment(const QString &text);
 
-    void changePoitivityOfComment(const QString &text, const bool &isChecked);
+    void changePositivityOfComment(const QString &text, const bool &isChecked);
     void on_commentEdit_textChanged();
 
     void on_actionGeneruj_triggered();

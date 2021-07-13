@@ -5,6 +5,12 @@ MultiFileComment::MultiFileComment()
     this->m_files = new QHash<QString, QVector<int>*>;
 }
 
+MultiFileComment::~MultiFileComment()
+{
+    qDeleteAll(this->m_files->begin(), this->m_files->end());
+    this->m_files->clear();
+}
+
 /*
 * Checking is MultiFileComment already contain given file
 * @param fileName file to check
