@@ -34,7 +34,6 @@ GeneratorWindow::~GeneratorWindow()
 
 void GeneratorWindow::on_generateButton_clicked()
 {
-    // loadMainTemplate(QString Subject, QString Topic, QString Checker, QString date, QString score);
     QString mainPage = HtmlFormater::loadMainTemplate(
                 ui->subjectTextEdit->toPlainText(),
                 ui->topicTextEdit->toPlainText(),
@@ -85,7 +84,19 @@ void GeneratorWindow::on_generateButton_clicked()
 
     mainPage.replace("${body}", body);
 
-    const QString qPath("testQTextStreamEncoding.txt");
+    QString filename = ui->fileNameTextEdit->toPlainText();
+
+    if(filename.isEmpty()){
+       filename = "1234";
+    }
+
+    if(!filename.endsWith(".html")){
+        filename += ".html";
+    }
+
+    QString path = this->s_last_selectedDir.path() + filename;
+
+    const QString qPath(path);
     QFile qFile(qPath);
     if (qFile.open(QIODevice::WriteOnly)) {
       QTextStream out(&qFile); out << mainPage;

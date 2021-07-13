@@ -42,10 +42,12 @@ public:
     QLabel *label_4;
     QPlainTextEdit *scoreTextEdit;
     QSpacerItem *verticalSpacer;
+    QLabel *label_6;
     QHBoxLayout *horizontalLayout;
     QPushButton *outputDirPicker;
     QLabel *outputDirDisplay;
-    QLabel *label_6;
+    QLabel *label_5;
+    QPlainTextEdit *fileNameTextEdit;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *generateButton;
     QMenuBar *menubar;
@@ -122,6 +124,11 @@ public:
 
         formLayout->setItem(6, QFormLayout::FieldRole, verticalSpacer);
 
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        formLayout->setWidget(7, QFormLayout::FieldRole, label_6);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         outputDirPicker = new QPushButton(centralwidget);
@@ -138,10 +145,16 @@ public:
 
         formLayout->setLayout(8, QFormLayout::FieldRole, horizontalLayout);
 
-        label_6 = new QLabel(centralwidget);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
 
-        formLayout->setWidget(7, QFormLayout::FieldRole, label_6);
+        formLayout->setWidget(9, QFormLayout::FieldRole, label_5);
+
+        fileNameTextEdit = new QPlainTextEdit(centralwidget);
+        fileNameTextEdit->setObjectName(QString::fromUtf8("fileNameTextEdit"));
+        fileNameTextEdit->setMaximumSize(QSize(16777215, 40));
+
+        formLayout->setWidget(10, QFormLayout::FieldRole, fileNameTextEdit);
 
 
         verticalLayout->addLayout(formLayout);
@@ -186,9 +199,10 @@ public:
         label_2->setText(QCoreApplication::translate("GeneratorWindow", "Temat", nullptr));
         label_3->setText(QCoreApplication::translate("GeneratorWindow", "Sprawdzaj\304\205cy", nullptr));
         label_4->setText(QCoreApplication::translate("GeneratorWindow", "Ocena", nullptr));
+        label_6->setText(QCoreApplication::translate("GeneratorWindow", "Wyj\305\233ciowy Folder", nullptr));
         outputDirPicker->setText(QCoreApplication::translate("GeneratorWindow", "Wybierz", nullptr));
         outputDirDisplay->setText(QCoreApplication::translate("GeneratorWindow", "TextLabel", nullptr));
-        label_6->setText(QCoreApplication::translate("GeneratorWindow", "Wyj\305\233ciowy Folder", nullptr));
+        label_5->setText(QCoreApplication::translate("GeneratorWindow", "Nazwa pliku", nullptr));
         generateButton->setText(QCoreApplication::translate("GeneratorWindow", "Generate", nullptr));
     } // retranslateUi
 
