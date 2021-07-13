@@ -83,3 +83,20 @@ QString HtmlFormater::loadTextDisplayTemplate(QString comment)
 
     return data.replace("${comment}", comment);
 }
+
+QString HtmlFormater::loadHeaderDisplayTemplate(QString Text)
+{
+    QString data;
+    QString fileName = HtmlFormater::COMMENT_HEADER_DISPLAY_TEMPLATE_RESOURCE;
+
+    QFile file(fileName);
+
+    if(!file.open(QIODevice::ReadOnly))
+        qDebug()<<"filenot opened";
+    else
+        data = file.readAll();
+
+    file.close();
+
+    return data.replace("${comment}", Text);
+}

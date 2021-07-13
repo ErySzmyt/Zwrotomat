@@ -3,7 +3,7 @@
 #include <QFileDialog>
 #include <QInputDialog>
 
-#include <GeneratorWindow.h>
+#include "generatorwindow.h"
 #include <QLineEdit>
 
 #include "highlighter.h"

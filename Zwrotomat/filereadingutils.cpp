@@ -8,6 +8,13 @@ FileReadingUtils::FileReadingUtils()
 
 }
 
+/*
+* Reading lines specified in @param lineList from file specified by given path @param file
+* method read file line by line, and if lineList contains current index then it reads and concats into output.
+*
+* @param lineList lines to read from given file.
+* @param file path of given file to read.
+*/
 QString FileReadingUtils::readGivenLines(QList<int>* lineList, QString file)
 {
     QFile inputFile((QString(file)));

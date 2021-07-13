@@ -52,7 +52,7 @@ void GeneratorWindow::on_generateButton_clicked()
         QString comment = "";
         qDebug() << "::Comment Name::: " << i.key();
 
-        comment += HtmlFormater::loadTextDisplayTemplate(i.key());
+        comment += HtmlFormater::loadHeaderDisplayTemplate(i.key());
 
 
         MultiFileComment* multifileComment = i.value();
@@ -64,14 +64,16 @@ void GeneratorWindow::on_generateButton_clicked()
         while (z.hasNext()) {
             z.next();
             qDebug() << "::File::: " << z.key();
-            std::sort(z.value()->begin(), z.value()->end()); //sorting lines
+            //std::sort(z.value()->begin(), z.value()->end()); //sorting lines
 
-            QString selectedLines = FileReadingUtils::readGivenLines(z.value(), z.key());
+            QString selectedLines = FileReadingUtils::readGivenLines(z.value(), z.key()).replace("    ", "\t");
 
-            if(multifileComment->isPositive())
-                comment += HtmlFormater::loadPositiveCommentTemplate(z.key(), selectedLines);
-            else
-                comment += HtmlFormater::loadNegativeCommentTemplate(z.key(), selectedLines);
+            if(!selectedLines.simplified().isEmpty()) {
+                if(multifileComment->isPositive())
+                    comment += HtmlFormater::loadPositiveCommentTemplate(z.key(), selectedLines);
+                else
+                    comment += HtmlFormater::loadNegativeCommentTemplate(z.key(), selectedLines);
+            }
         }
 
         comment += HtmlFormater::loadTextDisplayTemplate(multifileComment->getComment());

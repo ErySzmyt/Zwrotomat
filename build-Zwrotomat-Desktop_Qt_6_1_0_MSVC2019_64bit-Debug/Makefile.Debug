@@ -215,7 +215,8 @@ debug\qrc_resources.cpp: ..\Zwrotomat\resources.qrc \
 		..\Zwrotomat\Templates\comment_text_display.html \
 		..\Zwrotomat\Templates\comment_template_negative.html \
 		..\Zwrotomat\Templates\main_index.html \
-		..\Zwrotomat\Templates\comment_template.html
+		..\Zwrotomat\Templates\comment_template.html \
+		..\Zwrotomat\Templates\comment_header_display.html
 	F:\Qt\6.1.0\msvc2019_64\bin\rcc.exe -name resources ..\Zwrotomat\resources.qrc -o debug\qrc_resources.cpp
 
 compiler_moc_predefs_make_all: debug\moc_predefs.h
@@ -1552,11 +1553,10 @@ debug\filereadingutils.obj: ..\Zwrotomat\filereadingutils.cpp ..\Zwrotomat\filer
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qtextstream.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstringconverter.h
 
-debug\generatorwindow.obj: ..\Zwrotomat\generatorwindow.cpp ..\Zwrotomat\generatorwindow.h \
-		..\Zwrotomat\MultiFileComment.h \
-		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\QHash \
-		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qhash.h \
-		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qcontainertools_impl.h \
+debug\generatorwindow.obj: ..\Zwrotomat\generatorwindow.cpp ..\Zwrotomat\filereadingutils.h \
+		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\QString \
+		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstring.h \
+		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qchar.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qglobal.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qconfig-bootstrapped.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qconfig.h \
@@ -1578,9 +1578,6 @@ debug\generatorwindow.obj: ..\Zwrotomat\generatorwindow.cpp ..\Zwrotomat\generat
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qmutex.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qnumeric.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qversiontagging.h \
-		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qhashfunctions.h \
-		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstring.h \
-		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qchar.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstringview.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qbytearray.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qrefcount.h \
@@ -1590,6 +1587,7 @@ debug\generatorwindow.obj: ..\Zwrotomat\generatorwindow.cpp ..\Zwrotomat\generat
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qpair.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qarraydatapointer.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qarraydataops.h \
+		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qcontainertools_impl.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qbytearrayalgorithms.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qbytearrayview.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstringliteral.h \
@@ -1598,6 +1596,11 @@ debug\generatorwindow.obj: ..\Zwrotomat\generatorwindow.cpp ..\Zwrotomat\generat
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qutf8stringview.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstringtokenizer.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstringbuilder.h \
+		..\Zwrotomat\generatorwindow.h \
+		..\Zwrotomat\MultiFileComment.h \
+		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\QHash \
+		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qhash.h \
+		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qhashfunctions.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qiterator.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qlist.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qbytearraylist.h \
@@ -1605,7 +1608,6 @@ debug\generatorwindow.obj: ..\Zwrotomat\generatorwindow.cpp ..\Zwrotomat\generat
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qalgorithms.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qstringmatcher.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qmath.h \
-		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\QString \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\QDir \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qdir.h \
 		..\..\..\Qt\6.1.0\msvc2019_64\include\QtCore\qfile.h \
