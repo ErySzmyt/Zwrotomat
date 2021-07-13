@@ -2,14 +2,14 @@
 #include "generatorwindow.h"
 #include "htmlformater.h"
 #include "ui_generatorwindow.h"
+#include "multifilecomment.h"
 
 #include <algorithm>
 #include <algorithm>
 #include <QStringBuilder>
 #include <QDateTime>
+#include <QFileInfo>
 
-
-#include <MultiFileComment.h>
 #include <QFileDialog>
 
 GeneratorWindow::GeneratorWindow(QWidget *parent, QHash<QString, MultiFileComment*> *m_Comments) :
@@ -54,7 +54,6 @@ void GeneratorWindow::on_generateButton_clicked()
 
         comment += HtmlFormater::loadHeaderDisplayTemplate(i.key());
 
-
         MultiFileComment* multifileComment = i.value();
         qDebug() << "::Comment::: " << multifileComment->getComment();
 
@@ -63,6 +62,9 @@ void GeneratorWindow::on_generateButton_clicked()
         QHashIterator<QString, QList<int>*> z(*filesIndexes);
         while (z.hasNext()) {
             z.next();
+
+            QFileInfo fileInfo(z.key());
+
             qDebug() << "::File::: " << z.key();
             //std::sort(z.value()->begin(), z.value()->end()); //sorting lines
 
@@ -70,9 +72,9 @@ void GeneratorWindow::on_generateButton_clicked()
 
             if(!selectedLines.simplified().isEmpty()) {
                 if(multifileComment->isPositive())
-                    comment += HtmlFormater::loadPositiveCommentTemplate(z.key(), selectedLines);
+                    comment += HtmlFormater::loadPositiveCommentTemplate(fileInfo.fileName(), selectedLines);
                 else
-                    comment += HtmlFormater::loadNegativeCommentTemplate(z.key(), selectedLines);
+                    comment += HtmlFormater::loadNegativeCommentTemplate(fileInfo.fileName(), selectedLines);
             }
         }
 
