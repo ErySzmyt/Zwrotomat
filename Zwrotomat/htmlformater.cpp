@@ -14,14 +14,10 @@ HtmlFormater::HtmlFormater()
 QString HtmlFormater::loadMainTemplate(QString Subject, QString Topic, QString Checker, QString date, QString score)
 {
     QString data;
-    QString fileName = HtmlFormater::MAIN_INDEX_RESOURCE;
+    QFile file(HtmlFormater::MAIN_INDEX_RESOURCE);
 
-    QFile file(fileName);
-
-    if(!file.open(QIODevice::ReadOnly))
-        qDebug()<<"filenot opened";
-    else
-        data = file.readAll();
+    file.open(QIODevice::ReadOnly);
+    data = file.readAll();
 
     file.close();
 
@@ -36,14 +32,10 @@ QString HtmlFormater::loadMainTemplate(QString Subject, QString Topic, QString C
 QString HtmlFormater::loadPositiveCommentTemplate(QString FileName, QString Code)
 {
     QString data;
-    QString fileName = HtmlFormater::COMMENT_TEMPLATE_RESOURCE;
+    QFile file(HtmlFormater::COMMENT_TEMPLATE_RESOURCE);
 
-    QFile file(fileName);
-
-    if(!file.open(QIODevice::ReadOnly))
-        qDebug()<<"filenot opened";
-    else
-        data = file.readAll();
+    file.open(QIODevice::ReadOnly);
+    data = file.readAll();
 
     file.close();
 
@@ -53,14 +45,10 @@ QString HtmlFormater::loadPositiveCommentTemplate(QString FileName, QString Code
 QString HtmlFormater::loadNegativeCommentTemplate(QString FileName, QString Code)
 {
     QString data;
-    QString fileName = HtmlFormater::NEGATIVE_COMMENT_TEMPLATE_RESOURCE;
+    QFile file(HtmlFormater::NEGATIVE_COMMENT_TEMPLATE_RESOURCE);
 
-    QFile file(fileName);
-
-    if(!file.open(QIODevice::ReadOnly))
-        qDebug()<<"filenot opened";
-    else
-        data = file.readAll();
+    file.open(QIODevice::ReadOnly);
+    data = file.readAll();
 
     file.close();
 
@@ -70,14 +58,10 @@ QString HtmlFormater::loadNegativeCommentTemplate(QString FileName, QString Code
 QString HtmlFormater::loadTextDisplayTemplate(QString comment)
 {
     QString data;
-    QString fileName = HtmlFormater::COMMENT_TEXT_DISPLAY_TEMPLATE_RESOURCE;
+    QFile file(HtmlFormater::COMMENT_TEXT_DISPLAY_TEMPLATE_RESOURCE);
 
-    QFile file(fileName);
-
-    if(!file.open(QIODevice::ReadOnly))
-        qDebug()<<"filenot opened";
-    else
-        data = file.readAll();
+    file.open(QIODevice::ReadOnly);
+    data = file.readAll();
 
     file.close();
 
@@ -87,14 +71,10 @@ QString HtmlFormater::loadTextDisplayTemplate(QString comment)
 QString HtmlFormater::loadHeaderDisplayTemplate(QString Text)
 {
     QString data;
-    QString fileName = HtmlFormater::COMMENT_HEADER_DISPLAY_TEMPLATE_RESOURCE;
+    QFile file(HtmlFormater::COMMENT_HEADER_DISPLAY_TEMPLATE_RESOURCE);
 
-    QFile file(fileName);
-
-    if(!file.open(QIODevice::ReadOnly))
-        qDebug()<<"filenot opened";
-    else
-        data = file.readAll();
+    file.open(QIODevice::ReadOnly);
+    data = file.readAll();
 
     file.close();
 

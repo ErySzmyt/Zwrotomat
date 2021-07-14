@@ -49,6 +49,14 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 
 void MainWindow::on_actionZ_Folderu_triggered()
 {
+    this->m_currentComment = new MultiFileComment();
+
+    //clere QHash and dealocate occupied memory
+    qDeleteAll(this->m_Comments->begin(), this->m_Comments->end());
+    this->m_Comments->clear();
+
+    this->m_Comments = new QHash<QString, MultiFileComment*>();
+
     QDir dir = QFileDialog::getExistingDirectory(0, ("Select Project"), QDir::currentPath());
     this->m_selectedDir = dir;
 
@@ -72,26 +80,20 @@ void MainWindow::on_addingCommentButton_clicked()
 {
     bool ok;
 
-    QString text = QInputDialog::getText(this, tr("Dodawanie Komentarza"),
-                                             tr("Wyświetlana Nazwa:"), QLineEdit::Normal,
-                                             "", &ok);
+    QString text = QInputDialog::getText(this, tr("Dodawanie Komentarza"), tr("Wyświetlana Nazwa:"), QLineEdit::Normal,"", &ok);
     if(ok && !text.isEmpty()){
         qDebug() << text;
 
         QListWidgetItem* item = new QListWidgetItem();
 
-        //QPushButton* pushButton = new QPushButton(text);
         ItemDisplay* buttons = new ItemDisplay(this);
         buttons->setText(text);
 
         if(m_Comments->size() > 0){
             MultiFileComment* comment = new MultiFileComment();
-
             this->m_Comments->insert(text, comment);
-
-        }else{
+        }else
             this->m_Comments->insert(text, this->m_currentComment);
-        }
 
         item->setSizeHint(buttons->sizeHint());
 
@@ -116,9 +118,9 @@ void MainWindow::removeComment(const QString &text) {
 
             if(m_Comments->value(text) == this->m_currentComment){
                 ui->textBrowser->document()->setPlainText("");
+                ui->commentEdit->document()->setPlainText("");
             }
 
-            //TODO free memory of removed comment, and remove it from HashMap
             delete m_Comments->value(text);
             m_Comments->remove(text);
 
@@ -142,9 +144,9 @@ void MainWindow::selectComment(const QString &text)
 
 void MainWindow::changePositivityOfComment(const QString &text, const bool &isChecked)
 {
-      MultiFileComment* com = m_Comments->value(text);
-      (isChecked)? com->setPositive() : com->setNegative();
-      qDebug()<<"Positivity changed"<< com<<" "<<com->isPositive();
+    MultiFileComment* com = m_Comments->value(text);
+    (isChecked)? com->setPositive() : com->setNegative();
+    qDebug()<<"Positivity changed"<< com<<" "<<com->isPositive();
 }
 
 void MainWindow::loadCurrentFile()
@@ -161,7 +163,6 @@ void MainWindow::loadCurrentFile()
     QString text = in.readAll();
 
     file.close();
-
 
     if(this->m_selectedFile.endsWith(".cpp", Qt::CaseInsensitive) || this->m_selectedFile.endsWith(".h", Qt::CaseInsensitive) || this->m_selectedFile.endsWith(".c", Qt::CaseInsensitive))
         text.replace("\t", "    ");
@@ -181,4 +182,15 @@ void MainWindow::on_actionGeneruj_triggered()
 {
     GeneratorWindow* generatorWindow = new GeneratorWindow(this, m_Comments);
     generatorWindow->show();
+}
+
+void MainWindow::on_actionPusty_triggered()
+{
+    this->m_currentComment = new MultiFileComment();
+    this->m_Comments = new QHash<QString, MultiFileComment*>();
+
+    ui->textBrowser->document()->setPlainText("");
+    ui->commentEdit->document()->setPlainText("");
+
+    ui->listWidget->clear();
 }

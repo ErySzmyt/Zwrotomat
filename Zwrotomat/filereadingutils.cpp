@@ -30,6 +30,7 @@ QString FileReadingUtils::readGivenLines(QList<int>* lineList, QString file)
     for (QString line = stream.readLine(); !line.isNull(); line = stream.readLine()) {
         /* process information */
         if(lineList->contains(i)){
+            //result += (i == 0) ? line.simplified() : line;
             result += line;
             result += '\n';
         }

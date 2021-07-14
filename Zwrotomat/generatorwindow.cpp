@@ -66,9 +66,8 @@ void GeneratorWindow::on_generateButton_clicked()
             QFileInfo fileInfo(z.key());
 
             qDebug() << "::File::: " << z.key();
-            //std::sort(z.value()->begin(), z.value()->end()); //sorting lines
 
-            QString selectedLines = FileReadingUtils::readGivenLines(z.value(), z.key()).replace("    ", "\t");
+            QString selectedLines = FileReadingUtils::readGivenLines(z.value(), z.key());
 
             if(!selectedLines.simplified().isEmpty()) {
                 if(multifileComment->isPositive())
@@ -126,4 +125,5 @@ void GeneratorWindow::on_outputDirPicker_clicked()
 {
     QDir dir = QFileDialog::getExistingDirectory(0, ("Select Output Folder"), QDir::currentPath());
     s_last_selectedDir = dir;
+    ui->outputDirDisplay->setText(dir.path());
 }
