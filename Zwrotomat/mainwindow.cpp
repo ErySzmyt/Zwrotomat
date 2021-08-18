@@ -27,9 +27,10 @@ MainWindow::MainWindow(QWidget *parent)
     this->m_Comments = new QHash<QString, MultiFileComment*>();
 
     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
+    setCorner(Qt::TopRightCorner, Qt::RightDockWidgetArea);
 
-    ui->dockWidget_2->setAllowedAreas(Qt::RightDockWidgetArea);
-    ui->dockWidget_1->setAllowedAreas(Qt::BottomDockWidgetArea);
+    ui->dockWidget_2->setAllowedAreas(Qt::RightDockWidgetArea | Qt::LeftDockWidgetArea);
+    ui->dockWidget_1->setAllowedAreas(Qt::AllDockWidgetAreas);
 
     addDockWidget(Qt::BottomDockWidgetArea, ui->dockWidget_1);
     addDockWidget(Qt::RightDockWidgetArea, ui->dockWidget_2);
