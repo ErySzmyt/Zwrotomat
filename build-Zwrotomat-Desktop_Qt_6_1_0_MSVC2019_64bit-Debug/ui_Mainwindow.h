@@ -108,7 +108,7 @@ public:
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, -1);
         horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(5);
+        horizontalLayout->setSpacing(1);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setSizeConstraint(QLayout::SetMaximumSize);
         verticalLayout_3 = new QVBoxLayout();

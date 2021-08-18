@@ -25,6 +25,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->m_currentComment = new MultiFileComment();
     this->m_Comments = new QHash<QString, MultiFileComment*>();
+
+    setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);
+
+    ui->dockWidget_2->setAllowedAreas(Qt::RightDockWidgetArea);
+    ui->dockWidget_1->setAllowedAreas(Qt::BottomDockWidgetArea);
+
+    addDockWidget(Qt::BottomDockWidgetArea, ui->dockWidget_1);
+    addDockWidget(Qt::RightDockWidgetArea, ui->dockWidget_2);
 }
 
 MainWindow::~MainWindow()
@@ -69,10 +77,17 @@ void MainWindow::on_actionZ_Folderu_triggered()
     ui->treeFileExplorer->setRootIndex(m_fileModel->index(dir.path()));
 }
 
+void MainWindow::on_actionKomentarze_triggered()
+{
+    ui->dockWidget_1->show();
+}
+
+
 void MainWindow::on_actionPliki_triggered()
 {
-
+    ui->dockWidget_2->show();
 }
+
 /*
  *  Add new comment
  */
