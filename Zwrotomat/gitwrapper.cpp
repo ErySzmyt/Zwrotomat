@@ -9,9 +9,27 @@ void GitWrapper::readGitCredential()
 {
    QString userName = qgetenv("USERNAME");
    QString gitConfigPath = "C:\\Users\\"+userName+"\\.gitconfig";
-   QFile fileExist(gitConfigPath);
+   QFile inputFile(gitConfigPath);
+   //"\tname = Mateusz S"
+   //"\temail = matesta383@student.polsl.pl"
 
-   qDebug() <<"czy istnmieje" <<fileExist.exists();
+   inputFile.open(QIODevice::ReadOnly);
+   if (!inputFile.isOpen())
+       return;
+
+   QTextStream stream(&inputFile);
+   for (QString line = stream.readLine();
+        !line.isNull();
+        line = stream.readLine()) {
+
+       if ( line.startsWith("\tname")){
+           qDebug()<< line;
+
+       }
+       if ( line.startsWith("\temail") ){
+           qDebug()<< line;
+       }
+   }
 
    qDebug() << gitConfigPath;
 
