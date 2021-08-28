@@ -46,6 +46,8 @@ private slots:
 
     void on_actionKomentarze_triggered();
 
+    void on_actionGit_triggered();
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *m_fileModel; // model for filed display

@@ -210,3 +210,8 @@ void MainWindow::on_actionPusty_triggered()
 
     ui->listWidget->clear();
 }
+
+void MainWindow::on_actionGit_triggered()
+{
+    //otworzyc okno do wyboru folderu i wykonac dzialania
+}

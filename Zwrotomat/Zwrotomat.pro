@@ -12,6 +12,8 @@ SOURCES += \
     codedisplay.cpp \
     filereadingutils.cpp \
     generatorwindow.cpp \
+    gitform.cpp \
+    gitwrapper.cpp \
     highlighter.cpp \
     htmlformater.cpp \
     itemdisplay.cpp \
@@ -24,6 +26,8 @@ HEADERS += \
     codedisplay.h \
     filereadingutils.h \
     generatorwindow.h \
+    gitform.h \
+    gitwrapper.h \
     highlighter.h \
     htmlformater.h \
     itemdisplay.h \
@@ -34,6 +38,7 @@ HEADERS += \
 FORMS += \
     Mainwindow.ui \
     generatorwindow.ui \
+    gitform.ui \
     itemdisplay.ui
 
 # Default rules for deployment.
