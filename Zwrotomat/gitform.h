@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDir>
+#include <gitwrapper.h>
 namespace Ui {
 class GitForm;
 }
@@ -18,9 +19,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
     Ui::GitForm *ui;
     static inline QDir s_last_selectedDir = QDir("C://");
+    GitWrapper* gitWrapper;
 };
 
 #endif // GITFORM_H

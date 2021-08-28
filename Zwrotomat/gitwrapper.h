@@ -2,6 +2,7 @@
 #define GITWRAPPER_H
 
 #include <QString>
+#include <QDir>
 class GitWrapper
 {
 private:
@@ -10,7 +11,7 @@ private:
 public:
     GitWrapper();
 
-    void clone(QString HTTPS);
+    void clone(QString HTTPS, QDir dir);
     void setEmail(QString email);
     void setUserName(QString userName);
 

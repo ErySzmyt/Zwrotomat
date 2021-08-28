@@ -4,14 +4,25 @@
 #include <QDebug>
 #include <QIODevice>
 #include <QTextStream>
-
+#include <QDir>
+#include  <stdlib.h>
 GitWrapper::GitWrapper()
 {
 
 }
 
-void GitWrapper::clone(QString HTTPS)
+void GitWrapper::clone(QString HTTPS, QDir dir)
 {
+    QString cdTemplate = "cd "+dir.path();
+    qDebug()<<"test"<< cdTemplate;
+    const char* w = cdTemplate.toStdString().c_str();
+    std::system(w);
+    QString commandTemplate = "git clone "+HTTPS;
+    qDebug() << "test 2"+commandTemplate;
+    const char* ch = commandTemplate.toStdString().c_str();
+    std::system(ch);
+    delete ch;
+    delete w;
 
 }
 
