@@ -26,6 +26,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QSpacerItem *horizontalSpacer;
+    QLabel *label_2;
     QRadioButton *wskaznikPozytyw;
     QToolButton *removeButton;
 
@@ -33,7 +34,7 @@ public:
     {
         if (ItemDisplay->objectName().isEmpty())
             ItemDisplay->setObjectName(QString::fromUtf8("ItemDisplay"));
-        ItemDisplay->resize(243, 60);
+        ItemDisplay->resize(200, 60);
         horizontalLayout = new QHBoxLayout(ItemDisplay);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(ItemDisplay);
@@ -44,6 +45,11 @@ public:
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
+
+        label_2 = new QLabel(ItemDisplay);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        horizontalLayout->addWidget(label_2);
 
         wskaznikPozytyw = new QRadioButton(ItemDisplay);
         wskaznikPozytyw->setObjectName(QString::fromUtf8("wskaznikPozytyw"));
@@ -65,6 +71,7 @@ public:
     {
         ItemDisplay->setWindowTitle(QCoreApplication::translate("ItemDisplay", "Form", nullptr));
         label->setText(QCoreApplication::translate("ItemDisplay", "TextLabel", nullptr));
+        label_2->setText(QCoreApplication::translate("ItemDisplay", "Czy Pozytywny", nullptr));
         wskaznikPozytyw->setText(QString());
         removeButton->setText(QCoreApplication::translate("ItemDisplay", "x", nullptr));
     } // retranslateUi
