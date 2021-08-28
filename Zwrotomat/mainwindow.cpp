@@ -11,6 +11,7 @@
 #include "itemdisplay.h"
 #include "multifilecomment.h"
 #include "gitform.h"
+#include "gitwrapper.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -217,4 +218,5 @@ void MainWindow::on_actionGit_triggered()
     //otworzyc okno do wyboru folderu i wykonac dzialania
     GitForm* gitform = new  GitForm();
     gitform->show();
+    GitWrapper::readGitCredential();
 }
