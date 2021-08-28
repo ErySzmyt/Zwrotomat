@@ -216,7 +216,8 @@ void MainWindow::on_actionPusty_triggered()
 void MainWindow::on_actionGit_triggered()
 {
     //otworzyc okno do wyboru folderu i wykonac dzialania
-    GitForm* gitform = new  GitForm();
-    gitform->show();
-    GitWrapper::readGitCredential();
+    //GitForm* gitform = new  GitForm();
+    //gitform->show();
+    GitWrapper* wrapper = new GitWrapper();
+    wrapper->readGitCredential();
 }
