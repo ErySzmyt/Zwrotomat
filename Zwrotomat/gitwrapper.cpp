@@ -25,7 +25,7 @@ void GitWrapper::clone(QString HTTPS, QDir dir)
     // execute command in cmd
     std::system(command);
     // delate pointers
-    delete command;
+    //delete command;
 
 }
 
