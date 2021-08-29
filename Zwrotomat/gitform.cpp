@@ -13,6 +13,9 @@ GitForm::GitForm(QWidget *parent) :
 {
     ui->setupUi(this);
     this->gitWrapper = new GitWrapper();
+
+    ui->GitUsername->setText(gitWrapper->getUsername());
+    ui->GitEmail->setText(gitWrapper->getEmail());
 }
 
 GitForm::~GitForm()
@@ -26,7 +29,6 @@ void GitForm::on_pushButton_clicked()
       QDir dir = QFileDialog::getExistingDirectory(0, ("Select Output Folder"), QDir::currentPath());
       s_last_selectedDir = dir;
       ui->outputDirDisplay->setText(dir.path());
-
 }
 
 void GitForm::on_pushButton_2_clicked()

@@ -6,8 +6,8 @@
 class GitWrapper
 {
 private:
-     QString m_username;
-     QString m_email;
+     QString m_username = "";
+     QString m_email = "";
 public:
     GitWrapper();
 
