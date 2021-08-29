@@ -5,7 +5,8 @@
 #include <QIODevice>
 #include <QTextStream>
 #include <QDir>
-#include  <stdlib.h>
+#include<stdio.h>
+#include <stdlib.h>
 
 GitWrapper::GitWrapper()
 {
@@ -14,23 +15,27 @@ GitWrapper::GitWrapper()
 
 void GitWrapper::clone(QString HTTPS, QDir dir)
 {
-    QString cdTemplate = "cd "+dir.path();
-    qDebug()<<"test"<< cdTemplate;
-    // convert
-    std::string utf8_text = cdTemplate.toUtf8().constData();
-    const char * c = utf8_text.c_str();
-    //const char* w = cdTemplate.toStdString().c_str();
-    qDebug()<< "test stringa 1:"<<c;
-    std::system(c);
+    // QString templates
+    QString pathToDir = dir.path();
     QString commandTemplate = "git clone "+HTTPS;
-    qDebug() << "test 2"+commandTemplate;
-    std::string utf8_text2 = cdTemplate.toUtf8().constData();
-    const char * c2 = utf8_text2.c_str();
-    qDebug() <<"test stringa 2:"<<  c2;
-
-    std::system(c2);
-    delete[] c2;
-    delete[] c;
+    // debug test templates in QString
+    qDebug()<<"test QString 1"<< pathToDir;
+    qDebug()<<"test QString 2"<< commandTemplate;
+    // convert to required format
+    // path
+    std::string utf8_text = pathToDir.toUtf8().constData();
+    const char * path = utf8_text.c_str();
+    qDebug()<<"converted path:"<<path;
+    // clone command
+    std::string utf8_text2 = commandTemplate.toUtf8().constData();
+    const char * command = utf8_text2.c_str();
+    qDebug()<<"converted command:"<<command;
+    // execute command in cmd
+        // change directiory with chdir or sth
+    //std::system(command);
+    // delate pointers
+    delete[] path;
+    delete[] command;
 
 }
 
