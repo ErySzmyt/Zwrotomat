@@ -6,6 +6,7 @@
 #include <QTextStream>
 #include <QDir>
 #include  <stdlib.h>
+
 GitWrapper::GitWrapper()
 {
 
@@ -15,14 +16,21 @@ void GitWrapper::clone(QString HTTPS, QDir dir)
 {
     QString cdTemplate = "cd "+dir.path();
     qDebug()<<"test"<< cdTemplate;
-    const char* w = cdTemplate.toStdString().c_str();
-    std::system(w);
+    // convert
+    std::string utf8_text = cdTemplate.toUtf8().constData();
+    const char * c = utf8_text.c_str();
+    //const char* w = cdTemplate.toStdString().c_str();
+    qDebug()<< "test stringa 1:"<<c;
+    std::system(c);
     QString commandTemplate = "git clone "+HTTPS;
     qDebug() << "test 2"+commandTemplate;
-    const char* ch = commandTemplate.toStdString().c_str();
-    std::system(ch);
-    delete ch;
-    delete w;
+    std::string utf8_text2 = cdTemplate.toUtf8().constData();
+    const char * c2 = utf8_text2.c_str();
+    qDebug() <<"test stringa 2:"<<  c2;
+
+    std::system(c2);
+    delete[] c2;
+    delete[] c;
 
 }
 
