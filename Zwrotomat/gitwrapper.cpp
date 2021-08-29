@@ -16,26 +16,16 @@ GitWrapper::GitWrapper()
 void GitWrapper::clone(QString HTTPS, QDir dir)
 {
     // QString templates
-    QString pathToDir = dir.path();
-    QString commandTemplate = "git clone "+HTTPS;
-    // debug test templates in QString
-    qDebug()<<"test QString 1"<< pathToDir;
-    qDebug()<<"test QString 2"<< commandTemplate;
+    QString commandQString = "git clone "+HTTPS+" "+dir.path();
+    qDebug()<<"QString command:"<<commandQString;
     // convert to required format
-    // path
-    std::string utf8_text = pathToDir.toUtf8().constData();
-    const char * path = utf8_text.c_str();
-    qDebug()<<"converted path:"<<path;
-    // clone command
-    std::string utf8_text2 = commandTemplate.toUtf8().constData();
-    const char * command = utf8_text2.c_str();
+    std::string utf8_text = commandQString.toUtf8().constData();
+    const char * command = utf8_text.c_str();
     qDebug()<<"converted command:"<<command;
     // execute command in cmd
-        // change directiory with chdir or sth
-    //std::system(command);
+    std::system(command);
     // delate pointers
-    delete[] path;
-    delete[] command;
+    delete command;
 
 }
 
