@@ -227,7 +227,7 @@
      <x>0</x>
      <y>0</y>
      <width>1157</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -273,10 +273,18 @@
     </property>
     <addaction name="actionGeneruj"/>
    </widget>
+   <widget class="QMenu" name="menuKomentarze">
+    <property name="title">
+     <string>Komentarze</string>
+    </property>
+    <addaction name="actionEksportuj_2"/>
+    <addaction name="actionImportuj_2"/>
+   </widget>
    <addaction name="menuProjekt"/>
    <addaction name="menuUstawienia"/>
    <addaction name="menuOkna"/>
    <addaction name="menuGeneruj"/>
+   <addaction name="menuKomentarze"/>
   </widget>
   <action name="actionUstawienia">
    <property name="text">
@@ -336,6 +344,16 @@
   <action name="actionGeneruj">
    <property name="text">
     <string>Generuj</string>
+   </property>
+  </action>
+  <action name="actionEksportuj_2">
+   <property name="text">
+    <string>Eksportuj</string>
+   </property>
+  </action>
+  <action name="actionImportuj_2">
+   <property name="text">
+    <string>Importuj</string>
    </property>
   </action>
  </widget>

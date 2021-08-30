@@ -48,6 +48,8 @@ private slots:
 
     void on_actionGit_triggered();
 
+    void on_actionEksportuj_2_triggered();
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *m_fileModel; // model for filed display

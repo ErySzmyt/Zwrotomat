@@ -219,3 +219,9 @@ void MainWindow::on_actionGit_triggered()
     GitForm* gitform = new  GitForm();
     gitform->show();
 }
+
+void MainWindow::on_actionEksportuj_2_triggered()
+{
+    // extract comments
+
+}
