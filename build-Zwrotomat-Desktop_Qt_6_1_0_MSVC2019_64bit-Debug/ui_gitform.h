@@ -90,11 +90,13 @@ public:
         verticalLayout_4->setSizeConstraint(QLayout::SetDefaultConstraint);
         label_5 = new QLabel(GitForm);
         label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setMaximumSize(QSize(200, 16777215));
 
         verticalLayout_4->addWidget(label_5);
 
         label_3 = new QLabel(GitForm);
         label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setMaximumSize(QSize(200, 16777215));
 
         verticalLayout_4->addWidget(label_3);
 
@@ -105,12 +107,13 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(GitEmail->sizePolicy().hasHeightForWidth());
         GitEmail->setSizePolicy(sizePolicy);
-        GitEmail->setMaximumSize(QSize(16777215, 30));
+        GitEmail->setMaximumSize(QSize(200, 30));
 
         verticalLayout_4->addWidget(GitEmail);
 
         label_2 = new QLabel(GitForm);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMaximumSize(QSize(200, 16777215));
 
         verticalLayout_4->addWidget(label_2);
 
@@ -118,7 +121,7 @@ public:
         GitUsername->setObjectName(QString::fromUtf8("GitUsername"));
         sizePolicy.setHeightForWidth(GitUsername->sizePolicy().hasHeightForWidth());
         GitUsername->setSizePolicy(sizePolicy);
-        GitUsername->setMaximumSize(QSize(16777215, 30));
+        GitUsername->setMaximumSize(QSize(200, 30));
 
         verticalLayout_4->addWidget(GitUsername);
 

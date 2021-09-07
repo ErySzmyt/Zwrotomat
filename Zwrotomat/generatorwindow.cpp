@@ -103,7 +103,7 @@ void GeneratorWindow::on_generateButton_clicked()
       QTextStream out(&qFile); out << mainPage;
       qFile.close();
     }
-
+    this->close();
 }
 
 void GeneratorWindow::on_subjectTextEdit_textChanged()

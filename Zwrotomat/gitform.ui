@@ -72,6 +72,12 @@
          </property>
          <item>
           <widget class="QLabel" name="label_5">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>Dane użytkownika</string>
            </property>
@@ -79,6 +85,12 @@
          </item>
          <item>
           <widget class="QLabel" name="label_3">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>E-mail</string>
            </property>
@@ -94,7 +106,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
+             <width>200</width>
              <height>30</height>
             </size>
            </property>
@@ -102,6 +114,12 @@
          </item>
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="text">
             <string>Username</string>
            </property>
@@ -117,7 +135,7 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>16777215</width>
+             <width>200</width>
              <height>30</height>
             </size>
            </property>
