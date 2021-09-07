@@ -41,3 +41,4 @@ build-Zwrotomat-Desktop_Qt_6_1_0_MSVC2019_64bit-Debug/Makefile.Debug
 build-Zwrotomat-Desktop_Qt_6_1_0_MSVC2019_64bit-Debug/debug/Zwrotomat.vc.pdb
 build-Zwrotomat-Desktop_Qt_6_1_0_MSVC2019_64bit-Debug/debug/Zwrotomat.pdb
 build-Zwrotomat-Desktop_Qt_6_1_0_MSVC2019_64bit-Debug/debug/Zwrotomat.ilk
+*.pdb
