@@ -24,8 +24,13 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
+<<<<<<< Updated upstream
     const uint offsetsAndSize[38];
     char stringdata0[381];
+=======
+    const uint offsetsAndSize[42];
+    char stringdata0[434];
+>>>>>>> Stashed changes
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -49,7 +54,13 @@ QT_MOC_LITERAL(249, 26), // "on_commentEdit_textChanged"
 QT_MOC_LITERAL(276, 26), // "on_actionGeneruj_triggered"
 QT_MOC_LITERAL(303, 24), // "on_actionPusty_triggered"
 QT_MOC_LITERAL(328, 29), // "on_actionKomentarze_triggered"
+<<<<<<< Updated upstream
 QT_MOC_LITERAL(358, 22) // "on_actionGit_triggered"
+=======
+QT_MOC_LITERAL(358, 22), // "on_actionGit_triggered"
+QT_MOC_LITERAL(381, 26), // "on_actionEksport_triggered"
+QT_MOC_LITERAL(408, 25) // "on_actionImport_triggered"
+>>>>>>> Stashed changes
 
     },
     "MainWindow\0on_treeFileExplorer_clicked\0"
@@ -63,7 +74,13 @@ QT_MOC_LITERAL(358, 22) // "on_actionGit_triggered"
     "on_actionGeneruj_triggered\0"
     "on_actionPusty_triggered\0"
     "on_actionKomentarze_triggered\0"
+<<<<<<< Updated upstream
     "on_actionGit_triggered"
+=======
+    "on_actionGit_triggered\0"
+    "on_actionEksport_triggered\0"
+    "on_actionImport_triggered"
+>>>>>>> Stashed changes
 };
 #undef QT_MOC_LITERAL
 
@@ -73,7 +90,11 @@ static const uint qt_meta_data_MainWindow[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
+<<<<<<< Updated upstream
       13,   14, // methods
+=======
+      15,   14, // methods
+>>>>>>> Stashed changes
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -81,6 +102,7 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
+<<<<<<< Updated upstream
        1,    1,   92,    2, 0x08,    0 /* Private */,
        5,    0,   95,    2, 0x08,    2 /* Private */,
        6,    0,   96,    2, 0x08,    3 /* Private */,
@@ -94,6 +116,23 @@ static const uint qt_meta_data_MainWindow[] = {
       16,    0,  112,    2, 0x08,   15 /* Private */,
       17,    0,  113,    2, 0x08,   16 /* Private */,
       18,    0,  114,    2, 0x08,   17 /* Private */,
+=======
+       1,    1,  104,    2, 0x08,    0 /* Private */,
+       5,    0,  107,    2, 0x08,    2 /* Private */,
+       6,    0,  108,    2, 0x08,    3 /* Private */,
+       7,    0,  109,    2, 0x08,    4 /* Private */,
+       8,    0,  110,    2, 0x08,    5 /* Private */,
+       9,    1,  111,    2, 0x08,    6 /* Private */,
+      11,    1,  114,    2, 0x08,    8 /* Private */,
+      12,    2,  117,    2, 0x08,   10 /* Private */,
+      14,    0,  122,    2, 0x08,   13 /* Private */,
+      15,    0,  123,    2, 0x08,   14 /* Private */,
+      16,    0,  124,    2, 0x08,   15 /* Private */,
+      17,    0,  125,    2, 0x08,   16 /* Private */,
+      18,    0,  126,    2, 0x08,   17 /* Private */,
+      19,    0,  127,    2, 0x08,   18 /* Private */,
+      20,    0,  128,    2, 0x08,   19 /* Private */,
+>>>>>>> Stashed changes
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -104,6 +143,11 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, QMetaType::QString,   10,
     QMetaType::Void, QMetaType::QString,   10,
     QMetaType::Void, QMetaType::QString, QMetaType::Bool,   10,   13,
+<<<<<<< Updated upstream
+=======
+    QMetaType::Void,
+    QMetaType::Void,
+>>>>>>> Stashed changes
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -132,6 +176,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 10: _t->on_actionPusty_triggered(); break;
         case 11: _t->on_actionKomentarze_triggered(); break;
         case 12: _t->on_actionGit_triggered(); break;
+<<<<<<< Updated upstream
+=======
+        case 13: _t->on_actionEksport_triggered(); break;
+        case 14: _t->on_actionImport_triggered(); break;
+>>>>>>> Stashed changes
         default: ;
         }
     }
@@ -145,7 +194,11 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 
+<<<<<<< Updated upstream
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const bool &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+=======
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const bool &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+>>>>>>> Stashed changes
 
 
 >,
@@ -172,6 +225,7 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
+<<<<<<< Updated upstream
         if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
         _id -= 13;
@@ -179,6 +233,15 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
         _id -= 13;
+=======
+        if (_id < 15)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 15;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 15)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 15;
+>>>>>>> Stashed changes
     }
     return _id;
 }
