@@ -11,7 +11,7 @@ CONFIG += c++11
 SOURCES += \
     codedisplay.cpp \
     commentextractor.cpp \
-    eksport.cpp \
+    eksporter.cpp \
     filereadingutils.cpp \
     generatorwindow.cpp \
     gitform.cpp \
@@ -27,7 +27,7 @@ SOURCES += \
 HEADERS += \
     codedisplay.h \
     commentextractor.h \
-    eksport.h \
+    eksporter.h \
     filereadingutils.h \
     generatorwindow.h \
     gitform.h \
@@ -41,7 +41,7 @@ HEADERS += \
 
 FORMS += \
     Mainwindow.ui \
-    eksport.ui \
+    eksporter.ui \
     generatorwindow.ui \
     gitform.ui \
     itemdisplay.ui

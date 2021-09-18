@@ -46,6 +46,8 @@ public:
     QAction *actionPliki;
     QAction *actionKomentarze;
     QAction *actionGeneruj;
+    QAction *actionEksportuj_2;
+    QAction *actionImportuj_2;
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout;
@@ -72,6 +74,7 @@ public:
     QMenu *menuUstawienia;
     QMenu *menuOkna;
     QMenu *menuGeneruj;
+    QMenu *menuKomentarze;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -102,6 +105,10 @@ public:
         actionKomentarze->setObjectName(QString::fromUtf8("actionKomentarze"));
         actionGeneruj = new QAction(MainWindow);
         actionGeneruj->setObjectName(QString::fromUtf8("actionGeneruj"));
+        actionEksportuj_2 = new QAction(MainWindow);
+        actionEksportuj_2->setObjectName(QString::fromUtf8("actionEksportuj_2"));
+        actionImportuj_2 = new QAction(MainWindow);
+        actionImportuj_2->setObjectName(QString::fromUtf8("actionImportuj_2"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -233,7 +240,7 @@ public:
         MainWindow->setStatusBar(statusbar);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1157, 21));
+        menubar->setGeometry(QRect(0, 0, 1157, 20));
         QSizePolicy sizePolicy6(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         sizePolicy6.setHorizontalStretch(0);
         sizePolicy6.setVerticalStretch(0);
@@ -249,12 +256,15 @@ public:
         menuOkna->setObjectName(QString::fromUtf8("menuOkna"));
         menuGeneruj = new QMenu(menubar);
         menuGeneruj->setObjectName(QString::fromUtf8("menuGeneruj"));
+        menuKomentarze = new QMenu(menubar);
+        menuKomentarze->setObjectName(QString::fromUtf8("menuKomentarze"));
         MainWindow->setMenuBar(menubar);
 
         menubar->addAction(menuProjekt->menuAction());
         menubar->addAction(menuUstawienia->menuAction());
         menubar->addAction(menuOkna->menuAction());
         menubar->addAction(menuGeneruj->menuAction());
+        menubar->addAction(menuKomentarze->menuAction());
         menuProjekt->addAction(menuNowy->menuAction());
         menuProjekt->addAction(actionZapisz);
         menuProjekt->addAction(actionEksportuj);
@@ -267,6 +277,8 @@ public:
         menuOkna->addAction(actionPliki);
         menuOkna->addAction(actionKomentarze);
         menuGeneruj->addAction(actionGeneruj);
+        menuKomentarze->addAction(actionEksportuj_2);
+        menuKomentarze->addAction(actionImportuj_2);
 
         retranslateUi(MainWindow);
 
@@ -288,6 +300,8 @@ public:
         actionPliki->setText(QCoreApplication::translate("MainWindow", "Pliki", nullptr));
         actionKomentarze->setText(QCoreApplication::translate("MainWindow", "Komentarze", nullptr));
         actionGeneruj->setText(QCoreApplication::translate("MainWindow", "Generuj", nullptr));
+        actionEksportuj_2->setText(QCoreApplication::translate("MainWindow", "Eksportuj", nullptr));
+        actionImportuj_2->setText(QCoreApplication::translate("MainWindow", "Importuj", nullptr));
         dockWidget_1->setWindowTitle(QCoreApplication::translate("MainWindow", "Tre\305\233\304\207 Komentarza", nullptr));
         dockWidget_2->setWindowTitle(QCoreApplication::translate("MainWindow", "Drzewo Projektu", nullptr));
         addingCommentButton->setText(QCoreApplication::translate("MainWindow", "Dodaj komentarz", nullptr));
@@ -296,6 +310,7 @@ public:
         menuUstawienia->setTitle(QCoreApplication::translate("MainWindow", "Ustawienia", nullptr));
         menuOkna->setTitle(QCoreApplication::translate("MainWindow", "Okna", nullptr));
         menuGeneruj->setTitle(QCoreApplication::translate("MainWindow", "Raport", nullptr));
+        menuKomentarze->setTitle(QCoreApplication::translate("MainWindow", "Komentarze", nullptr));
     } // retranslateUi
 
 };
