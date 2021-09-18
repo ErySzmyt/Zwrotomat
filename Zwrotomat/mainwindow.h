@@ -48,7 +48,10 @@ private slots:
 
     void on_actionGit_triggered();
 
-    void on_actionEksportuj_2_triggered();
+
+    void on_actionEksport_triggered();
+
+    void on_actionImport_triggered();
 
 private:
     Ui::MainWindow *ui;

@@ -220,11 +220,23 @@ void MainWindow::on_actionGit_triggered()
     gitform->show();
 }
 
-void MainWindow::on_actionEksportuj_2_triggered()
+
+
+void MainWindow::on_actionEksport_triggered()
 {
+<<<<<<< Updated upstream
     // extract comments
     Eksport* eksport = new  Eksport();
     eksport->show();
     eksport->sendComments(this->m_Comments);
+=======
+    //extract
+    eksport* eksportForm = new eksport();
+    eksportForm->show();
+}
+>>>>>>> Stashed changes
 
+void MainWindow::on_actionImport_triggered()
+{
+    // import
 }
