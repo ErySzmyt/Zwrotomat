@@ -18,6 +18,7 @@ SOURCES += \
     gitwrapper.cpp \
     highlighter.cpp \
     htmlformater.cpp \
+    importer.cpp \
     itemdisplay.cpp \
     linenumberarea.cpp \
     main.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     gitwrapper.h \
     highlighter.h \
     htmlformater.h \
+    importer.h \
     itemdisplay.h \
     linenumberarea.h \
     mainwindow.h \
@@ -44,6 +46,7 @@ FORMS += \
     eksporter.ui \
     generatorwindow.ui \
     gitform.ui \
+    importer.ui \
     itemdisplay.ui
 
 # Default rules for deployment.
