@@ -3973,7 +3973,8 @@ release\mainwindow.obj: ..\Zwrotomat\mainwindow.cpp ..\Zwrotomat\mainwindow.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtWidgets\QLineEdit \
 		..\Zwrotomat\itemdisplay.h \
 		..\Zwrotomat\gitform.h \
-		..\Zwrotomat\gitwrapper.h
+		..\Zwrotomat\gitwrapper.h \
+		..\Zwrotomat\eksport.h
 
 release\multifilecomment.obj: ..\Zwrotomat\multifilecomment.cpp ..\Zwrotomat\multifilecomment.h \
 		C:\Qt\6.0.3\msvc2019_64\include\QtCore\QHash \
