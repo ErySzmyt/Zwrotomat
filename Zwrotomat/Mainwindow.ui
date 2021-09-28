@@ -227,7 +227,7 @@
      <x>0</x>
      <y>0</y>
      <width>1157</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -338,9 +338,6 @@
    </property>
   </action>
   <action name="actionImport">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
    <property name="text">
     <string>Import</string>
    </property>
