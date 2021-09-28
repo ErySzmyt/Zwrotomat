@@ -1,7 +1,12 @@
 #include "importer.h"
 #include "ui_importer.h"
 #include "filereadingutils.h"
-#include "msxml.h"
+
+#include <stdio.h>
+#include <tchar.h>
+#include <windows.h>
+#include <msxml.h>
+
 
 Importer::Importer(QWidget *parent) :
     QMainWindow(parent),
@@ -9,6 +14,13 @@ Importer::Importer(QWidget *parent) :
 {
     ui->setupUi(this);
 }
+
+QHash<QString, MultiFileComment *> *Importer::importCommentsFromFile()
+{
+    return 0;
+
+}
+
 
 /*
 QHash<QString, MultiFileComment *> *Importer::importCommentsFromFile()
