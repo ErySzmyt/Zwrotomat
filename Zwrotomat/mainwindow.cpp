@@ -13,6 +13,7 @@
 #include "gitform.h"
 #include "gitwrapper.h"
 #include "eksporter.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -160,6 +161,28 @@ void MainWindow::selectComment(const QString &text)
     ui->commentEdit->setText(m_currentComment->getComment());
 }
 
+void MainWindow::doneClonning(const QDir &clonedDir)
+{
+    this->m_currentComment = new MultiFileComment();
+
+    //clere QHash and dealocate occupied memory
+    qDeleteAll(this->m_Comments->begin(), this->m_Comments->end());
+    this->m_Comments->clear();
+
+    this->m_Comments = new QHash<QString, MultiFileComment*>();
+
+    this->m_selectedDir = clonedDir;
+
+    qDebug() << "Initilizing TreeView with " << clonedDir;
+
+    //set root path
+    m_fileModel->setRootPath(clonedDir.path());
+
+    ui->treeFileExplorer->setModel(m_fileModel);
+    ui->treeFileExplorer->setRootIndex(m_fileModel->index(clonedDir.path()));
+
+}
+
 void MainWindow::changePositivityOfComment(const QString &text, const bool &isChecked)
 {
     MultiFileComment* com = m_Comments->value(text);
@@ -216,7 +239,7 @@ void MainWindow::on_actionPusty_triggered()
 void MainWindow::on_actionGit_triggered()
 {
     //otworzyc okno do wyboru folderu i wykonac dzialania
-    GitForm* gitform = new  GitForm();
+    GitForm* gitform = new GitForm(this);
     gitform->show();
 }
 
@@ -226,7 +249,7 @@ void MainWindow::on_actionEksport_triggered()
 {
     qDebug() <<"debug on_actionEksport_triggered";
     // extract comments
-    Eksporter* eksport = new  Eksporter();
+    Eksporter* eksport = new Eksporter();
     eksport->setComments(this->m_Comments);
     eksport->show();
 

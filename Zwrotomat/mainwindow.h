@@ -9,6 +9,7 @@
 #include <QtGui>
 #include <QFileSystemModel>
 #include <QFile>
+#include <QDir>
 #include <QTextStream>
 #include <QMessageBox>
 
@@ -36,6 +37,8 @@ private slots:
 
     void removeComment(const QString &text);
     void selectComment(const QString &text);
+
+    void doneClonning(const QDir &clonedDir);
 
     void changePositivityOfComment(const QString &text, const bool &isChecked);
     void on_commentEdit_textChanged();

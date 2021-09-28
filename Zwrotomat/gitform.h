@@ -2,13 +2,14 @@
 #define GITFORM_H
 
 #include <QWidget>
+#include <QMainWindow>
 #include <QDir>
 #include <gitwrapper.h>
 namespace Ui {
 class GitForm;
 }
 
-class GitForm : public QWidget
+class GitForm : public QMainWindow
 {
     Q_OBJECT
 
@@ -18,8 +19,10 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked(); //TODO dlaczego pushButton/pushButton_2 ?
 
-    void on_pushButton_2_clicked();
+signals:
+    void sendDoneClonning(const QDir &);
 
 private:
     Ui::GitForm *ui;

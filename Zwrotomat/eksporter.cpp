@@ -49,6 +49,7 @@ void Eksporter::on_export_2_clicked()
         qDebug() << "::Comment::: " << multifileComment->getComment();
 
 
+
         QHash<QString, QList<int>*>* filesIndexes = multifileComment->getData();
         QHashIterator<QString, QList<int>*> z(*filesIndexes);
         while (z.hasNext()) {
@@ -92,7 +93,4 @@ void Eksporter::on_export_2_clicked()
              out << comment;
     }
     file.close();
-
-
-
 }

@@ -46,6 +46,7 @@ public:
     QAction *actionGeneruj;
     QAction *actionImport;
     QAction *actionEksport;
+
     QWidget *centralwidget;
     QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout;
@@ -104,6 +105,7 @@ public:
         actionImport->setCheckable(true);
         actionEksport = new QAction(MainWindow);
         actionEksport->setObjectName(QString::fromUtf8("actionEksport"));
+
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout_2 = new QGridLayout(centralwidget);
@@ -254,6 +256,7 @@ public:
         menuKomentarze = new QMenu(menubar);
         menuKomentarze->setObjectName(QString::fromUtf8("menuKomentarze"));
         menuKomentarze->setToolTipsVisible(true);
+
         MainWindow->setMenuBar(menubar);
 
         menubar->addAction(menuProjekt->menuAction());
@@ -273,6 +276,7 @@ public:
         menuGeneruj->addAction(actionGeneruj);
         menuKomentarze->addAction(actionImport);
         menuKomentarze->addAction(actionEksport);
+
 
         retranslateUi(MainWindow);
 
@@ -294,6 +298,7 @@ public:
         actionGeneruj->setText(QCoreApplication::translate("MainWindow", "Generuj", nullptr));
         actionImport->setText(QCoreApplication::translate("MainWindow", "Import", nullptr));
         actionEksport->setText(QCoreApplication::translate("MainWindow", "Eksport", nullptr));
+
         dockWidget_1->setWindowTitle(QCoreApplication::translate("MainWindow", "Tre\305\233\304\207 Komentarza", nullptr));
         dockWidget_2->setWindowTitle(QCoreApplication::translate("MainWindow", "Drzewo Projektu", nullptr));
         addingCommentButton->setText(QCoreApplication::translate("MainWindow", "Dodaj komentarz", nullptr));

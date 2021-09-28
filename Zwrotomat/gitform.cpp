@@ -1,18 +1,23 @@
 #include "gitform.h"
 #include "ui_gitform.h"
 
+#include <QMainWindow>
 
 #include <QDir>
 #include <QDialog>
 #include <QFileDialog>
-#include<QtCore>
+#include <QtCore>
 #include <QMessageBox>
+
 GitForm::GitForm(QWidget *parent) :
-    QWidget(parent),
+    QMainWindow(parent),
     ui(new Ui::GitForm)
 {
     ui->setupUi(this);
     this->gitWrapper = new GitWrapper();
+
+
+    connect(this, SIGNAL(sendDoneClonning(const QDir &)), parent, SLOT(doneClonning(const QDir &)));
 
     ui->GitUsername->setText(gitWrapper->getUsername());
     ui->GitEmail->setText(gitWrapper->getEmail());
@@ -34,7 +39,8 @@ void GitForm::on_pushButton_clicked()
 void GitForm::on_pushButton_2_clicked()
 {
     if(!ui->LinkToRepo->toPlainText().isEmpty() && !s_last_selectedDir.path().isEmpty()){
-        this->gitWrapper->clone(ui->LinkToRepo->toPlainText(),s_last_selectedDir);
+        emit sendDoneClonning(this->gitWrapper->clone(ui->LinkToRepo->toPlainText(), s_last_selectedDir));
+        this->close();
     }
     else
     {

@@ -13,7 +13,7 @@ GitWrapper::GitWrapper()
     this->readGitCredential();
 }
 
-void GitWrapper::clone(QString HTTPS, QDir dir)
+QDir GitWrapper::clone(QString HTTPS, QDir dir)
 {
     // QString templates
     QString commandQString = "git clone "+HTTPS+" "+dir.path();
@@ -27,6 +27,7 @@ void GitWrapper::clone(QString HTTPS, QDir dir)
     // delate pointers
     //delete command;
 
+    return dir;
 }
 
 void GitWrapper::setEmail(QString email)

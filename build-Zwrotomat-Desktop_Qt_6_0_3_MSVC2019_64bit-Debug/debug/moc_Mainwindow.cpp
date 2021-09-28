@@ -53,6 +53,7 @@ QT_MOC_LITERAL(358, 22), // "on_actionGit_triggered"
 QT_MOC_LITERAL(381, 26), // "on_actionEksport_triggered"
 QT_MOC_LITERAL(408, 25) // "on_actionImport_triggered"
 
+
     },
     "MainWindow\0on_treeFileExplorer_clicked\0"
     "\0QModelIndex\0index\0on_actionZ_Folderu_triggered\0"
@@ -68,6 +69,7 @@ QT_MOC_LITERAL(408, 25) // "on_actionImport_triggered"
     "on_actionGit_triggered\0"
     "on_actionEksport_triggered\0"
     "on_actionImport_triggered"
+
 };
 #undef QT_MOC_LITERAL
 
@@ -77,7 +79,9 @@ static const uint qt_meta_data_MainWindow[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
+
       15,   14, // methods
+
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -142,6 +146,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 12: _t->on_actionGit_triggered(); break;
         case 13: _t->on_actionEksport_triggered(); break;
         case 14: _t->on_actionImport_triggered(); break;
+
         default: ;
         }
     }
@@ -154,9 +159,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
-
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const bool &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-
 
 >,
     nullptr
@@ -183,12 +186,22 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         if (_id < 15)
+
             qt_static_metacall(this, _c, _id, _a);
         _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 15)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
         _id -= 15;
+
+        if (_id < 15)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 15;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 15)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 15;
+
     }
     return _id;
 }
