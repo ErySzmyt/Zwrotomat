@@ -11,13 +11,14 @@ CONFIG += c++11
 SOURCES += \
     codedisplay.cpp \
     commentextractor.cpp \
-    eksport.cpp \
+    eksporter.cpp \
     filereadingutils.cpp \
     generatorwindow.cpp \
     gitform.cpp \
     gitwrapper.cpp \
     highlighter.cpp \
     htmlformater.cpp \
+    importer.cpp \
     itemdisplay.cpp \
     linenumberarea.cpp \
     main.cpp \
@@ -27,13 +28,14 @@ SOURCES += \
 HEADERS += \
     codedisplay.h \
     commentextractor.h \
-    eksport.h \
+    eksporter.h \
     filereadingutils.h \
     generatorwindow.h \
     gitform.h \
     gitwrapper.h \
     highlighter.h \
     htmlformater.h \
+    importer.h \
     itemdisplay.h \
     linenumberarea.h \
     mainwindow.h \
@@ -41,9 +43,10 @@ HEADERS += \
 
 FORMS += \
     Mainwindow.ui \
-    eksport.ui \
+    eksporter.ui \
     generatorwindow.ui \
     gitform.ui \
+    importer.ui \
     itemdisplay.ui
 
 # Default rules for deployment.

@@ -3,7 +3,8 @@
 #include <QDir>
 #include <QFile>
 #include <QFileDialog>
-
+#include "multifilecomment.h"
+#include "filereadingutils.h"
 eksport::eksport(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::eksport)
@@ -14,6 +15,12 @@ eksport::eksport(QWidget *parent) :
 eksport::~eksport()
 {
     delete ui;
+}
+
+void eksport::setComments(QHash<QString, MultiFileComment *> *commentMap)
+{
+    //set comments for export
+    this->m_Comments = commentMap;
 }
 
 void eksport::on_chooseButton_clicked()
@@ -27,5 +34,8 @@ void eksport::on_chooseButton_clicked()
 void eksport::on_export_2_clicked()
 {
     // export comments
+    QFile myFile;
+    QDataStream out (&myFile);
+    out<<this->m_Comments;
 
 }

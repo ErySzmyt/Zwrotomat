@@ -35,17 +35,19 @@ void Eksporter::on_chooseButton_clicked()
 void Eksporter::on_export_2_clicked()
 {
     // export comments
-    qDebug() << "start export";
-    QHashIterator<QString, MultiFileComment*> i(*this->m_Comments);
-    //QString text;
-    qDebug() << "::Starting loop::: ";
-    while (i.hasNext()){
+    QString comment = "<?xml version='1.0' encoding='UTF-8'?> <comments-extractions> \n";
+    QHashIterator<QString, MultiFileComment*> i(*m_Comments);
+    while (i.hasNext()) {
         i.next();
         qDebug() << "::Comment Name::: " << i.key();
+        comment +="<comment-number>" + i.key()+"</comment-number>\n";
+
+        //comment += HtmlFormater::loadHeaderDisplayTemplate(i.key());
 
         MultiFileComment* multifileComment = i.value();
+        comment += "<comment>" + multifileComment->getComment() + "</comment>\n";
         qDebug() << "::Comment::: " << multifileComment->getComment();
-        qDebug() << "::CommentData::: " <<multifileComment->getData();
+
 
 
         QHash<QString, QList<int>*>* filesIndexes = multifileComment->getData();
@@ -56,21 +58,39 @@ void Eksporter::on_export_2_clicked()
             QFileInfo fileInfo(z.key());
 
             qDebug() << "::File::: " << z.key();
-
+            qDebug() << "::Value::: " <<z.value();
+            comment += "<File>" + z.key() + "</File>\n";
             QString selectedLines = FileReadingUtils::readGivenLines(z.value(), z.key());
 
             if(!selectedLines.simplified().isEmpty()) {
-                if(multifileComment->isPositive())
-                    qDebug() <<"Positive"<< "::File::: " << fileInfo.fileName() <<"::"<< selectedLines;
-                    //comment += HtmlFormater::loadPositiveCommentTemplate(fileInfo.fileName(), selectedLines);
-                else
-                    qDebug() <<"Negative"<< "::File::: " << fileInfo.fileName() <<"::"<< selectedLines;
-                    //comment += HtmlFormater::loadNegativeCommentTemplate(fileInfo.fileName(), selectedLines);
+                if(multifileComment->isPositive()){
+                    // psoitive comment
+                    qDebug() << "::File::: " << fileInfo.fileName(), selectedLines;
+                    comment += "<Positive>  True </Positive>\n";
+                    comment += "<Lines>" + fileInfo.fileName() + selectedLines + "</Lines>\n";
+                   // comment += fileInfo.fileName(), selectedLines;
+                }
+                else{
+                    // negative comment
+                     qDebug() << "::File::: " << fileInfo.fileName(), selectedLines;
+                     comment += "<Positive>  Flase </Positive>\n";
+                     comment += "<Lines>" + fileInfo.fileName() + selectedLines + "</Lines>\n";
+                    //comment += fileInfo.fileName(), selectedLines;
+                    }
             }
         }
 
-
-
+       // comment += HtmlFormater::loadTextDisplayTemplate(multifileComment->getComment());
+       // body += comment;
     }
-
+    comment += "</comments-extractions>";
+    // write to file
+    QFile file(s_last_selectedDir.path() + "/commentExport.txt" );
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
+        qDebug() << s_last_selectedDir.path()+"commentExport.txt";
+        qDebug() << "write";
+        QTextStream out(&file);
+             out << comment;
+    }
+    file.close();
 }

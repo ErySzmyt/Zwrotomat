@@ -227,7 +227,7 @@
      <x>0</x>
      <y>0</y>
      <width>1157</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -250,8 +250,6 @@
     </widget>
     <addaction name="menuNowy"/>
     <addaction name="actionZapisz"/>
-    <addaction name="actionEksportuj"/>
-    <addaction name="actionImportuj"/>
    </widget>
    <widget class="QMenu" name="menuUstawienia">
     <property name="title">
@@ -277,8 +275,11 @@
     <property name="title">
      <string>Komentarze</string>
     </property>
-    <addaction name="actionEksportuj_2"/>
-    <addaction name="actionImportuj_2"/>
+    <property name="toolTipsVisible">
+     <bool>true</bool>
+    </property>
+    <addaction name="actionImport"/>
+    <addaction name="actionEksport"/>
    </widget>
    <addaction name="menuProjekt"/>
    <addaction name="menuUstawienia"/>
@@ -316,16 +317,6 @@
     <string>Zapisz</string>
    </property>
   </action>
-  <action name="actionEksportuj">
-   <property name="text">
-    <string>Eksportuj</string>
-   </property>
-  </action>
-  <action name="actionImportuj">
-   <property name="text">
-    <string>Importuj</string>
-   </property>
-  </action>
   <action name="actionGenerowanie">
    <property name="text">
     <string>Generowanie</string>
@@ -346,14 +337,14 @@
     <string>Generuj</string>
    </property>
   </action>
-  <action name="actionEksportuj_2">
+  <action name="actionImport">
    <property name="text">
-    <string>Eksportuj</string>
+    <string>Import</string>
    </property>
   </action>
-  <action name="actionImportuj_2">
+  <action name="actionEksport">
    <property name="text">
-    <string>Importuj</string>
+    <string>Eksport</string>
    </property>
   </action>
  </widget>

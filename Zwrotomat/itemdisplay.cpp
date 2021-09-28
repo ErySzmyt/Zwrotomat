@@ -9,7 +9,7 @@ ItemDisplay::ItemDisplay(QWidget *parent) :
 
     connect(this, SIGNAL(sendRemoveItem(const QString &)), parent, SLOT(removeComment(const QString &)));
     connect(this, SIGNAL(sendCommentClicked(const QString &)), parent, SLOT(selectComment(const QString &)));
-    connect(this, SIGNAL(sendPositiveCheckChanged(const QString &,const bool &)), parent, SLOT(changePoitivityOfComment(const QString &,const bool &)));
+    connect(this, SIGNAL(sendPositiveCheckChanged(const QString &,const bool &)), parent, SLOT(changePositivityOfComment(const QString &,const bool &)));
 }
 
 ItemDisplay::~ItemDisplay()

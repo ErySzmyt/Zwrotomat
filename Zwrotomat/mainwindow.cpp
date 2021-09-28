@@ -12,12 +12,8 @@
 #include "multifilecomment.h"
 #include "gitform.h"
 #include "gitwrapper.h"
-<<<<<<< Updated upstream
-
-=======
-#include "eksport.h"
 #include "eksporter.h"
->>>>>>> Stashed changes
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -247,17 +243,23 @@ void MainWindow::on_actionGit_triggered()
     gitform->show();
 }
 
-void MainWindow::on_actionEksportuj_2_triggered()
+
+
+void MainWindow::on_actionEksport_triggered()
 {
-<<<<<<< Updated upstream
+    qDebug() <<"debug on_actionEksport_triggered";
     // extract comments
-=======
+    Eksporter* eksport = new Eksporter();
+    eksport->setComments(this->m_Comments);
+    eksport->show();
 
     //extract
-    Eksporter* eksportForm = new Eksporter();
-    eksportForm->setComments(this->m_Comments);
-    eksportForm->show();
+    //eksporter* eksportForm = new eksport();
+   // eksportForm->show();
 }
->>>>>>> Stashed changes
 
+
+void MainWindow::on_actionImport_triggered()
+{
+    // import
 }

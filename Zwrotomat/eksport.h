@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDir>
+#include "multifilecomment.h"
 
 namespace Ui {
 class eksport;
@@ -24,6 +25,8 @@ private slots:
 private:
     Ui::eksport *ui;
     static inline QDir s_last_selectedDir = QDir("C://");
+    void setComments(QHash<QString, MultiFileComment*>*commentMap);
+    QHash<QString, MultiFileComment*> *m_Comments;
 };
 
 #endif // EKSPORT_H
