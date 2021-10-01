@@ -24,8 +24,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[42];
-    char stringdata0[434];
+    const uint offsetsAndSize[48];
+    char stringdata0[462];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -43,16 +43,18 @@ QT_MOC_LITERAL(149, 30), // "on_addingCommentButton_clicked"
 QT_MOC_LITERAL(180, 13), // "removeComment"
 QT_MOC_LITERAL(194, 4), // "text"
 QT_MOC_LITERAL(199, 13), // "selectComment"
-QT_MOC_LITERAL(213, 25), // "changePositivityOfComment"
-QT_MOC_LITERAL(239, 9), // "isChecked"
-QT_MOC_LITERAL(249, 26), // "on_commentEdit_textChanged"
-QT_MOC_LITERAL(276, 26), // "on_actionGeneruj_triggered"
-QT_MOC_LITERAL(303, 24), // "on_actionPusty_triggered"
-QT_MOC_LITERAL(328, 29), // "on_actionKomentarze_triggered"
-QT_MOC_LITERAL(358, 22), // "on_actionGit_triggered"
-QT_MOC_LITERAL(381, 26), // "on_actionEksport_triggered"
-QT_MOC_LITERAL(408, 25) // "on_actionImport_triggered"
-
+QT_MOC_LITERAL(213, 12), // "doneClonning"
+QT_MOC_LITERAL(226, 4), // "QDir"
+QT_MOC_LITERAL(231, 9), // "clonedDir"
+QT_MOC_LITERAL(241, 25), // "changePositivityOfComment"
+QT_MOC_LITERAL(267, 9), // "isChecked"
+QT_MOC_LITERAL(277, 26), // "on_commentEdit_textChanged"
+QT_MOC_LITERAL(304, 26), // "on_actionGeneruj_triggered"
+QT_MOC_LITERAL(331, 24), // "on_actionPusty_triggered"
+QT_MOC_LITERAL(356, 29), // "on_actionKomentarze_triggered"
+QT_MOC_LITERAL(386, 22), // "on_actionGit_triggered"
+QT_MOC_LITERAL(409, 26), // "on_actionEksport_triggered"
+QT_MOC_LITERAL(436, 25) // "on_actionImport_triggered"
 
     },
     "MainWindow\0on_treeFileExplorer_clicked\0"
@@ -61,6 +63,7 @@ QT_MOC_LITERAL(408, 25) // "on_actionImport_triggered"
     "on_textBrowser_cursorPositionChanged\0"
     "on_addingCommentButton_clicked\0"
     "removeComment\0text\0selectComment\0"
+    "doneClonning\0QDir\0clonedDir\0"
     "changePositivityOfComment\0isChecked\0"
     "on_commentEdit_textChanged\0"
     "on_actionGeneruj_triggered\0"
@@ -69,7 +72,6 @@ QT_MOC_LITERAL(408, 25) // "on_actionImport_triggered"
     "on_actionGit_triggered\0"
     "on_actionEksport_triggered\0"
     "on_actionImport_triggered"
-
 };
 #undef QT_MOC_LITERAL
 
@@ -79,9 +81,7 @@ static const uint qt_meta_data_MainWindow[] = {
        9,       // revision
        0,       // classname
        0,    0, // classinfo
-
-      15,   14, // methods
-
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -89,21 +89,22 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  104,    2, 0x08,    0 /* Private */,
-       5,    0,  107,    2, 0x08,    2 /* Private */,
-       6,    0,  108,    2, 0x08,    3 /* Private */,
-       7,    0,  109,    2, 0x08,    4 /* Private */,
-       8,    0,  110,    2, 0x08,    5 /* Private */,
-       9,    1,  111,    2, 0x08,    6 /* Private */,
-      11,    1,  114,    2, 0x08,    8 /* Private */,
-      12,    2,  117,    2, 0x08,   10 /* Private */,
-      14,    0,  122,    2, 0x08,   13 /* Private */,
-      15,    0,  123,    2, 0x08,   14 /* Private */,
-      16,    0,  124,    2, 0x08,   15 /* Private */,
-      17,    0,  125,    2, 0x08,   16 /* Private */,
-      18,    0,  126,    2, 0x08,   17 /* Private */,
-      19,    0,  127,    2, 0x08,   18 /* Private */,
-      20,    0,  128,    2, 0x08,   19 /* Private */,
+       1,    1,  110,    2, 0x08,    0 /* Private */,
+       5,    0,  113,    2, 0x08,    2 /* Private */,
+       6,    0,  114,    2, 0x08,    3 /* Private */,
+       7,    0,  115,    2, 0x08,    4 /* Private */,
+       8,    0,  116,    2, 0x08,    5 /* Private */,
+       9,    1,  117,    2, 0x08,    6 /* Private */,
+      11,    1,  120,    2, 0x08,    8 /* Private */,
+      12,    1,  123,    2, 0x08,   10 /* Private */,
+      15,    2,  126,    2, 0x08,   12 /* Private */,
+      17,    0,  131,    2, 0x08,   15 /* Private */,
+      18,    0,  132,    2, 0x08,   16 /* Private */,
+      19,    0,  133,    2, 0x08,   17 /* Private */,
+      20,    0,  134,    2, 0x08,   18 /* Private */,
+      21,    0,  135,    2, 0x08,   19 /* Private */,
+      22,    0,  136,    2, 0x08,   20 /* Private */,
+      23,    0,  137,    2, 0x08,   21 /* Private */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -113,7 +114,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   10,
     QMetaType::Void, QMetaType::QString,   10,
-    QMetaType::Void, QMetaType::QString, QMetaType::Bool,   10,   13,
+    QMetaType::Void, 0x80000000 | 13,   14,
+    QMetaType::Void, QMetaType::QString, QMetaType::Bool,   10,   16,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -138,15 +140,15 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->on_addingCommentButton_clicked(); break;
         case 5: _t->removeComment((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 6: _t->selectComment((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 7: _t->changePositivityOfComment((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const bool(*)>(_a[2]))); break;
-        case 8: _t->on_commentEdit_textChanged(); break;
-        case 9: _t->on_actionGeneruj_triggered(); break;
-        case 10: _t->on_actionPusty_triggered(); break;
-        case 11: _t->on_actionKomentarze_triggered(); break;
-        case 12: _t->on_actionGit_triggered(); break;
-        case 13: _t->on_actionEksport_triggered(); break;
-        case 14: _t->on_actionImport_triggered(); break;
-
+        case 7: _t->doneClonning((*reinterpret_cast< const QDir(*)>(_a[1]))); break;
+        case 8: _t->changePositivityOfComment((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const bool(*)>(_a[2]))); break;
+        case 9: _t->on_commentEdit_textChanged(); break;
+        case 10: _t->on_actionGeneruj_triggered(); break;
+        case 11: _t->on_actionPusty_triggered(); break;
+        case 12: _t->on_actionKomentarze_triggered(); break;
+        case 13: _t->on_actionGit_triggered(); break;
+        case 14: _t->on_actionEksport_triggered(); break;
+        case 15: _t->on_actionImport_triggered(); break;
         default: ;
         }
     }
@@ -159,7 +161,9 @@ const QMetaObject MainWindow::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const bool &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QModelIndex &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QDir &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const bool &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+
 
 >,
     nullptr
@@ -185,23 +189,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
-
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 16)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 15;
-
-        if (_id < 15)
-            qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
-    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 15;
-
+        _id -= 16;
     }
     return _id;
 }

@@ -1,5 +1,6 @@
 QT       += core gui
 QT += widgets
+QT += xml
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -11,6 +12,7 @@ CONFIG += c++11
 SOURCES += \
     codedisplay.cpp \
     commentextractor.cpp \
+    customimport.cpp \
     eksporter.cpp \
     filereadingutils.cpp \
     generatorwindow.cpp \
@@ -18,7 +20,6 @@ SOURCES += \
     gitwrapper.cpp \
     highlighter.cpp \
     htmlformater.cpp \
-    importer.cpp \
     itemdisplay.cpp \
     linenumberarea.cpp \
     main.cpp \
@@ -28,6 +29,7 @@ SOURCES += \
 HEADERS += \
     codedisplay.h \
     commentextractor.h \
+    customimport.h \
     eksporter.h \
     filereadingutils.h \
     generatorwindow.h \
@@ -35,18 +37,21 @@ HEADERS += \
     gitwrapper.h \
     highlighter.h \
     htmlformater.h \
-    importer.h \
     itemdisplay.h \
     linenumberarea.h \
     mainwindow.h \
     multifilecomment.h \
+    rapidxml.hpp \
+    rapidxml_iterators.hpp \
+    rapidxml_print.hpp \
+    rapidxml_utils.hpp
 
 FORMS += \
     Mainwindow.ui \
+    customimport.ui \
     eksporter.ui \
     generatorwindow.ui \
     gitform.ui \
-    importer.ui \
     itemdisplay.ui
 
 # Default rules for deployment.
@@ -55,3 +60,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES = resources.qrc
+
+DISTFILES += \
+    RapidXml-1.13-license/license.txt \
+    read.me

@@ -35,7 +35,7 @@ void Eksporter::on_chooseButton_clicked()
 void Eksporter::on_export_2_clicked()
 {
     // export comments
-    QString comment = "<?xml version='1.0' encoding='UTF-8'?> <comments-extractions> \n";
+    QString comment = "<?xml version='1.0' encoding='UTF-8'?> \n <comments-extractions> \n";
     QHashIterator<QString, MultiFileComment*> i(*m_Comments);
     while (i.hasNext()) {
         i.next();
@@ -85,7 +85,7 @@ void Eksporter::on_export_2_clicked()
     }
     comment += "</comments-extractions>";
     // write to file
-    QFile file(s_last_selectedDir.path() + "/commentExport.txt" );
+    QFile file(s_last_selectedDir.path() + "/commentExport.xml" );
     if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
         qDebug() << s_last_selectedDir.path()+"commentExport.txt";
         qDebug() << "write";

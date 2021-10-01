@@ -13,7 +13,7 @@
 #include "gitform.h"
 #include "gitwrapper.h"
 #include "eksporter.h"
-
+//#include "importer.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -262,4 +262,6 @@ void MainWindow::on_actionEksport_triggered()
 void MainWindow::on_actionImport_triggered()
 {
     // import
+  //  Importer* import = new Importer();
+  //  import->show();
 }
