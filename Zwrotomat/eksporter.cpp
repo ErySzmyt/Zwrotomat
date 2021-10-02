@@ -40,6 +40,7 @@ void Eksporter::on_export_2_clicked()
     while (i.hasNext()) {
         i.next();
         qDebug() << "::Comment Name::: " << i.key();
+        comment +="<comment-start> \n";
         comment +="<comment-number>" + i.key()+"</comment-number>\n";
 
         //comment += HtmlFormater::loadHeaderDisplayTemplate(i.key());
@@ -56,10 +57,10 @@ void Eksporter::on_export_2_clicked()
             z.next();
 
             QFileInfo fileInfo(z.key());
-
+            comment += "<File>\n";
             qDebug() << "::File::: " << z.key();
             qDebug() << "::Value::: " <<z.value();
-            comment += "<File>" + z.key() + "</File>\n";
+            comment += "<File-name>" + z.key() + "</File-name>\n";
             QString selectedLines = FileReadingUtils::readGivenLines(z.value(), z.key());
 
             if(!selectedLines.simplified().isEmpty()) {
@@ -67,21 +68,36 @@ void Eksporter::on_export_2_clicked()
                     // psoitive comment
                     qDebug() << "::File::: " << fileInfo.fileName(), selectedLines;
                     comment += "<Positive>  True </Positive>\n";
-                    comment += "<Lines>" + fileInfo.fileName() + selectedLines + "</Lines>\n";
+                    comment += "<Lines> \n";
+                     for(const auto& i : *z.value()){
+                         qDebug() << i;
+                         comment += "<line>";
+                         QString s = QString::number(i);
+                         comment += s;
+                         comment += "</line>\n";
+                     }
+                    comment += "</Lines>\n";
                    // comment += fileInfo.fileName(), selectedLines;
                 }
                 else{
                     // negative comment
                      qDebug() << "::File::: " << fileInfo.fileName(), selectedLines;
                      comment += "<Positive>  Flase </Positive>\n";
-                     comment += "<Lines>" + fileInfo.fileName() + selectedLines + "</Lines>\n";
-                    //comment += fileInfo.fileName(), selectedLines;
+                     comment += "<Lines> \n";
+                     for(const auto& i : *z.value()){
+                         qDebug() << i;
+                         comment += "<line>";
+                         QString s = QString::number(i);
+                         comment += s;
+                         comment += "</line>\n";
+                     }
+                     comment += "</Lines> \n";
                     }
             }
-        }
+            comment +="</File>\n";
 
-       // comment += HtmlFormater::loadTextDisplayTemplate(multifileComment->getComment());
-       // body += comment;
+        }
+      comment +="</comment-start> \n";
     }
     comment += "</comments-extractions>";
     // write to file
