@@ -288,7 +288,7 @@
                         </DElement>
                        </base-DElement>
                        <text>eksporter</text>
-                       <pos>x:660;y:150</pos>
+                       <pos>x:640;y:190</pos>
                        <rect>x:-110;y:-70;w:220;h:140</rect>
                       </DBoundary>
                      </instance>
@@ -305,7 +305,7 @@
                          </base-DElement>
                          <object>{96884013-a127-459d-93d0-be5e76da7c55}</object>
                          <name>eksporter</name>
-                         <pos>x:660;y:150</pos>
+                         <pos>x:640;y:190</pos>
                          <rect>x:-40;y:-30;w:80;h:60</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -534,7 +534,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1635794774749</last-modified>
+                  <last-modified>1635794840511</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
