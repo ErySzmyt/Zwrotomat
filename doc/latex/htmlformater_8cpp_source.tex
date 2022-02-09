@@ -1,0 +1,87 @@
+\hypertarget{htmlformater_8cpp_source}{}\doxysection{htmlformater.\+cpp}
+\mbox{\hyperlink{htmlformater_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{htmlformater_8h}{htmlformater.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include <QStringBuilder>}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <QFile>}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include <QIODevice>}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00010}00010 HtmlFormater::HtmlFormater()}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00011}00011 \{ }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00012}00012 \}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00023}\mbox{\hyperlink{class_html_formater_a1935a62549b1641c52ac2042dcee472c}{00023}} QString \mbox{\hyperlink{class_html_formater_a1935a62549b1641c52ac2042dcee472c}{HtmlFormater::loadMainTemplate}}(QString Subject, QString Topic, QString Checker, QString date, QString score)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00024}00024 \{}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00025}00025     QString data;}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00026}00026     QFile file(\mbox{\hyperlink{class_html_formater_a52d039007186b3f43faede144654f270}{HtmlFormater::MAIN\_INDEX\_RESOURCE}});}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00028}00028     file.open(QIODevice::ReadOnly);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00029}00029     data = file.readAll();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00031}00031     file.close();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00033}00033     \textcolor{keywordflow}{return} data}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00034}00034             .replace(\textcolor{stringliteral}{"{}\$\{Subject\}"{}}, Subject)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00035}00035             .replace(\textcolor{stringliteral}{"{}\$\{Topic\}"{}}, Topic)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00036}00036             .replace(\textcolor{stringliteral}{"{}\$\{Checker\}"{}}, Checker)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00037}00037             .replace(\textcolor{stringliteral}{"{}\$\{date\}"{}}, date)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00038}00038             .replace(\textcolor{stringliteral}{"{}\$\{score\}"{}}, score);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00039}00039 \}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00047}\mbox{\hyperlink{class_html_formater_a65e389dc9365235dbb816d724d42bf4e}{00047}} QString \mbox{\hyperlink{class_html_formater_a65e389dc9365235dbb816d724d42bf4e}{HtmlFormater::loadPositiveCommentTemplate}}(QString FileName, QString Code)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00048}00048 \{}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00049}00049     QString data;}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00050}00050     QFile file(\mbox{\hyperlink{class_html_formater_a097a850d65373808196ef0b8026ffa78}{HtmlFormater::COMMENT\_TEMPLATE\_RESOURCE}});}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00052}00052     file.open(QIODevice::ReadOnly);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00053}00053     data = file.readAll();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00055}00055     file.close();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00057}00057     \textcolor{keywordflow}{return} data.replace(\textcolor{stringliteral}{"{}\$\{fileName\}"{}}, FileName).replace(\textcolor{stringliteral}{"{}\$\{code\}"{}}, Code);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00058}00058 \}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00066}\mbox{\hyperlink{class_html_formater_a1f00ef6fbd7728a440b338e651e8e66a}{00066}} QString \mbox{\hyperlink{class_html_formater_a1f00ef6fbd7728a440b338e651e8e66a}{HtmlFormater::loadNegativeCommentTemplate}}(QString FileName, QString Code)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00067}00067 \{}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00068}00068     QString data;}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00069}00069     QFile file(\mbox{\hyperlink{class_html_formater_a665c00fc20364184e9aa37c5895787a0}{HtmlFormater::NEGATIVE\_COMMENT\_TEMPLATE\_RESOURCE}});}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00071}00071     file.open(QIODevice::ReadOnly);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00072}00072     data = file.readAll();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00074}00074     file.close();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00076}00076     \textcolor{keywordflow}{return} data.replace(\textcolor{stringliteral}{"{}\$\{fileName\}"{}}, FileName).replace(\textcolor{stringliteral}{"{}\$\{code\}"{}}, Code);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00077}00077 \}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00084}\mbox{\hyperlink{class_html_formater_a8485f346eb70ac3d9866cdd43a559b67}{00084}} QString \mbox{\hyperlink{class_html_formater_a8485f346eb70ac3d9866cdd43a559b67}{HtmlFormater::loadTextDisplayTemplate}}(QString comment)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00085}00085 \{}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00086}00086     QString data;}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00087}00087     QFile file(\mbox{\hyperlink{class_html_formater_a7ba182036c86aeebe4e802327ef388fd}{HtmlFormater::COMMENT\_TEXT\_DISPLAY\_TEMPLATE\_RESOURCE}});}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00088}00088 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00089}00089     file.open(QIODevice::ReadOnly);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00090}00090     data = file.readAll();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00092}00092     file.close();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00094}00094     \textcolor{keywordflow}{return} data.replace(\textcolor{stringliteral}{"{}\$\{comment\}"{}}, comment);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00095}00095 \}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00102}\mbox{\hyperlink{class_html_formater_ab0c5884aeee3a2e12430fbd8754579bf}{00102}} QString \mbox{\hyperlink{class_html_formater_ab0c5884aeee3a2e12430fbd8754579bf}{HtmlFormater::loadHeaderDisplayTemplate}}(QString Text)}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00103}00103 \{}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00104}00104     QString data;}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00105}00105     QFile file(\mbox{\hyperlink{class_html_formater_accc9de1e3bdaf3de787f5cc6789510a7}{HtmlFormater::COMMENT\_HEADER\_DISPLAY\_TEMPLATE\_RESOURCE}});}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00107}00107     file.open(QIODevice::ReadOnly);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00108}00108     data = file.readAll();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00110}00110     file.close();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00112}00112     \textcolor{keywordflow}{return} data.replace(\textcolor{stringliteral}{"{}\$\{comment\}"{}}, Text);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8cpp_source_l00113}00113 \}}
+
+\end{DoxyCode}

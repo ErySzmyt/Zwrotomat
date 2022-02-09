@@ -1,0 +1,38 @@
+\hypertarget{gitform_8h_source}{}\doxysection{gitform.\+h}
+\mbox{\hyperlink{gitform_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef GITFORM\_H}}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00002}00002 \textcolor{preprocessor}{\#define GITFORM\_H}}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <QMainWindow>}}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <QDir>}}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{gitwrapper_8h}{gitwrapper.h}}>}}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_ui}{Ui}} \{}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00009}00009 \textcolor{keyword}{class }\mbox{\hyperlink{class_git_form}{GitForm}};}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00010}00010 \}}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00012}\mbox{\hyperlink{class_git_form}{00012}} \textcolor{keyword}{class }\mbox{\hyperlink{class_git_form}{GitForm}} : \textcolor{keyword}{public} QMainWindow}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00013}00013 \{}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00014}00014     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00016}00016 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00017}00017     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_git_form_aec55e7dd817ba8395d1a34d4a443a012}{GitForm}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00018}00018     \mbox{\hyperlink{class_git_form_a7b5758c187181d9e19d72f8f27603f42}{\string~GitForm}}();}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00020}00020 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00021}00021     \textcolor{keywordtype}{void} on\_folderPickingButton\_clicked();}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00022}00022     \textcolor{keywordtype}{void} on\_cloneButton\_clicked();}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00024}00024 signals:}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00025}\mbox{\hyperlink{class_git_form_ae73f1a6ace9812a52b8f254686053e5c}{00025}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_git_form_ae73f1a6ace9812a52b8f254686053e5c}{sendDoneClonning}}(\textcolor{keyword}{const} QDir \&);}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00027}00027 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00028}00028     Ui::GitForm *ui;}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00029}00029     \textcolor{keyword}{static} \textcolor{keyword}{inline} QDir s\_last\_selectedDir = QDir(\textcolor{stringliteral}{"{}C://"{}});}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00030}00030     \mbox{\hyperlink{class_git_wrapper}{GitWrapper}}* gitWrapper;}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00031}00031 \};}
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{gitform_8h_source_l00033}00033 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// GITFORM\_H}}
+
+\end{DoxyCode}

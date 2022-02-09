@@ -55,7 +55,7 @@ private slots:
     void on_actionEksport_triggered();
 
     void on_actionImport_triggered();
-
+    void reciveImport(QHash<QString, MultiFileComment*>*);
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *m_fileModel; // model for filed display

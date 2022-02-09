@@ -17,43 +17,46 @@ ItemDisplay::~ItemDisplay()
     delete ui;
 }
 
-/*
-* Action on clicking remove Button
-* emiting sendRemoveItem(...)
-*/
+/**
+ * @brief ItemDisplay::on_removeButton_clicked Action on clicking remove Button
+ * emiting sendRemoveItem(...)
+ */
 void ItemDisplay::on_removeButton_clicked()
 {
     emit sendRemoveItem(ui->label->text());
 }
 
-/*
-* Setting text displayed on label in widget
-*/
+/**
+ * @brief ItemDisplay::setText Setting text displayed on label in widget
+ * @param text displaying text
+ */
 void ItemDisplay::setText(const QString &text)
 {
     ui->label->setText(text);
 }
 
-/*
-* Getting text displayed on label in widget
-*/
+/**
+ * @brief ItemDisplay::getText Getting text displayed on label in widget
+ * @return item displayed text
+ */
 QString ItemDisplay::getText()
 {
     return ui->label->text();
 }
 
-/*
-* Action on mouse release on whole widget
-* @note mousePressed dosent work, because it colides with QWidgetLayout methods
-*/
+/**
+ * @brief ItemDisplay::mouseReleaseEvent Action on mouse release on whole widget
+ * @note mousePressed dosent work, because it colides with QWidgetLayout methods
+ * @param event event
+ */
 void ItemDisplay::mouseReleaseEvent(QMouseEvent *event)
 {
     emit sendCommentClicked(ui->label->text());
 }
 
-/*
-* Action on mouse click on radio button in the widget
-*/
+/**
+ * @brief ItemDisplay::on_wskaznikPozytyw_clicked Action on mouse click on radio button in the widget
+ */
 void ItemDisplay::on_wskaznikPozytyw_clicked()
 {
     emit sendPositiveCheckChanged(ui->label->text(), ui->wskaznikPozytyw->isChecked());

@@ -32,7 +32,10 @@ GeneratorWindow::~GeneratorWindow()
     delete ui;
 }
 
-
+/**
+ * @brief GeneratorWindow::on_generateButton_clicked
+ * Action on generate button clicked. Generating and saving the raport
+ */
 void GeneratorWindow::on_generateButton_clicked()
 {
     QString mainPage = HtmlFormater::loadMainTemplate(

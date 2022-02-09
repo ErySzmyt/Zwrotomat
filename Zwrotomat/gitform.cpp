@@ -29,14 +29,21 @@ GitForm::~GitForm()
     delete ui;
 }
 
-void GitForm::on_pushButton_clicked()
+/**
+ * @brief GitForm::on_folderPickingButton_clicked
+ * Action for selecting output folder
+ */
+void GitForm::on_folderPickingButton_clicked()
 {
       QDir dir = QFileDialog::getExistingDirectory(0, ("Select Output Folder"), QDir::currentPath());
       s_last_selectedDir = dir;
       ui->outputDirDisplay->setText(dir.path());
 }
 
-void GitForm::on_pushButton_2_clicked()
+/**
+ * @brief GitForm::on_cloneButton_clicked clone action
+ */
+void GitForm::on_cloneButton_clicked()
 {
     if(!ui->LinkToRepo->toPlainText().isEmpty() && !s_last_selectedDir.path().isEmpty()){
         emit sendDoneClonning(this->gitWrapper->clone(ui->LinkToRepo->toPlainText(), s_last_selectedDir));

@@ -2,9 +2,11 @@
 #define EKSPORTER_H
 
 #include <QMainWindow>
-#include "QDir"
+#include <QHash>
+#include <QDir>
 #include "multifilecomment.h"
-#include "QHash"
+#include "filereadingutils.h"
+
 namespace Ui {
 class Eksporter;
 }
@@ -15,12 +17,12 @@ class Eksporter : public QMainWindow
 
 public:
     explicit Eksporter(QWidget *parent = nullptr);
-    void setComments(QHash<QString, MultiFileComment*>*commentMap);
     ~Eksporter();
+
+    void setComments(QHash<QString, MultiFileComment*>* commentMap);
 
 private slots:
     void on_chooseButton_clicked();
-
     void on_export_2_clicked();
 
 private:

@@ -1,0 +1,29 @@
+\hypertarget{filereadingutils_8h_source}{}\doxysection{filereadingutils.\+h}
+\mbox{\hyperlink{filereadingutils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef FILEREADINGUTILS\_H}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00002}00002 \textcolor{preprocessor}{\#define FILEREADINGUTILS\_H}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multifilecomment_8h}{multifilecomment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <QDir>}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00011}\mbox{\hyperlink{class_file_reading_utils}{00011}} \textcolor{keyword}{class }\mbox{\hyperlink{class_file_reading_utils}{FileReadingUtils}}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00013}00013 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00014}00014     \mbox{\hyperlink{class_file_reading_utils}{FileReadingUtils}}();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00016}00016 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00017}00017     \textcolor{keyword}{static} QString \mbox{\hyperlink{class_file_reading_utils_a0a7b975ac53dca05d4a23327664fd34c}{readGivenLines}}(QList<int>* lineList, QString file);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00019}00019     \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_reading_utils_a8ab7c9801a7d5bbcde9001268617dad1}{exportData}}(QHash<QString, MultiFileComment*> *data, QDir outDir);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00020}00020     \textcolor{keyword}{static} QHash<QString, MultiFileComment *> *\mbox{\hyperlink{class_file_reading_utils_aa29f8ea6e27e11d2e14b7eac8bce3c4c}{importCommentsFromFile}}(QString path);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00022}00022 \};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8h_source_l00024}00024 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// FILEREADINGUTILS\_H}}
+
+\end{DoxyCode}

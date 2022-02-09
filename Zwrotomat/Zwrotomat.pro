@@ -1,4 +1,5 @@
-QT       += core gui
+QT += testlib
+QT += core gui
 QT += widgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,7 +11,10 @@ CONFIG += c++11
 
 SOURCES += \
     codedisplay.cpp \
+<<<<<<< Updated upstream
     commentextractor.cpp \
+=======
+>>>>>>> Stashed changes
     eksporter.cpp \
     filereadingutils.cpp \
     generatorwindow.cpp \
@@ -23,11 +27,14 @@ SOURCES += \
     linenumberarea.cpp \
     main.cpp \
     mainwindow.cpp \
-    multifilecomment.cpp \
+    multifilecomment.cpp
 
 HEADERS += \
     codedisplay.h \
+<<<<<<< Updated upstream
     commentextractor.h \
+=======
+>>>>>>> Stashed changes
     eksporter.h \
     filereadingutils.h \
     generatorwindow.h \
@@ -39,7 +46,11 @@ HEADERS += \
     itemdisplay.h \
     linenumberarea.h \
     mainwindow.h \
+<<<<<<< Updated upstream
     multifilecomment.h \
+=======
+    multifilecomment.h
+>>>>>>> Stashed changes
 
 FORMS += \
     Mainwindow.ui \

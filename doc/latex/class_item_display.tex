@@ -1,0 +1,152 @@
+\hypertarget{class_item_display}{}\doxysection{Item\+Display Class Reference}
+\label{class_item_display}\index{ItemDisplay@{ItemDisplay}}
+
+
+{\ttfamily \#include $<$itemdisplay.\+h$>$}
+
+Inheritance diagram for Item\+Display\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_item_display}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_item_display_afbc51cb6e74425f9d0cfdf31ac5916b3}{send\+Remove\+Item}} (const QString \&text)
+\item 
+void \mbox{\hyperlink{class_item_display_a7f7978b25daff5f2ce5870bad575b613}{send\+Comment\+Clicked}} (const QString \&text)
+\item 
+void \mbox{\hyperlink{class_item_display_afd0828169b3f5ff928699455450158d4}{send\+Positive\+Check\+Changed}} (const QString \&text, const bool \&is\+Positive)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_item_display_a2c45f5f4d5ac60d978228e8a525decbc}{Item\+Display}} (QWidget $\ast$parent=nullptr)
+\item 
+\mbox{\hyperlink{class_item_display_a4f0376dbd5746f10986d4127c24f7461}{$\sim$\+Item\+Display}} ()
+\item 
+void \mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{set\+Text}} (const QString \&text)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{Item\+Display\+::set\+Text}} Setting text displayed on label in widget. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_item_display_a8045f095c125140a4011566a2b4c9e55}{get\+Text}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_item_display_a8045f095c125140a4011566a2b4c9e55}{Item\+Display\+::get\+Text}} Getting text displayed on label in widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}{mouse\+Release\+Event}} (QMouse\+Event $\ast$event) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}{Item\+Display\+::mouse\+Release\+Event}} Action on mouse release on whole widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{itemdisplay_8h_source_l00010}{10}} of file \mbox{\hyperlink{itemdisplay_8h_source}{itemdisplay.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_item_display_a2c45f5f4d5ac60d978228e8a525decbc}\label{class_item_display_a2c45f5f4d5ac60d978228e8a525decbc}} 
+\index{ItemDisplay@{ItemDisplay}!ItemDisplay@{ItemDisplay}}
+\index{ItemDisplay@{ItemDisplay}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{ItemDisplay()}{ItemDisplay()}}
+{\footnotesize\ttfamily Item\+Display\+::\+Item\+Display (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{itemdisplay_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{itemdisplay_8cpp_source}{itemdisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_item_display_a4f0376dbd5746f10986d4127c24f7461}\label{class_item_display_a4f0376dbd5746f10986d4127c24f7461}} 
+\index{ItemDisplay@{ItemDisplay}!````~ItemDisplay@{$\sim$ItemDisplay}}
+\index{````~ItemDisplay@{$\sim$ItemDisplay}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{$\sim$ItemDisplay()}{~ItemDisplay()}}
+{\footnotesize\ttfamily Item\+Display\+::$\sim$\+Item\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{itemdisplay_8cpp_source_l00015}{15}} of file \mbox{\hyperlink{itemdisplay_8cpp_source}{itemdisplay.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_item_display_a8045f095c125140a4011566a2b4c9e55}\label{class_item_display_a8045f095c125140a4011566a2b4c9e55}} 
+\index{ItemDisplay@{ItemDisplay}!getText@{getText}}
+\index{getText@{getText}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{getText()}{getText()}}
+{\footnotesize\ttfamily QString Item\+Display\+::get\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_item_display_a8045f095c125140a4011566a2b4c9e55}{Item\+Display\+::get\+Text}} Getting text displayed on label in widget. 
+
+\begin{DoxyReturn}{Returns}
+item displayed text 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{itemdisplay_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{itemdisplay_8cpp_source}{itemdisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}\label{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}} 
+\index{ItemDisplay@{ItemDisplay}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{mouseReleaseEvent()}{mouseReleaseEvent()}}
+{\footnotesize\ttfamily void Item\+Display\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}{Item\+Display\+::mouse\+Release\+Event}} Action on mouse release on whole widget. 
+
+\begin{DoxyNote}{Note}
+mouse\+Pressed dosent work, because it colides with QWidget\+Layout methods 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em event} & event \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{itemdisplay_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{itemdisplay_8cpp_source}{itemdisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_item_display_a7f7978b25daff5f2ce5870bad575b613}\label{class_item_display_a7f7978b25daff5f2ce5870bad575b613}} 
+\index{ItemDisplay@{ItemDisplay}!sendCommentClicked@{sendCommentClicked}}
+\index{sendCommentClicked@{sendCommentClicked}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{sendCommentClicked}{sendCommentClicked}}
+{\footnotesize\ttfamily void Item\+Display\+::send\+Comment\+Clicked (\begin{DoxyParamCaption}\item[{const QString \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_item_display_afd0828169b3f5ff928699455450158d4}\label{class_item_display_afd0828169b3f5ff928699455450158d4}} 
+\index{ItemDisplay@{ItemDisplay}!sendPositiveCheckChanged@{sendPositiveCheckChanged}}
+\index{sendPositiveCheckChanged@{sendPositiveCheckChanged}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{sendPositiveCheckChanged}{sendPositiveCheckChanged}}
+{\footnotesize\ttfamily void Item\+Display\+::send\+Positive\+Check\+Changed (\begin{DoxyParamCaption}\item[{const QString \&}]{text,  }\item[{const bool \&}]{is\+Positive }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_item_display_afbc51cb6e74425f9d0cfdf31ac5916b3}\label{class_item_display_afbc51cb6e74425f9d0cfdf31ac5916b3}} 
+\index{ItemDisplay@{ItemDisplay}!sendRemoveItem@{sendRemoveItem}}
+\index{sendRemoveItem@{sendRemoveItem}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{sendRemoveItem}{sendRemoveItem}}
+{\footnotesize\ttfamily void Item\+Display\+::send\+Remove\+Item (\begin{DoxyParamCaption}\item[{const QString \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_item_display_a533760ba5ca0c308afb82311b52b86db}\label{class_item_display_a533760ba5ca0c308afb82311b52b86db}} 
+\index{ItemDisplay@{ItemDisplay}!setText@{setText}}
+\index{setText@{setText}!ItemDisplay@{ItemDisplay}}
+\doxysubsubsection{\texorpdfstring{setText()}{setText()}}
+{\footnotesize\ttfamily void Item\+Display\+::set\+Text (\begin{DoxyParamCaption}\item[{const QString \&}]{text }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{Item\+Display\+::set\+Text}} Setting text displayed on label in widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & displaying text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{itemdisplay_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{itemdisplay_8cpp_source}{itemdisplay.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{itemdisplay_8h}{itemdisplay.\+h}}\item 
+\mbox{\hyperlink{itemdisplay_8cpp}{itemdisplay.\+cpp}}\end{DoxyCompactItemize}

@@ -19,6 +19,10 @@ CodeDisplay::CodeDisplay(QWidget *parent) : QPlainTextEdit(parent)
     updateLineNumberAreaWidth(0);
 }
 
+/**
+ * @brief CodeDisplay::lineNumberAreaPaintEvent Painting line Number Area
+ * @param event
+ */
 void CodeDisplay::lineNumberAreaPaintEvent(QPaintEvent *event)
 {
     QPainter painter(lineNumberArea);
@@ -42,10 +46,10 @@ void CodeDisplay::lineNumberAreaPaintEvent(QPaintEvent *event)
             }
 }
 
-/*
-* Calculte lenght of Number Area
-* @returns int number of pixels
-*/
+/**
+ * @brief CodeDisplay::lineNumberAreaWidth Calculte lenght of Number Area
+ * @returns int number of pixels
+ */
 int CodeDisplay::lineNumberAreaWidth()
 {
     int digits = 1;
@@ -60,19 +64,21 @@ int CodeDisplay::lineNumberAreaWidth()
     return space;
 }
 
-/*
-* Returns bool is mouse over current CodeDisplay widget
-*/
+/**
+ * @brief CodeDisplay::isMouseOver Returns bool is mouse over current CodeDisplay widget
+ * @return is mouse over text area
+ */
 bool CodeDisplay::isMouseOver()
 {
     return this->mouseOver;
 }
 
-/*
-* Painting lines given by numbers(indexes) from multiFileComment for given file
-* @param &multiFileComment comment containing lines to select
-* @param selectedFile
-*/
+/**
+ * @brief CodeDisplay::loadSelectedLines
+ * Painting lines given by numbers(indexes) from multiFileComment for given file
+ * @param multiFileComment &multiFileComment comment containing lines to select
+ * @param selectedFile selectedFile
+ */
 void CodeDisplay::loadSelectedLines(MultiFileComment &multiFileComment, QString selectedFile)
 {
     for(int i : *multiFileComment.getLinesByName(selectedFile)) {
@@ -83,11 +89,11 @@ void CodeDisplay::loadSelectedLines(MultiFileComment &multiFileComment, QString 
     }
 }
 
-/*
-* adding or removing lines from given &multiFileComment
-* @param &multiFileComment comment containing lines
-* @param selectedFile
-*/
+/**
+ * @brief CodeDisplay::processCurrentLine adding or removing lines from given &multiFileComment
+ * @param multiFileComment &multiFileComment comment containing lines
+ * @param selectedFile selectedFile
+ */
 void CodeDisplay::processCurrentLine(MultiFileComment &multiFileComment, QString selectedFile)
 {
     const QString fileName = selectedFile;
@@ -124,9 +130,10 @@ void CodeDisplay::processCurrentLine(MultiFileComment &multiFileComment, QString
       }
 }
 
-/*
-* Overring on mouse over Event
-*/
+/**
+ * @brief CodeDisplay::enterEvent Overring on mouse over Event
+ * @param event event
+ */
 void CodeDisplay::enterEvent(QEnterEvent *event)
 {
     this->mouseOver = true;
@@ -134,9 +141,10 @@ void CodeDisplay::enterEvent(QEnterEvent *event)
     QWidget::enterEvent(event);
 }
 
-/*
-* Overring on mouse leave Event
-*/
+/**
+ * @brief CodeDisplay::leaveEvent Overring on mouse leave Event
+ * @param event event
+ */
 void CodeDisplay::leaveEvent(QEvent * event)
 {
      this->mouseOver = false;
@@ -144,9 +152,10 @@ void CodeDisplay::leaveEvent(QEvent * event)
     QWidget::leaveEvent(event);
 }
 
-/*
-* Overring resize Event to modify LineNumberArea
-*/
+/**
+ * @brief CodeDisplay::resizeEvent Overring resize Event to modify LineNumberArea
+ * @param e resizeEvent
+ */
 void CodeDisplay::resizeEvent(QResizeEvent *e)
 {
     QPlainTextEdit::resizeEvent(e);
@@ -155,17 +164,19 @@ void CodeDisplay::resizeEvent(QResizeEvent *e)
     lineNumberArea->setGeometry(QRect(cr.left(), cr.top(), lineNumberAreaWidth(), cr.height()));
 }
 
-/*
-* updating LineNumberArea Width
-*/
+/**
+ * @brief CodeDisplay::updateLineNumberAreaWidth updating LineNumberArea Width
+ */
 void CodeDisplay::updateLineNumberAreaWidth(int /* newBlockCount */)
 {
     setViewportMargins(lineNumberAreaWidth(), 0, 0, 0);
 }
 
-/*
-* updating LineNumberArea
-*/
+/**
+ * @brief CodeDisplay::updateLineNumberArea updating LineNumberArea
+ * @param rect
+ * @param dy
+ */
 void CodeDisplay::updateLineNumberArea(const QRect &rect, int dy)
 {
     if (dy)

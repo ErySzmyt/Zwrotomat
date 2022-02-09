@@ -1,0 +1,151 @@
+\hypertarget{codedisplay_8cpp_source}{}\doxysection{codedisplay.\+cpp}
+\mbox{\hyperlink{codedisplay_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{codedisplay_8h}{codedisplay.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{linenumberarea_8h}{linenumberarea.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multifilecomment_8h}{multifilecomment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include <QGuiApplication>}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <QPainter>}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include <QTextObject>}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00011}\mbox{\hyperlink{class_code_display_a0a6735ce56af577269841891523fe7ed}{00011}} \mbox{\hyperlink{class_code_display_a0a6735ce56af577269841891523fe7ed}{CodeDisplay::CodeDisplay}}(QWidget *parent) : QPlainTextEdit(parent)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00013}00013     lineNumberArea = \textcolor{keyword}{new} \mbox{\hyperlink{class_line_number_area}{LineNumberArea}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00014}00014     setReadOnly(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00016}00016     connect(\textcolor{keyword}{this}, \&CodeDisplay::blockCountChanged, \textcolor{keyword}{this}, \&CodeDisplay::updateLineNumberAreaWidth);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00017}00017     connect(\textcolor{keyword}{this}, \&CodeDisplay::updateRequest, \textcolor{keyword}{this}, \&CodeDisplay::updateLineNumberArea);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00019}00019     updateLineNumberAreaWidth(0);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00020}00020 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00026}\mbox{\hyperlink{class_code_display_a75094bc921c1c9e31822858c7c45bc7b}{00026}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_code_display_a75094bc921c1c9e31822858c7c45bc7b}{CodeDisplay::lineNumberAreaPaintEvent}}(QPaintEvent *event)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00027}00027 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00028}00028     QPainter painter(lineNumberArea);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00029}00029     painter.fillRect(event-\/>rect(), Qt::lightGray);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00030}00030     QTextBlock block = firstVisibleBlock();}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00031}00031         \textcolor{keywordtype}{int} blockNumber = block.blockNumber();}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00032}00032         \textcolor{keywordtype}{int} top = qRound(blockBoundingGeometry(block).translated(contentOffset()).top());}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00033}00033         \textcolor{keywordtype}{int} bottom = top + qRound(blockBoundingRect(block).height());}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00034}00034         \textcolor{keywordflow}{while} (block.isValid() \&\& top <= event-\/>rect().bottom()) \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00035}00035                 \textcolor{keywordflow}{if} (block.isVisible() \&\& bottom >= event-\/>rect().top()) \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00036}00036                     QString number = QString::number(blockNumber + 1);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00037}00037                     painter.setPen(Qt::black);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00038}00038                     painter.drawText(0, top, lineNumberArea-\/>width()-\/2, fontMetrics().height(),}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00039}00039                                      Qt::AlignRight, number);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00040}00040                 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00042}00042                 block = block.next();}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00043}00043                 top = bottom;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00044}00044                 bottom = top + qRound(blockBoundingRect(block).height());}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00045}00045                 ++blockNumber;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00046}00046             \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00047}00047 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00053}\mbox{\hyperlink{class_code_display_ab772b3f2d7e77937882bac88979e996e}{00053}} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_code_display_ab772b3f2d7e77937882bac88979e996e}{CodeDisplay::lineNumberAreaWidth}}()}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00054}00054 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00055}00055     \textcolor{keywordtype}{int} digits = 1;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00056}00056     \textcolor{keywordtype}{int} max = qMax(1, blockCount());}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00057}00057     \textcolor{keywordflow}{while} (max >= 10) \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00058}00058         max /= 10;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00059}00059         ++digits;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00060}00060     \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00062}00062     \textcolor{keywordtype}{int} space = 5 + fontMetrics().horizontalAdvance(QLatin1Char(\textcolor{charliteral}{'9'})) * digits;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00064}00064     \textcolor{keywordflow}{return} space;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00065}00065 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00071}\mbox{\hyperlink{class_code_display_abda5616c46b5975824189e902f761d13}{00071}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_code_display_abda5616c46b5975824189e902f761d13}{CodeDisplay::isMouseOver}}()}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00072}00072 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00073}00073     \textcolor{keywordflow}{return} this-\/>mouseOver;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00074}00074 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00082}\mbox{\hyperlink{class_code_display_aee0fd9c0ba9513cb5917924dfdadd4b3}{00082}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_code_display_aee0fd9c0ba9513cb5917924dfdadd4b3}{CodeDisplay::loadSelectedLines}}(\mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}} \&multiFileComment, QString selectedFile)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00083}00083 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00084}00084     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i : *multiFileComment.\mbox{\hyperlink{class_multi_file_comment_a461343b7b6f9b5bf0a971171ba9ecb6b}{getLinesByName}}(selectedFile)) \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00085}00085         QTextCursor coursor(this-\/>document()-\/>findBlockByLineNumber(i));}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00086}00086         QTextBlockFormat frmt = coursor.blockFormat();}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00087}00087         frmt.setBackground(QBrush(Qt::gray));}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00088}00088         coursor.setBlockFormat(frmt);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00089}00089     \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00090}00090 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00097}\mbox{\hyperlink{class_code_display_a2cf3fef4dbbfdb86d9327246f81ecb59}{00097}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_code_display_a2cf3fef4dbbfdb86d9327246f81ecb59}{CodeDisplay::processCurrentLine}}(\mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}} \&multiFileComment, QString selectedFile)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00098}00098 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00099}00099     \textcolor{keyword}{const} QString fileName = selectedFile;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00100}00100     Qt::KeyboardModifiers key = QGuiApplication::queryKeyboardModifiers();}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00102}00102     \textcolor{keywordtype}{int} selectedline = this-\/>textCursor().blockNumber(); \textcolor{comment}{//selected line index}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00104}00104     \textcolor{keywordflow}{if}(!multiFileComment.\mbox{\hyperlink{class_multi_file_comment_a924c956558135031562448b4511c5ced}{containFile}}(fileName))}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00105}00105         multiFileComment.\mbox{\hyperlink{class_multi_file_comment_a226a914522b9aa51c9f5492b807197e9}{addNewFile}}(fileName);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00107}00107     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_code_display_abda5616c46b5975824189e902f761d13}{isMouseOver}}()) \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00108}00108         QTextCursor cur = this-\/>textCursor();}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00109}00109         QTextBlockFormat f;}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00111}00111         \textcolor{keywordflow}{if}(multiFileComment.\mbox{\hyperlink{class_multi_file_comment_a461343b7b6f9b5bf0a971171ba9ecb6b}{getLinesByName}}(fileName)-\/>contains(selectedline)) \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00112}00112             \textcolor{keywordflow}{if}(key != Qt::ShiftModifier) \textcolor{comment}{//if shift isn't pressed}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00113}00113                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00115}00115             multiFileComment.}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00116}00116                     getLinesByName(selectedFile)-\/>}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00117}00117                     removeAt(multiFileComment.\mbox{\hyperlink{class_multi_file_comment_a461343b7b6f9b5bf0a971171ba9ecb6b}{getLinesByName}}(selectedFile)-\/>}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00118}00118                              indexOf(selectedline)); \textcolor{comment}{//removing selected line}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00120}00120             f.setBackground(Qt::white); \textcolor{comment}{//painting white}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00121}00121         \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00122}00122              \textcolor{keywordflow}{if}(key != Qt::ShiftModifier)\{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00123}00123                  multiFileComment.\mbox{\hyperlink{class_multi_file_comment_a461343b7b6f9b5bf0a971171ba9ecb6b}{getLinesByName}}(fileName)-\/>append(selectedline); \textcolor{comment}{//adding selected line}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00124}00124                  f.setBackground(Qt::gray); \textcolor{comment}{//painting gray}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00125}00125              \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00127}00127         this-\/>setTextCursor(cur);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00128}00128         cur.select(QTextCursor::LineUnderCursor);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00129}00129         cur.setBlockFormat(f); \textcolor{comment}{//highlighting line}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00130}00130       \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00131}00131 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00137}\mbox{\hyperlink{class_code_display_a49fd0b42bfcc440d38830e32bae56141}{00137}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_code_display_a49fd0b42bfcc440d38830e32bae56141}{CodeDisplay::enterEvent}}(QEnterEvent *event)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00138}00138 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00139}00139     this-\/>mouseOver = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00141}00141     QWidget::enterEvent(event);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00142}00142 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00148}\mbox{\hyperlink{class_code_display_ab0a4c2f36793d7f2a5bd329056aa00e4}{00148}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_code_display_ab0a4c2f36793d7f2a5bd329056aa00e4}{CodeDisplay::leaveEvent}}(QEvent * event)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00149}00149 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00150}00150      this-\/>mouseOver = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00152}00152     QWidget::leaveEvent(event);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00153}00153 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00159}\mbox{\hyperlink{class_code_display_a453df7b709fccfef54e20ba4722179cd}{00159}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_code_display_a453df7b709fccfef54e20ba4722179cd}{CodeDisplay::resizeEvent}}(QResizeEvent *e)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00160}00160 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00161}00161     QPlainTextEdit::resizeEvent(e);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00163}00163     QRect cr = contentsRect();}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00164}00164     lineNumberArea-\/>setGeometry(QRect(cr.left(), cr.top(), \mbox{\hyperlink{class_code_display_ab772b3f2d7e77937882bac88979e996e}{lineNumberAreaWidth}}(), cr.height()));}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00165}00165 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00170}00170 \textcolor{keywordtype}{void} CodeDisplay::updateLineNumberAreaWidth(\textcolor{keywordtype}{int} \textcolor{comment}{/* newBlockCount */})}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00171}00171 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00172}00172     setViewportMargins(\mbox{\hyperlink{class_code_display_ab772b3f2d7e77937882bac88979e996e}{lineNumberAreaWidth}}(), 0, 0, 0);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00173}00173 \}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00180}00180 \textcolor{keywordtype}{void} CodeDisplay::updateLineNumberArea(\textcolor{keyword}{const} QRect \&rect, \textcolor{keywordtype}{int} dy)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00181}00181 \{}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00182}00182     \textcolor{keywordflow}{if} (dy)}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00183}00183         lineNumberArea-\/>scroll(0, dy);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00184}00184     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00185}00185         lineNumberArea-\/>update(0, rect.y(), lineNumberArea-\/>width(), rect.height());}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00186}00186 }
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00187}00187     \textcolor{keywordflow}{if} (rect.contains(viewport()-\/>rect()))}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00188}00188         updateLineNumberAreaWidth(0);}
+\DoxyCodeLine{\Hypertarget{codedisplay_8cpp_source_l00189}00189 \}}
+
+\end{DoxyCode}

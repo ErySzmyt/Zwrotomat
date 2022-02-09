@@ -1,0 +1,217 @@
+\hypertarget{class_code_display}{}\doxysection{Code\+Display Class Reference}
+\label{class_code_display}\index{CodeDisplay@{CodeDisplay}}
+
+
+{\ttfamily \#include $<$codedisplay.\+h$>$}
+
+Inheritance diagram for Code\+Display\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_code_display}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_code_display_a0a6735ce56af577269841891523fe7ed}{Code\+Display}} (QWidget $\ast$parent=nullptr)
+\item 
+void \mbox{\hyperlink{class_code_display_a75094bc921c1c9e31822858c7c45bc7b}{line\+Number\+Area\+Paint\+Event}} (QPaint\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_a75094bc921c1c9e31822858c7c45bc7b}{Code\+Display\+::line\+Number\+Area\+Paint\+Event}} Painting line Number Area. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_code_display_ab772b3f2d7e77937882bac88979e996e}{line\+Number\+Area\+Width}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_ab772b3f2d7e77937882bac88979e996e}{Code\+Display\+::line\+Number\+Area\+Width}} Calculte lenght of Number Area. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_code_display_abda5616c46b5975824189e902f761d13}{is\+Mouse\+Over}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_abda5616c46b5975824189e902f761d13}{Code\+Display\+::is\+Mouse\+Over}} Returns bool is mouse over current \mbox{\hyperlink{class_code_display}{Code\+Display}} widget. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_code_display_aee0fd9c0ba9513cb5917924dfdadd4b3}{load\+Selected\+Lines}} (\mbox{\hyperlink{class_multi_file_comment}{Multi\+File\+Comment}} \&multi\+File\+Comment, QString selected\+File)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_aee0fd9c0ba9513cb5917924dfdadd4b3}{Code\+Display\+::load\+Selected\+Lines}} Painting lines given by numbers(indexes) from multi\+File\+Comment for given file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_code_display_a2cf3fef4dbbfdb86d9327246f81ecb59}{process\+Current\+Line}} (\mbox{\hyperlink{class_multi_file_comment}{Multi\+File\+Comment}} \&multi\+File\+Comment, QString selected\+File)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_a2cf3fef4dbbfdb86d9327246f81ecb59}{Code\+Display\+::process\+Current\+Line}} adding or removing lines from given \&multi\+File\+Comment. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_code_display_a49fd0b42bfcc440d38830e32bae56141}{enter\+Event}} (QEnter\+Event $\ast$event) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_a49fd0b42bfcc440d38830e32bae56141}{Code\+Display\+::enter\+Event}} Overring on mouse over Event. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_code_display_ab0a4c2f36793d7f2a5bd329056aa00e4}{leave\+Event}} (QEvent $\ast$event) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_ab0a4c2f36793d7f2a5bd329056aa00e4}{Code\+Display\+::leave\+Event}} Overring on mouse leave Event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_code_display_a453df7b709fccfef54e20ba4722179cd}{resize\+Event}} (QResize\+Event $\ast$event) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_code_display_a453df7b709fccfef54e20ba4722179cd}{Code\+Display\+::resize\+Event}} Overring resize Event to modify \mbox{\hyperlink{class_line_number_area}{Line\+Number\+Area}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8h_source_l00009}{9}} of file \mbox{\hyperlink{codedisplay_8h_source}{codedisplay.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_code_display_a0a6735ce56af577269841891523fe7ed}\label{class_code_display_a0a6735ce56af577269841891523fe7ed}} 
+\index{CodeDisplay@{CodeDisplay}!CodeDisplay@{CodeDisplay}}
+\index{CodeDisplay@{CodeDisplay}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{CodeDisplay()}{CodeDisplay()}}
+{\footnotesize\ttfamily Code\+Display\+::\+Code\+Display (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_code_display_a49fd0b42bfcc440d38830e32bae56141}\label{class_code_display_a49fd0b42bfcc440d38830e32bae56141}} 
+\index{CodeDisplay@{CodeDisplay}!enterEvent@{enterEvent}}
+\index{enterEvent@{enterEvent}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{enterEvent()}{enterEvent()}}
+{\footnotesize\ttfamily void Code\+Display\+::enter\+Event (\begin{DoxyParamCaption}\item[{QEnter\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_code_display_a49fd0b42bfcc440d38830e32bae56141}{Code\+Display\+::enter\+Event}} Overring on mouse over Event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & event \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00137}{137}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_code_display_abda5616c46b5975824189e902f761d13}\label{class_code_display_abda5616c46b5975824189e902f761d13}} 
+\index{CodeDisplay@{CodeDisplay}!isMouseOver@{isMouseOver}}
+\index{isMouseOver@{isMouseOver}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{isMouseOver()}{isMouseOver()}}
+{\footnotesize\ttfamily bool Code\+Display\+::is\+Mouse\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_code_display_abda5616c46b5975824189e902f761d13}{Code\+Display\+::is\+Mouse\+Over}} Returns bool is mouse over current \mbox{\hyperlink{class_code_display}{Code\+Display}} widget. 
+
+\begin{DoxyReturn}{Returns}
+is mouse over text area 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_code_display_ab0a4c2f36793d7f2a5bd329056aa00e4}\label{class_code_display_ab0a4c2f36793d7f2a5bd329056aa00e4}} 
+\index{CodeDisplay@{CodeDisplay}!leaveEvent@{leaveEvent}}
+\index{leaveEvent@{leaveEvent}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{leaveEvent()}{leaveEvent()}}
+{\footnotesize\ttfamily void Code\+Display\+::leave\+Event (\begin{DoxyParamCaption}\item[{QEvent $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_code_display_ab0a4c2f36793d7f2a5bd329056aa00e4}{Code\+Display\+::leave\+Event}} Overring on mouse leave Event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & event \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00148}{148}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_code_display_a75094bc921c1c9e31822858c7c45bc7b}\label{class_code_display_a75094bc921c1c9e31822858c7c45bc7b}} 
+\index{CodeDisplay@{CodeDisplay}!lineNumberAreaPaintEvent@{lineNumberAreaPaintEvent}}
+\index{lineNumberAreaPaintEvent@{lineNumberAreaPaintEvent}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{lineNumberAreaPaintEvent()}{lineNumberAreaPaintEvent()}}
+{\footnotesize\ttfamily void Code\+Display\+::line\+Number\+Area\+Paint\+Event (\begin{DoxyParamCaption}\item[{QPaint\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_code_display_a75094bc921c1c9e31822858c7c45bc7b}{Code\+Display\+::line\+Number\+Area\+Paint\+Event}} Painting line Number Area. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00026}{26}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_code_display_ab772b3f2d7e77937882bac88979e996e}\label{class_code_display_ab772b3f2d7e77937882bac88979e996e}} 
+\index{CodeDisplay@{CodeDisplay}!lineNumberAreaWidth@{lineNumberAreaWidth}}
+\index{lineNumberAreaWidth@{lineNumberAreaWidth}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{lineNumberAreaWidth()}{lineNumberAreaWidth()}}
+{\footnotesize\ttfamily int Code\+Display\+::line\+Number\+Area\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_code_display_ab772b3f2d7e77937882bac88979e996e}{Code\+Display\+::line\+Number\+Area\+Width}} Calculte lenght of Number Area. 
+
+\begin{DoxyReturn}{Returns}
+int number of pixels 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_code_display_aee0fd9c0ba9513cb5917924dfdadd4b3}\label{class_code_display_aee0fd9c0ba9513cb5917924dfdadd4b3}} 
+\index{CodeDisplay@{CodeDisplay}!loadSelectedLines@{loadSelectedLines}}
+\index{loadSelectedLines@{loadSelectedLines}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{loadSelectedLines()}{loadSelectedLines()}}
+{\footnotesize\ttfamily void Code\+Display\+::load\+Selected\+Lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_file_comment}{Multi\+File\+Comment}} \&}]{multi\+File\+Comment,  }\item[{QString}]{selected\+File }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_code_display_aee0fd9c0ba9513cb5917924dfdadd4b3}{Code\+Display\+::load\+Selected\+Lines}} Painting lines given by numbers(indexes) from multi\+File\+Comment for given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em multi\+File\+Comment} & \&multi\+File\+Comment comment containing lines to select \\
+\hline
+{\em selected\+File} & selected\+File \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_code_display_a2cf3fef4dbbfdb86d9327246f81ecb59}\label{class_code_display_a2cf3fef4dbbfdb86d9327246f81ecb59}} 
+\index{CodeDisplay@{CodeDisplay}!processCurrentLine@{processCurrentLine}}
+\index{processCurrentLine@{processCurrentLine}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{processCurrentLine()}{processCurrentLine()}}
+{\footnotesize\ttfamily void Code\+Display\+::process\+Current\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_multi_file_comment}{Multi\+File\+Comment}} \&}]{multi\+File\+Comment,  }\item[{QString}]{selected\+File }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_code_display_a2cf3fef4dbbfdb86d9327246f81ecb59}{Code\+Display\+::process\+Current\+Line}} adding or removing lines from given \&multi\+File\+Comment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em multi\+File\+Comment} & \&multi\+File\+Comment comment containing lines \\
+\hline
+{\em selected\+File} & selected\+File \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+\mbox{\Hypertarget{class_code_display_a453df7b709fccfef54e20ba4722179cd}\label{class_code_display_a453df7b709fccfef54e20ba4722179cd}} 
+\index{CodeDisplay@{CodeDisplay}!resizeEvent@{resizeEvent}}
+\index{resizeEvent@{resizeEvent}!CodeDisplay@{CodeDisplay}}
+\doxysubsubsection{\texorpdfstring{resizeEvent()}{resizeEvent()}}
+{\footnotesize\ttfamily void Code\+Display\+::resize\+Event (\begin{DoxyParamCaption}\item[{QResize\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+\mbox{\hyperlink{class_code_display_a453df7b709fccfef54e20ba4722179cd}{Code\+Display\+::resize\+Event}} Overring resize Event to modify \mbox{\hyperlink{class_line_number_area}{Line\+Number\+Area}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & resize\+Event \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{codedisplay_8cpp_source_l00159}{159}} of file \mbox{\hyperlink{codedisplay_8cpp_source}{codedisplay.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{codedisplay_8h}{codedisplay.\+h}}\item 
+\mbox{\hyperlink{codedisplay_8cpp}{codedisplay.\+cpp}}\end{DoxyCompactItemize}

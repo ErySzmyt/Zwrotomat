@@ -1,0 +1,133 @@
+\hypertarget{generatorwindow_8cpp_source}{}\doxysection{generatorwindow.\+cpp}
+\mbox{\hyperlink{generatorwindow_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{filereadingutils_8h}{filereadingutils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{generatorwindow_8h}{generatorwindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{htmlformater_8h}{htmlformater.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}ui\_generatorwindow.h"{}}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multifilecomment_8h}{multifilecomment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include <QStringBuilder>}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00010}00010 \textcolor{preprocessor}{\#include <QDateTime>}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include <QFileInfo>}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#include <QMessageBox>}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include <QFileDialog>}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00016}\mbox{\hyperlink{class_generator_window_ad04f76ba51cf737000519a9805db5c80}{00016}} \mbox{\hyperlink{class_generator_window_ad04f76ba51cf737000519a9805db5c80}{GeneratorWindow::GeneratorWindow}}(QWidget *parent, QHash<QString, MultiFileComment*> *m\_Comments) :}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00017}00017     QMainWindow(parent),}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00018}00018     ui(new \mbox{\hyperlink{namespace_ui}{Ui}}::\mbox{\hyperlink{class_generator_window}{GeneratorWindow}})}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00020}00020     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00022}00022     ui-\/>subjectTextEdit-\/>setPlainText(s\_last\_subject);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00023}00023     ui-\/>topicTextEdit-\/>setPlainText(s\_last\_topic);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00024}00024     ui-\/>checkerTextEdit-\/>setPlainText(s\_last\_checker);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00026}00026     this-\/>m\_Comments = m\_Comments;}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00027}00027     ui-\/>outputDirDisplay-\/>setText(this-\/>s\_last\_selectedDir.path());}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00028}00028 \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00030}\mbox{\hyperlink{class_generator_window_a05ef429efff11a53ba189ef12fe70916}{00030}} \mbox{\hyperlink{class_generator_window_a05ef429efff11a53ba189ef12fe70916}{GeneratorWindow::\string~GeneratorWindow}}()}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00031}00031 \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00032}00032     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00033}00033 \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00039}00039 \textcolor{keywordtype}{void} GeneratorWindow::on\_generateButton\_clicked()}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00040}00040 \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00041}00041     QString mainPage = \mbox{\hyperlink{class_html_formater_a1935a62549b1641c52ac2042dcee472c}{HtmlFormater::loadMainTemplate}}(}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00042}00042                 ui-\/>subjectTextEdit-\/>toPlainText(),}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00043}00043                 ui-\/>topicTextEdit-\/>toPlainText(),}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00044}00044                 ui-\/>checkerTextEdit-\/>toPlainText(),}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00045}00045                 QDateTime::currentDateTime().toString(\textcolor{stringliteral}{"{}dd-\/MM-\/yyyy"{}}),}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00046}00046                 ui-\/>scoreTextEdit-\/>toPlainText()}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00047}00047                 );}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00049}00049     QString body = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00051}00051     QHashIterator<QString, MultiFileComment*> i(*m\_Comments);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00052}00052     \textcolor{keywordflow}{while} (i.hasNext()) \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00053}00053         i.next();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00055}00055         QString comment = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00056}00056         qDebug() << \textcolor{stringliteral}{"{}::Comment Name::: "{}} << i.key();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00058}00058         comment += \mbox{\hyperlink{class_html_formater_ab0c5884aeee3a2e12430fbd8754579bf}{HtmlFormater::loadHeaderDisplayTemplate}}(i.key());}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00060}00060         \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}* multifileComment = i.value();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00061}00061         qDebug() << \textcolor{stringliteral}{"{}::Comment::: "{}} << multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}{getComment}}();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00064}00064         QHash<QString, QList<int>*>* filesIndexes = multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_ab0906a0e48d5fd3455c161c10ea1c55e}{getData}}();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00065}00065         QHashIterator<QString, QList<int>*> z(*filesIndexes);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00066}00066         \textcolor{keywordflow}{while} (z.hasNext()) \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00067}00067             z.next();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00069}00069             QFileInfo fileInfo(z.key());}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00071}00071             qDebug() << \textcolor{stringliteral}{"{}::File::: "{}} << z.key();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00073}00073             QString selectedLines = \mbox{\hyperlink{class_file_reading_utils_a0a7b975ac53dca05d4a23327664fd34c}{FileReadingUtils::readGivenLines}}(z.value(), z.key());}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00075}00075             \textcolor{keywordflow}{if}(!selectedLines.simplified().isEmpty()) \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00076}00076                 \textcolor{keywordflow}{if}(multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_a3ae748342269995b5436dea7fa85e1d2}{isPositive}}())}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00077}00077                     comment += \mbox{\hyperlink{class_html_formater_a65e389dc9365235dbb816d724d42bf4e}{HtmlFormater::loadPositiveCommentTemplate}}(fileInfo.fileName(), selectedLines);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00078}00078                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00079}00079                     comment += \mbox{\hyperlink{class_html_formater_a1f00ef6fbd7728a440b338e651e8e66a}{HtmlFormater::loadNegativeCommentTemplate}}(fileInfo.fileName(), selectedLines);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00080}00080             \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00081}00081         \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00083}00083         comment += \mbox{\hyperlink{class_html_formater_a8485f346eb70ac3d9866cdd43a559b67}{HtmlFormater::loadTextDisplayTemplate}}(multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}{getComment}}());}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00085}00085         body += comment;}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00086}00086     \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00088}00088     mainPage.replace(\textcolor{stringliteral}{"{}\$\{body\}"{}}, body);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00090}00090     QString filename = ui-\/>fileNameTextEdit-\/>toPlainText();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00092}00092     \textcolor{keywordflow}{if}(filename.isEmpty())\{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00093}00093        QMessageBox::information(0, \textcolor{stringliteral}{"{}Error"{}}, \textcolor{stringliteral}{"{}Missing file name"{}});}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00094}00094        \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00095}00095     \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00097}00097     \textcolor{keywordflow}{if}(!filename.endsWith(\textcolor{stringliteral}{"{}.html"{}}))\{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00098}00098         filename += \textcolor{stringliteral}{"{}.html"{}};}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00099}00099     \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00101}00101     QString path = this-\/>s\_last\_selectedDir.path() + filename;}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00103}00103     \textcolor{keyword}{const} QString qPath(path);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00104}00104     QFile qFile(qPath);}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00105}00105     \textcolor{keywordflow}{if} (qFile.open(QIODevice::WriteOnly)) \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00106}00106       QTextStream out(\&qFile); out << mainPage;}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00107}00107       qFile.close();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00108}00108     \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00109}00109     this-\/>close();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00110}00110 \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00112}00112 \textcolor{keywordtype}{void} GeneratorWindow::on\_subjectTextEdit\_textChanged()}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00113}00113 \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00114}00114     s\_last\_subject = ui-\/>subjectTextEdit-\/>toPlainText();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00115}00115 \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00117}00117 \textcolor{keywordtype}{void} GeneratorWindow::on\_topicTextEdit\_textChanged()}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00118}00118 \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00119}00119     s\_last\_topic = ui-\/>topicTextEdit-\/>toPlainText();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00120}00120 \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00122}00122 \textcolor{keywordtype}{void} GeneratorWindow::on\_checkerTextEdit\_textChanged()}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00123}00123 \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00124}00124     s\_last\_checker = ui-\/>checkerTextEdit-\/>toPlainText();}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00125}00125 \}}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00127}00127 \textcolor{keywordtype}{void} GeneratorWindow::on\_outputDirPicker\_clicked()}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00128}00128 \{}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00129}00129     QDir dir = QFileDialog::getExistingDirectory(0, (\textcolor{stringliteral}{"{}Select Output Folder"{}}), QDir::currentPath());}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00130}00130     s\_last\_selectedDir = dir;}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00131}00131     ui-\/>outputDirDisplay-\/>setText(dir.path());}
+\DoxyCodeLine{\Hypertarget{generatorwindow_8cpp_source_l00132}00132 \}}
+
+\end{DoxyCode}

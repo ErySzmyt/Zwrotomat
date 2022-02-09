@@ -11,6 +11,15 @@ HtmlFormater::HtmlFormater()
 { 
 }
 
+/**
+ * @brief HtmlFormater::loadMainTemplate loading MainTemplate from resources
+ * @param Subject param to fill
+ * @param Topic param to fill
+ * @param Checker param to fill
+ * @param date param to fill
+ * @param score param to fill
+ * @return MainTemplate resource with injected values
+ */
 QString HtmlFormater::loadMainTemplate(QString Subject, QString Topic, QString Checker, QString date, QString score)
 {
     QString data;
@@ -29,6 +38,12 @@ QString HtmlFormater::loadMainTemplate(QString Subject, QString Topic, QString C
             .replace("${score}", score);
 }
 
+/**
+ * @brief HtmlFormater::loadPositiveCommentTemplate loading PositiveCommentTemplate from resources
+ * @param FileName param to fill
+ * @param Code param to fill
+ * @return PositiveCommentTemplate resource with injected values
+ */
 QString HtmlFormater::loadPositiveCommentTemplate(QString FileName, QString Code)
 {
     QString data;
@@ -42,6 +57,12 @@ QString HtmlFormater::loadPositiveCommentTemplate(QString FileName, QString Code
     return data.replace("${fileName}", FileName).replace("${code}", Code);
 }
 
+/**
+ * @brief HtmlFormater::loadNegativeCommentTemplate loading NegativeCommentTemplate from resources
+ * @param FileName param to fill
+ * @param Code param to fill
+ * @return NegativeCommentTemplate resource with injected values
+ */
 QString HtmlFormater::loadNegativeCommentTemplate(QString FileName, QString Code)
 {
     QString data;
@@ -55,6 +76,11 @@ QString HtmlFormater::loadNegativeCommentTemplate(QString FileName, QString Code
     return data.replace("${fileName}", FileName).replace("${code}", Code);
 }
 
+/**
+ * @brief HtmlFormater::loadTextDisplayTemplate loading TextDisplayTemplate from resources
+ * @param comment param to fill
+ * @return TextDisplayTemplate resource with injected values
+ */
 QString HtmlFormater::loadTextDisplayTemplate(QString comment)
 {
     QString data;
@@ -68,6 +94,11 @@ QString HtmlFormater::loadTextDisplayTemplate(QString comment)
     return data.replace("${comment}", comment);
 }
 
+/**
+ * @brief HtmlFormater::loadHeaderDisplayTemplate loading HeaderDisplayTemplate from resources
+ * @param Text param to fill
+ * @return HeaderDisplayTemplate resource with injected values
+ */
 QString HtmlFormater::loadHeaderDisplayTemplate(QString Text)
 {
     QString data;

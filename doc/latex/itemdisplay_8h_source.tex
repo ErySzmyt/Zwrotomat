@@ -1,0 +1,42 @@
+\hypertarget{itemdisplay_8h_source}{}\doxysection{itemdisplay.\+h}
+\mbox{\hyperlink{itemdisplay_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef ITEMDISPLAY\_H}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00002}00002 \textcolor{preprocessor}{\#define ITEMDISPLAY\_H}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00006}00006 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_ui}{Ui}} \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00007}00007     \textcolor{keyword}{class }\mbox{\hyperlink{class_item_display}{ItemDisplay}};}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00008}00008 \}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00010}\mbox{\hyperlink{class_item_display}{00010}} \textcolor{keyword}{class }\mbox{\hyperlink{class_item_display}{ItemDisplay}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00011}00011 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00012}00012     Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00014}00014 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00015}00015     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_item_display_a2c45f5f4d5ac60d978228e8a525decbc}{ItemDisplay}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00016}00016     \mbox{\hyperlink{class_item_display_a4f0376dbd5746f10986d4127c24f7461}{\string~ItemDisplay}}();}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00018}00018     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{setText}}(\textcolor{keyword}{const} QString \&text);}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00019}00019     QString \mbox{\hyperlink{class_item_display_a8045f095c125140a4011566a2b4c9e55}{getText}}();}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00021}00021 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00022}00022     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}{mouseReleaseEvent}} ( QMouseEvent * event ) \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00024}00024 signals:}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00025}\mbox{\hyperlink{class_item_display_afbc51cb6e74425f9d0cfdf31ac5916b3}{00025}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_item_display_afbc51cb6e74425f9d0cfdf31ac5916b3}{sendRemoveItem}}(\textcolor{keyword}{const} QString \&text);}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00026}\mbox{\hyperlink{class_item_display_a7f7978b25daff5f2ce5870bad575b613}{00026}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_item_display_a7f7978b25daff5f2ce5870bad575b613}{sendCommentClicked}}(\textcolor{keyword}{const} QString \&text);}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00027}\mbox{\hyperlink{class_item_display_afd0828169b3f5ff928699455450158d4}{00027}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_item_display_afd0828169b3f5ff928699455450158d4}{sendPositiveCheckChanged}}(\textcolor{keyword}{const} QString \&text, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&isPositive);}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00029}00029 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00030}00030     \textcolor{keywordtype}{void} on\_removeButton\_clicked();}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00031}00031     \textcolor{keywordtype}{void} on\_wskaznikPozytyw\_clicked();}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00033}00033 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00034}00034     Ui::ItemDisplay *ui;}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00035}00035 \};}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8h_source_l00037}00037 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ITEMDISPLAY\_H}}
+
+\end{DoxyCode}

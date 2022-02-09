@@ -1,0 +1,34 @@
+\hypertarget{htmlformater_8h_source}{}\doxysection{htmlformater.\+h}
+\mbox{\hyperlink{htmlformater_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef HTMLFORMATER\_H}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00002}00002 \textcolor{preprocessor}{\#define HTMLFORMATER\_H}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00008}\mbox{\hyperlink{class_html_formater}{00008}} \textcolor{keyword}{class }\mbox{\hyperlink{class_html_formater}{HtmlFormater}}}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00010}00010 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00011}00011     \mbox{\hyperlink{class_html_formater}{HtmlFormater}}();}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00013}00013 \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00014}\mbox{\hyperlink{class_html_formater_a52d039007186b3f43faede144654f270}{00014}}     \textcolor{keyword}{const} \textcolor{keyword}{inline} \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a52d039007186b3f43faede144654f270}{MAIN\_INDEX\_RESOURCE}} = \textcolor{stringliteral}{"{}:/Res/Templates/main\_index.html"{}};}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00015}\mbox{\hyperlink{class_html_formater_a097a850d65373808196ef0b8026ffa78}{00015}}     \textcolor{keyword}{const} \textcolor{keyword}{inline} \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a097a850d65373808196ef0b8026ffa78}{COMMENT\_TEMPLATE\_RESOURCE}} = \textcolor{stringliteral}{"{}:/Res/Templates/comment\_template.html"{}};}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00016}\mbox{\hyperlink{class_html_formater_a665c00fc20364184e9aa37c5895787a0}{00016}}     \textcolor{keyword}{const} \textcolor{keyword}{inline} \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a665c00fc20364184e9aa37c5895787a0}{NEGATIVE\_COMMENT\_TEMPLATE\_RESOURCE}} = \textcolor{stringliteral}{"{}:/Res/Templates/comment\_template\_negative.html"{}};}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00017}\mbox{\hyperlink{class_html_formater_a7ba182036c86aeebe4e802327ef388fd}{00017}}     \textcolor{keyword}{const} \textcolor{keyword}{inline} \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a7ba182036c86aeebe4e802327ef388fd}{COMMENT\_TEXT\_DISPLAY\_TEMPLATE\_RESOURCE}} = \textcolor{stringliteral}{"{}:/Res/Templates/comment\_text\_display.html"{}};}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00018}\mbox{\hyperlink{class_html_formater_accc9de1e3bdaf3de787f5cc6789510a7}{00018}}     \textcolor{keyword}{const} \textcolor{keyword}{inline} \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_accc9de1e3bdaf3de787f5cc6789510a7}{COMMENT\_HEADER\_DISPLAY\_TEMPLATE\_RESOURCE}} = \textcolor{stringliteral}{"{}:/Res/Templates/comment\_header\_display.html"{}};}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00020}00020     \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a1935a62549b1641c52ac2042dcee472c}{loadMainTemplate}}(QString Subject, QString Topic, QString Checker, QString date, QString score);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00022}00022     \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a65e389dc9365235dbb816d724d42bf4e}{loadPositiveCommentTemplate}}(QString FileName, QString Code);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00023}00023     \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a1f00ef6fbd7728a440b338e651e8e66a}{loadNegativeCommentTemplate}}(QString FileName, QString Code);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00024}00024     \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_a8485f346eb70ac3d9866cdd43a559b67}{loadTextDisplayTemplate}}(QString Text);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00025}00025     \textcolor{keyword}{static} QString \mbox{\hyperlink{class_html_formater_ab0c5884aeee3a2e12430fbd8754579bf}{loadHeaderDisplayTemplate}}(QString Text);}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00027}00027 \};}
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{htmlformater_8h_source_l00029}00029 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// HTMLFORMATER\_H}}
+
+\end{DoxyCode}

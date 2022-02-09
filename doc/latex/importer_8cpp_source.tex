@@ -1,0 +1,45 @@
+\hypertarget{importer_8cpp_source}{}\doxysection{importer.\+cpp}
+\mbox{\hyperlink{importer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{importer_8h}{importer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}ui\_importer.h"{}}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <tchar.h>}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include <windows.h>}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <msxml.h>}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include <QtXml>}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include <QFileDialog>}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00010}00010 \textcolor{preprocessor}{\#include <QFile>}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00013}\mbox{\hyperlink{class_importer_aabe1bac295a5af0704bfcd0f2eaf41d8}{00013}} \mbox{\hyperlink{class_importer_aabe1bac295a5af0704bfcd0f2eaf41d8}{Importer::Importer}}(QWidget *parent) :}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00014}00014     QMainWindow(parent),}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00015}00015     ui(new \mbox{\hyperlink{namespace_ui}{Ui}}::\mbox{\hyperlink{class_importer}{Importer}})}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00016}00016 \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00017}00017    ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00018}00018    connect(\textcolor{keyword}{this},SIGNAL(\mbox{\hyperlink{class_importer_a94ff628032229336f72217237c759ce3}{setCommentsAfterImport}}(QHash<QString, MultiFileComment*>*)), parent, SLOT(reciveImport(QHash<QString, MultiFileComment*>*)));}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00019}00019 \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00021}\mbox{\hyperlink{class_importer_a6e61faae5020f2dc034ff3ea4032a537}{00021}} \mbox{\hyperlink{class_importer_a6e61faae5020f2dc034ff3ea4032a537}{Importer::\string~Importer}}()}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00022}00022 \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00023}00023     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00024}00024 \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00029}00029 \textcolor{keywordtype}{void} Importer::on\_chooseButton\_clicked()}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00030}00030 \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00031}00031     \textcolor{comment}{// choose folder for comments export and display path in UI}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00032}00032     QString file = QFileDialog::getOpenFileName(0, (\textcolor{stringliteral}{"{}Select Import XML file"{}}));}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00033}00033     this-\/>s\_last\_selectedFile = file;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00034}00034     qDebug() << file;}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00035}00035     ui-\/>f\_path-\/>setText(file);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00036}00036 \}}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00041}00041 \textcolor{keywordtype}{void} Importer::on\_import\_2\_clicked()}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00042}00042 \{}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00043}00043     \textcolor{keyword}{auto} data = \mbox{\hyperlink{class_file_reading_utils_aa29f8ea6e27e11d2e14b7eac8bce3c4c}{FileReadingUtils::importCommentsFromFile}}(this-\/>s\_last\_selectedFile);}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00045}00045     emit(\mbox{\hyperlink{class_importer_a94ff628032229336f72217237c759ce3}{setCommentsAfterImport}}(data));}
+\DoxyCodeLine{\Hypertarget{importer_8cpp_source_l00046}00046 \}}
+
+\end{DoxyCode}

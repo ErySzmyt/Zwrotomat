@@ -5,7 +5,7 @@
 #include "QHash"
 #include <QFile>
 #include <QTextStream>
-#include "filereadingutils.h"
+
 Eksporter::Eksporter(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Eksporter)
@@ -13,6 +13,10 @@ Eksporter::Eksporter(QWidget *parent) :
     ui->setupUi(this);
 }
 
+/**
+ * @brief Eksporter::setComments setter for commentMap, because mateusz decided so
+ * @param commentMap pointer to comment map
+ */
 void Eksporter::setComments(QHash<QString, MultiFileComment *> *commentMap)
 {
     //set comments for export
@@ -24,6 +28,9 @@ Eksporter::~Eksporter()
     delete ui;
 }
 
+/**
+ * @brief Eksporter::on_chooseButton_clicked action on chosing output directory
+ */
 void Eksporter::on_chooseButton_clicked()
 {
     // choose folder for comments export and display path in UI
@@ -32,8 +39,12 @@ void Eksporter::on_chooseButton_clicked()
     ui->f_path->setText(dir.path());
 }
 
+/**
+ * @brief Eksporter::on_export_2_clicked action on export
+ */
 void Eksporter::on_export_2_clicked()
 {
+<<<<<<< Updated upstream
     // export comments
     QString comment = "<?xml version='1.0' encoding='UTF-8'?> <comments-extractions> \n";
     QHashIterator<QString, MultiFileComment*> i(*m_Comments);
@@ -93,4 +104,7 @@ void Eksporter::on_export_2_clicked()
              out << comment;
     }
     file.close();
+=======
+    FileReadingUtils::exportData(this->m_Comments, this->s_last_selectedDir);
+>>>>>>> Stashed changes
 }

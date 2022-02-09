@@ -1,0 +1,193 @@
+\hypertarget{filereadingutils_8cpp_source}{}\doxysection{filereadingutils.\+cpp}
+\mbox{\hyperlink{filereadingutils_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{filereadingutils_8h}{filereadingutils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <QDomElement>}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <QFile>}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <QTextStream>}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00007}00007 FileReadingUtils::FileReadingUtils()}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00008}00008 \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00010}00010 \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00020}\mbox{\hyperlink{class_file_reading_utils_a0a7b975ac53dca05d4a23327664fd34c}{00020}} QString \mbox{\hyperlink{class_file_reading_utils_a0a7b975ac53dca05d4a23327664fd34c}{FileReadingUtils::readGivenLines}}(QList<int>* lineList, QString file)}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00022}00022     QFile inputFile((QString(file)));}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00023}00023     inputFile.open(QIODevice::ReadOnly);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00024}00024     \textcolor{keywordflow}{if} (!inputFile.isOpen())}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00025}00025         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00027}00027     QTextStream stream(\&inputFile);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00029}00029     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00030}00030     QString result = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00032}00032     \textcolor{keywordflow}{for} (QString line = stream.readLine(); !line.isNull(); line = stream.readLine()) \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00033}00033         \textcolor{comment}{/* process information */}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00034}00034         \textcolor{keywordflow}{if}(lineList-\/>contains(i))\{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00035}00035             \textcolor{comment}{//result += (i == 0) ? line.simplified() : line;}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00036}00036             result += line;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00037}00037             result += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00038}00038         \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00039}00039         i++;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00040}00040     \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00042}00042     inputFile.close();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00044}00044     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00045}00045 \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00052}\mbox{\hyperlink{class_file_reading_utils_a8ab7c9801a7d5bbcde9001268617dad1}{00052}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_file_reading_utils_a8ab7c9801a7d5bbcde9001268617dad1}{FileReadingUtils::exportData}}(QHash<QString, MultiFileComment *> *data, QDir outDir)}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00053}00053 \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00054}00054     \textcolor{comment}{// export comments}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00055}00055     QString comment = \textcolor{stringliteral}{"{}<?xml version='1.0' encoding='UTF-\/8'?>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00056}00056     QHashIterator<QString, MultiFileComment*> i(*data);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00057}00057     comment += \textcolor{stringliteral}{"{}<start\_data>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00058}00058     \textcolor{keywordflow}{while} (i.hasNext()) \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00059}00059         i.next();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00060}00060         qDebug() << \textcolor{stringliteral}{"{}::Comment Name::: "{}} << i.key();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00061}00061         comment +=\textcolor{stringliteral}{"{}<comment\_start>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00062}00062         comment +=\textcolor{stringliteral}{"{}<comment\_name>"{}} + i.key()+\textcolor{stringliteral}{"{}</comment\_name>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00064}00064         \textcolor{comment}{//comment += HtmlFormater::loadHeaderDisplayTemplate(i.key());}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00066}00066         \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}* multifileComment = i.value();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00067}00067         comment += \textcolor{stringliteral}{"{}<comment>"{}} + multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}{getComment}}() + \textcolor{stringliteral}{"{}</comment>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00068}00068         qDebug() << \textcolor{stringliteral}{"{}::Comment::: "{}} << multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}{getComment}}();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00070}00070         multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_a3ae748342269995b5436dea7fa85e1d2}{isPositive}}() ? comment += \textcolor{stringliteral}{"{}<Positive>1</Positive>\(\backslash\)n"{}} : comment += \textcolor{stringliteral}{"{}<Positive>0</Positive>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00072}00072         QHash<QString, QList<int>*>* filesIndexes = multifileComment-\/>\mbox{\hyperlink{class_multi_file_comment_ab0906a0e48d5fd3455c161c10ea1c55e}{getData}}();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00073}00073         QHashIterator<QString, QList<int>*> z(*filesIndexes);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00074}00074         \textcolor{keywordflow}{while} (z.hasNext()) \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00075}00075             z.next();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00077}00077             QFileInfo fileInfo(z.key());}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00078}00078             comment += \textcolor{stringliteral}{"{}<File>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00079}00079             qDebug() << \textcolor{stringliteral}{"{}::File::: "{}} << z.key();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00080}00080             qDebug() << \textcolor{stringliteral}{"{}::Value::: "{}} <<z.value();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00081}00081             comment += \textcolor{stringliteral}{"{}<File\_name>"{}} + z.key() + \textcolor{stringliteral}{"{}</File\_name>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00082}00082             QString selectedLines = \mbox{\hyperlink{class_file_reading_utils_a0a7b975ac53dca05d4a23327664fd34c}{FileReadingUtils::readGivenLines}}(z.value(), z.key());}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00084}00084             \textcolor{keywordflow}{if}(!selectedLines.simplified().isEmpty()) \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00085}00085                 comment += \textcolor{stringliteral}{"{}<Lines> \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00086}00086                  \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& i : *z.value())\{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00087}00087                      qDebug() << i;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00088}00088                      comment += \textcolor{stringliteral}{"{}<line>"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00089}00089                      QString s = QString::number(i);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00090}00090                      comment += s;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00091}00091                      comment += \textcolor{stringliteral}{"{}</line>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00092}00092                  \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00093}00093                 comment += \textcolor{stringliteral}{"{}</Lines> \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00094}00094             \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00095}00095             comment +=\textcolor{stringliteral}{"{}</File>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00097}00097         \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00098}00098       comment +=\textcolor{stringliteral}{"{}</comment\_start> \(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00100}00100     \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00101}00101     comment += \textcolor{stringliteral}{"{}</start\_data>\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00102}00102     \textcolor{comment}{// write to file}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00103}00103     QFile file(outDir.path() + \textcolor{stringliteral}{"{}/commentExport.xml"{}} );}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00104}00104     \textcolor{keywordflow}{if}(file.open(QIODevice::WriteOnly | QIODevice::Text))\{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00105}00105         qDebug() << outDir.path() + \textcolor{stringliteral}{"{}commentExport.txt"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00106}00106         qDebug() << \textcolor{stringliteral}{"{}write"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00107}00107         QTextStream out(\&file);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00108}00108              out << comment;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00109}00109     \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00110}00110     file.close();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00111}00111 \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00113}\mbox{\hyperlink{class_file_reading_utils_aa29f8ea6e27e11d2e14b7eac8bce3c4c}{00113}} QHash<QString, MultiFileComment *>* \mbox{\hyperlink{class_file_reading_utils_aa29f8ea6e27e11d2e14b7eac8bce3c4c}{FileReadingUtils::importCommentsFromFile}}(QString path)}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00114}00114 \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00115}00115     QHash<QString, MultiFileComment *>* comments = \textcolor{keyword}{new} QHash<QString, MultiFileComment *>();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00117}00117     QDomDocument xmlBOM;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00119}00119     \textcolor{comment}{// Load xml file as raw data}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00120}00120     QFile f(path);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00121}00121     \textcolor{keywordflow}{if} (!f.open(QIODevice::ReadOnly))}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00122}00122     \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00123}00123         \textcolor{comment}{// Error while loading file}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00124}00124         qDebug() << \textcolor{stringliteral}{"{}Error while loading file"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00125}00125         \textcolor{comment}{// return new QHash<QString, MultiFileComment *>();}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00126}00126      \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00127}00127      \textcolor{comment}{// Set data into the QDomDocument before processing}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00128}00128      xmlBOM.setContent(\&f);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00129}00129      f.close();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00130}00130      qDebug() << \textcolor{stringliteral}{"{}loader debug"{}};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00131}00131      \textcolor{comment}{// Extract the root markup}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00132}00132      QDomElement root = xmlBOM.documentElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00133}00133      \textcolor{comment}{// Get root names and attributes}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00134}00134      QString Type = root.tagName();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00136}00136      \textcolor{comment}{// Get the first child of the root (Markup COMPONENT is expected)}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00137}00137      QDomElement Component = root.firstChild().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00139}00139      \textcolor{comment}{//QHash<QString, MultiFileComment *> result = \{\};}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00141}00141      \textcolor{comment}{// Loop while there is a child}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00142}00142      \textcolor{keywordflow}{while}(!Component.isNull())}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00143}00143      \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00144}00144          \textcolor{comment}{// Check if the child tag name is COMPONENT}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00145}00145          \textcolor{keywordflow}{if} (Component.tagName() == \textcolor{stringliteral}{"{}comment\_start"{}})}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00146}00146          \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00147}00147              \textcolor{comment}{// Get the first child of the component}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00148}00148              QDomElement Child = Component.firstChild().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00149}00149 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00150}00150              QString commentName;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00151}00151              QString comment;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00152}00152              QString text;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00153}00153              \textcolor{keywordtype}{bool} is\_positive;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00155}00155              \textcolor{comment}{// Read each child of the component node}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00156}00156              \textcolor{keywordflow}{while} (!Child.isNull())}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00157}00157              \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00158}00158                  \textcolor{comment}{// Read Name and value}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00159}00159                  \textcolor{keywordflow}{if} (Child.tagName()==\textcolor{stringliteral}{"{}comment\_name"{}}) commentName = Child.firstChild().toText().data();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00160}00160                  \textcolor{keywordflow}{if} (Child.tagName()==\textcolor{stringliteral}{"{}comment"{}}) comment = Child.firstChild().toText().data();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00161}00161                  \textcolor{keywordflow}{if} (Child.tagName()==\textcolor{stringliteral}{"{}Positive"{}}) is\_positive = (bool)Child.firstChild().toText().data().toInt();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00162}00162                  \textcolor{keywordflow}{if} (Child.tagName()==\textcolor{stringliteral}{"{}File"{}})\{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00163}00163                         QDomElement file\_child = Child.firstChild().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00164}00164 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00165}00165                         QString file\_name;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00167}00167                         \textcolor{keywordflow}{while} (!file\_child.isNull())}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00168}00168                         \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00169}00169                             \textcolor{keywordflow}{if} (file\_child.tagName()==\textcolor{stringliteral}{"{}File\_name"{}}) file\_name = file\_child.firstChild().toText().data();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00170}00170 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00171}00171                             QList<int> lines = \{\};}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00173}00173                             \textcolor{keywordflow}{if} (file\_child.tagName()==\textcolor{stringliteral}{"{}Lines"{}})\{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00174}00174                                 QDomElement lines\_child = file\_child.firstChild().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00175}00175                                 \textcolor{keywordflow}{while} (!lines\_child.isNull())}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00176}00176                                 \{}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00178}00178                                     \textcolor{keywordflow}{if} (lines\_child.tagName()==\textcolor{stringliteral}{"{}line"{}})}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00179}00179                                        lines.append(lines\_child.firstChild().toText().data().toInt());}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00180}00180 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00181}00181                                     lines\_child = lines\_child.nextSibling().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00182}00182                                 \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00183}00183                             \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00184}00184 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00185}00185                             file\_child = file\_child.nextSibling().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00186}00186                         \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00187}00187                     \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00189}00189                     \textcolor{comment}{// Next child}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00190}00190                     Child = Child.nextSibling().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00191}00191                 \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00192}00192                 QHash<QString, QList<int>*> * s = \textcolor{keyword}{new} QHash<QString, QList<int>*>;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00193}00193                 \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}} cm(s,comment,is\_positive);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00194}00194                 comments-\/>insert(commentName,\&cm);}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00195}00195             \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00196}00196             \textcolor{comment}{// Next component}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00197}00197             Component = Component.nextSibling().toElement();}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00198}00198       \}}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00199}00199 }
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00200}00200      \textcolor{keywordflow}{return} comments;}
+\DoxyCodeLine{\Hypertarget{filereadingutils_8cpp_source_l00201}00201 \}}
+
+\end{DoxyCode}

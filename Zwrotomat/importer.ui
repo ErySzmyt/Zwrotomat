@@ -17,14 +17,22 @@
    <widget class="QLabel" name="f_path">
     <property name="geometry">
      <rect>
+<<<<<<< Updated upstream
       <x>130</x>
+=======
+      <x>150</x>
+>>>>>>> Stashed changes
       <y>60</y>
       <width>251</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
+<<<<<<< Updated upstream
      <string>Folder</string>
+=======
+     <string>Sciezka</string>
+>>>>>>> Stashed changes
     </property>
    </widget>
    <widget class="QPushButton" name="import_2">
@@ -63,7 +71,24 @@
      </rect>
     </property>
     <property name="text">
+<<<<<<< Updated upstream
      <string>Wybierz Folder</string>
+=======
+     <string>Wybierz Plik</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>30</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Plik:</string>
+>>>>>>> Stashed changes
     </property>
    </widget>
   </widget>
@@ -73,7 +98,11 @@
      <x>0</x>
      <y>0</y>
      <width>536</width>
+<<<<<<< Updated upstream
      <height>20</height>
+=======
+     <height>21</height>
+>>>>>>> Stashed changes
     </rect>
    </property>
   </widget>

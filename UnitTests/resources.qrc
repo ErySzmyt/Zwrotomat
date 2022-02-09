@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/Res">
+        <file>Templates/comment_header_display.html</file>
+        <file>Templates/comment_template.html</file>
+        <file>Templates/comment_template_negative.html</file>
+        <file>Templates/comment_text_display.html</file>
+        <file>Templates/main_index.html</file>
+        <file>Templates/testFile.txt</file>
+        <file>Templates/htmlTest.html</file>
+    </qresource>
+</RCC>

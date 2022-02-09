@@ -1,0 +1,48 @@
+\hypertarget{itemdisplay_8cpp_source}{}\doxysection{itemdisplay.\+cpp}
+\mbox{\hyperlink{itemdisplay_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{itemdisplay_8h}{itemdisplay.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}ui\_itemdisplay.h"{}}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00004}\mbox{\hyperlink{class_item_display_a2c45f5f4d5ac60d978228e8a525decbc}{00004}} \mbox{\hyperlink{class_item_display_a2c45f5f4d5ac60d978228e8a525decbc}{ItemDisplay::ItemDisplay}}(QWidget *parent) :}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00005}00005     QWidget(parent),}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00006}00006     ui(new \mbox{\hyperlink{namespace_ui}{Ui}}::\mbox{\hyperlink{class_item_display}{ItemDisplay}})}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00007}00007 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00008}00008     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00010}00010     connect(\textcolor{keyword}{this}, SIGNAL(\mbox{\hyperlink{class_item_display_afbc51cb6e74425f9d0cfdf31ac5916b3}{sendRemoveItem}}(\textcolor{keyword}{const} QString \&)), parent, SLOT(removeComment(\textcolor{keyword}{const} QString \&)));}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00011}00011     connect(\textcolor{keyword}{this}, SIGNAL(\mbox{\hyperlink{class_item_display_a7f7978b25daff5f2ce5870bad575b613}{sendCommentClicked}}(\textcolor{keyword}{const} QString \&)), parent, SLOT(selectComment(\textcolor{keyword}{const} QString \&)));}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00012}00012     connect(\textcolor{keyword}{this}, SIGNAL(\mbox{\hyperlink{class_item_display_afd0828169b3f5ff928699455450158d4}{sendPositiveCheckChanged}}(\textcolor{keyword}{const} QString \&,\textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&)), parent, SLOT(changePositivityOfComment(\textcolor{keyword}{const} QString \&,\textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&)));}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00013}00013 \}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00015}\mbox{\hyperlink{class_item_display_a4f0376dbd5746f10986d4127c24f7461}{00015}} \mbox{\hyperlink{class_item_display_a4f0376dbd5746f10986d4127c24f7461}{ItemDisplay::\string~ItemDisplay}}()}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00016}00016 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00017}00017     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00024}00024 \textcolor{keywordtype}{void} ItemDisplay::on\_removeButton\_clicked()}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00025}00025 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00026}00026     emit \mbox{\hyperlink{class_item_display_afbc51cb6e74425f9d0cfdf31ac5916b3}{sendRemoveItem}}(ui-\/>label-\/>text());}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00027}00027 \}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00033}\mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{00033}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{ItemDisplay::setText}}(\textcolor{keyword}{const} QString \&text)}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00034}00034 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00035}00035     ui-\/>label-\/>setText(text);}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00036}00036 \}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00042}\mbox{\hyperlink{class_item_display_a8045f095c125140a4011566a2b4c9e55}{00042}} QString \mbox{\hyperlink{class_item_display_a8045f095c125140a4011566a2b4c9e55}{ItemDisplay::getText}}()}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00043}00043 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00044}00044     \textcolor{keywordflow}{return} ui-\/>label-\/>text();}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00045}00045 \}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00052}\mbox{\hyperlink{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}{00052}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_item_display_a5357b083d065022ad06c2a8ab86d14e2}{ItemDisplay::mouseReleaseEvent}}(QMouseEvent *event)}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00053}00053 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00054}00054     emit \mbox{\hyperlink{class_item_display_a7f7978b25daff5f2ce5870bad575b613}{sendCommentClicked}}(ui-\/>label-\/>text());}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00055}00055 \}}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00060}00060 \textcolor{keywordtype}{void} ItemDisplay::on\_wskaznikPozytyw\_clicked()}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00061}00061 \{}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00062}00062     emit \mbox{\hyperlink{class_item_display_afd0828169b3f5ff928699455450158d4}{sendPositiveCheckChanged}}(ui-\/>label-\/>text(), ui-\/>wskaznikPozytyw-\/>isChecked());}
+\DoxyCodeLine{\Hypertarget{itemdisplay_8cpp_source_l00063}00063 \}}
+
+\end{DoxyCode}

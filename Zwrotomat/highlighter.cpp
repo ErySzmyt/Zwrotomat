@@ -63,6 +63,10 @@ Highlighter::Highlighter(QTextDocument *parent)
        commentEndExpression = QRegularExpression(QStringLiteral("\\*/"));
    }
 
+/**
+ * @brief Highlighter::highlightBlock highlighting block of given text
+ * @param text text to highlight
+ */
 void Highlighter::highlightBlock(const QString &text)
 {
     for (const HighlightingRule &rule : qAsConst(highlightingRules)) {

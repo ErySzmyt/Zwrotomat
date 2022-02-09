@@ -13,6 +13,12 @@ GitWrapper::GitWrapper()
     this->readGitCredential();
 }
 
+/**
+ * @brief GitWrapper::clone action to clone given repository
+ * @param HTTPS link to repository
+ * @param dir output directory
+ * @return output directory afther clonning
+ */
 QDir GitWrapper::clone(QString HTTPS, QDir dir)
 {
     // QString templates
@@ -30,16 +36,27 @@ QDir GitWrapper::clone(QString HTTPS, QDir dir)
     return dir;
 }
 
+/**
+ * @brief GitWrapper::setEmail changing default git config's email
+ * @param email new email to set
+ */
 void GitWrapper::setEmail(QString email)
 {
     this->m_email = email;
 }
 
+/**
+ * @brief GitWrapper::setUserName changing default git config's username
+ * @param userName username to set
+ */
 void GitWrapper::setUserName(QString userName)
 {
     this->m_username = userName;
 }
 
+/**
+ * @brief GitWrapper::readGitCredential reading github credential if avilable
+ */
 void GitWrapper::readGitCredential()
 {
     QString userName = qgetenv("USERNAME");
@@ -68,11 +85,19 @@ void GitWrapper::readGitCredential()
     qDebug() << "gitConfigPath" << gitConfigPath;
 }
 
+/**
+ * @brief GitWrapper::getUsername getter for username
+ * @return git username
+ */
 QString GitWrapper::getUsername()
 {
     return this->m_username;
 }
 
+/**
+ * @brief GitWrapper::getEmail getter for git's email
+ * @return git email
+ */
 QString GitWrapper::getEmail()
 {
     return this->m_email;

@@ -1,0 +1,46 @@
+\hypertarget{eksport_8cpp_source}{}\doxysection{eksport.\+cpp}
+\mbox{\hyperlink{eksport_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{eksport_8h}{eksport.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}ui\_eksport.h"{}}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <QDir>}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <QFile>}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <QFileDialog>}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multifilecomment_8h}{multifilecomment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{filereadingutils_8h}{filereadingutils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00008}\mbox{\hyperlink{classeksport_a10dda3e09ccc969e49669fafc9e9f4f2}{00008}} \mbox{\hyperlink{classeksport_a10dda3e09ccc969e49669fafc9e9f4f2}{eksport::eksport}}(QWidget *parent) :}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00009}00009     QWidget(parent),}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00010}00010     ui(new \mbox{\hyperlink{namespace_ui}{Ui}}::\mbox{\hyperlink{classeksport}{eksport}})}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00011}00011 \{}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00012}00012     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00013}00013 \}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00015}\mbox{\hyperlink{classeksport_ae30ee59dbfb730da546c0cb0616b780e}{00015}} \mbox{\hyperlink{classeksport_ae30ee59dbfb730da546c0cb0616b780e}{eksport::\string~eksport}}()}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00016}00016 \{}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00017}00017     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00018}00018 \}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00020}00020 \textcolor{keywordtype}{void} eksport::setComments(QHash<QString, MultiFileComment *> *commentMap)}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00022}00022     \textcolor{comment}{//set comments for export}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00023}00023     this-\/>m\_Comments = commentMap;}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00024}00024 \}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00026}00026 \textcolor{keywordtype}{void} eksport::on\_chooseButton\_clicked()}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00027}00027 \{}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00028}00028     \textcolor{comment}{// choose output folder}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00029}00029     QDir dir = QFileDialog::getExistingDirectory(0, (\textcolor{stringliteral}{"{}Select Output Folder"{}}), QDir::currentPath());}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00030}00030     s\_last\_selectedDir = dir;}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00031}00031     ui-\/>f\_path-\/>setText(dir.path());}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00032}00032 \}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00034}00034 \textcolor{keywordtype}{void} eksport::on\_export\_2\_clicked()}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00035}00035 \{}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00036}00036     \textcolor{comment}{// export comments}}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00037}00037     QFile myFile;}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00038}00038     QDataStream out (\&myFile);}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00039}00039     out<<this-\/>m\_Comments;}
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{eksport_8cpp_source_l00041}00041 \}}
+
+\end{DoxyCode}

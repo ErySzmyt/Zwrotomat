@@ -251,13 +251,6 @@
     <addaction name="menuNowy"/>
     <addaction name="actionZapisz"/>
    </widget>
-   <widget class="QMenu" name="menuUstawienia">
-    <property name="title">
-     <string>Ustawienia</string>
-    </property>
-    <addaction name="actionTheme"/>
-    <addaction name="actionGenerowanie"/>
-   </widget>
    <widget class="QMenu" name="menuOkna">
     <property name="title">
      <string>Okna</string>
@@ -282,7 +275,6 @@
     <addaction name="actionEksport"/>
    </widget>
    <addaction name="menuProjekt"/>
-   <addaction name="menuUstawienia"/>
    <addaction name="menuOkna"/>
    <addaction name="menuGeneruj"/>
    <addaction name="menuKomentarze"/>

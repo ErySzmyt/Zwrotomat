@@ -1,0 +1,84 @@
+\hypertarget{gitwrapper_8cpp_source}{}\doxysection{gitwrapper.\+cpp}
+\mbox{\hyperlink{gitwrapper_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{gitwrapper_8h}{gitwrapper.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <QFile>}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <QDebug>}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <QIODevice>}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include <QTextStream>}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <QDir>}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00008}00008 \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00011}\mbox{\hyperlink{class_git_wrapper_a2bd651dfe8cbd77c30d4e70186c43c03}{00011}} \mbox{\hyperlink{class_git_wrapper_a2bd651dfe8cbd77c30d4e70186c43c03}{GitWrapper::GitWrapper}}()}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00012}00012 \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00013}00013     this-\/>\mbox{\hyperlink{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}{readGitCredential}}();}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00014}00014 \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00022}\mbox{\hyperlink{class_git_wrapper_a9ed88e7c2a9f2c77dd02afe3fd4535f1}{00022}} QDir \mbox{\hyperlink{class_git_wrapper_a9ed88e7c2a9f2c77dd02afe3fd4535f1}{GitWrapper::clone}}(QString HTTPS, QDir dir)}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00023}00023 \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00024}00024     \textcolor{comment}{// QString templates}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00025}00025     QString commandQString = \textcolor{stringliteral}{"{}git clone "{}}+HTTPS+\textcolor{stringliteral}{"{} "{}}+dir.path();}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00026}00026     qDebug()<<\textcolor{stringliteral}{"{}QString command:"{}}<<commandQString;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00027}00027     \textcolor{comment}{// convert to required format}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00028}00028     std::string utf8\_text = commandQString.toUtf8().constData();}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00029}00029     \textcolor{keyword}{const} \textcolor{keywordtype}{char} * command = utf8\_text.c\_str();}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00030}00030     qDebug()<<\textcolor{stringliteral}{"{}converted command:"{}}<<command;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00031}00031     \textcolor{comment}{// execute command in cmd}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00032}00032     std::system(command);}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00033}00033     \textcolor{comment}{// delate pointers}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00034}00034     \textcolor{comment}{//delete command;}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00036}00036     \textcolor{keywordflow}{return} dir;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00037}00037 \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00043}\mbox{\hyperlink{class_git_wrapper_a0995c2a217883c30749d56dc0dec224d}{00043}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_git_wrapper_a0995c2a217883c30749d56dc0dec224d}{GitWrapper::setEmail}}(QString email)}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00044}00044 \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00045}00045     this-\/>m\_email = email;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00046}00046 \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00052}\mbox{\hyperlink{class_git_wrapper_a1429293bd07825856db0207a2dec14e1}{00052}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_git_wrapper_a1429293bd07825856db0207a2dec14e1}{GitWrapper::setUserName}}(QString userName)}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00053}00053 \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00054}00054     this-\/>m\_username = userName;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00055}00055 \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00060}\mbox{\hyperlink{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}{00060}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}{GitWrapper::readGitCredential}}()}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00061}00061 \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00062}00062     QString userName = qgetenv(\textcolor{stringliteral}{"{}USERNAME"{}});}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00063}00063     QString gitConfigPath = \textcolor{stringliteral}{"{}C:\(\backslash\)\(\backslash\)Users\(\backslash\)\(\backslash\)"{}}+userName+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\).gitconfig"{}};}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00064}00064     QFile inputFile(gitConfigPath);}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00066}00066     inputFile.open(QIODevice::ReadOnly);}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00067}00067     \textcolor{keywordflow}{if} (!inputFile.isOpen())}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00068}00068         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00070}00070     QTextStream stream(\&inputFile);}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00071}00071     \textcolor{keywordflow}{for} (QString line = stream.readLine();}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00072}00072          !line.isNull();}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00073}00073          line = stream.readLine()) \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00075}00075         \textcolor{keywordflow}{if} (line.startsWith(\textcolor{stringliteral}{"{}\(\backslash\)tname"{}}))\{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00076}00076             \textcolor{comment}{//qDebug() << "{}Git User Name"{} << line.split('=')[1];}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00077}00077             this-\/>m\_username = line.split(\textcolor{charliteral}{'='})[1];}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00078}00078         \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00079}00079         \textcolor{keywordflow}{if} (line.startsWith(\textcolor{stringliteral}{"{}\(\backslash\)temail"{}}) )\{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00080}00080             \textcolor{comment}{//qDebug() << "{}Git email"{} << line.split('=')[1];}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00081}00081             this-\/>m\_email = line.split(\textcolor{charliteral}{'='})[1];}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00082}00082         \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00083}00083     \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00085}00085     qDebug() << \textcolor{stringliteral}{"{}gitConfigPath"{}} << gitConfigPath;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00092}\mbox{\hyperlink{class_git_wrapper_a67913d2f94541f388747ebd8e0346c16}{00092}} QString \mbox{\hyperlink{class_git_wrapper_a67913d2f94541f388747ebd8e0346c16}{GitWrapper::getUsername}}()}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00093}00093 \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00094}00094     \textcolor{keywordflow}{return} this-\/>m\_username;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00095}00095 \}}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00101}\mbox{\hyperlink{class_git_wrapper_a3a95aaea7352f89c4a5363c1c1129106}{00101}} QString \mbox{\hyperlink{class_git_wrapper_a3a95aaea7352f89c4a5363c1c1129106}{GitWrapper::getEmail}}()}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00102}00102 \{}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00103}00103     \textcolor{keywordflow}{return} this-\/>m\_email;}
+\DoxyCodeLine{\Hypertarget{gitwrapper_8cpp_source_l00104}00104 \}}
+
+\end{DoxyCode}

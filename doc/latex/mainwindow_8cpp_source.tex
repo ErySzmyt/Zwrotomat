@@ -1,0 +1,283 @@
+\hypertarget{mainwindow_8cpp_source}{}\doxysection{mainwindow.\+cpp}
+\mbox{\hyperlink{mainwindow_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mainwindow_8h}{mainwindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}ui\_Mainwindow.h"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <QFileDialog>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <QInputDialog>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{generatorwindow_8h}{generatorwindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include <QLineEdit>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{highlighter_8h}{highlighter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{itemdisplay_8h}{itemdisplay.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{multifilecomment_8h}{multifilecomment.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{gitform_8h}{gitform.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{gitwrapper_8h}{gitwrapper.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{eksporter_8h}{eksporter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{importer_8h}{importer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00018}\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{00018}} \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow::MainWindow}}(QWidget *parent)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00019}00019     : QMainWindow(parent)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00020}00020     , ui(new \mbox{\hyperlink{namespace_ui}{Ui}}::\mbox{\hyperlink{class_main_window}{MainWindow}})}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00021}00021 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00022}00022     ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00023}00023     setCentralWidget(ui-\/>centralwidget);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00025}00025     ui-\/>textBrowser-\/>setMouseTracking(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00027}00027     m\_highlighter = \textcolor{keyword}{new} \mbox{\hyperlink{class_highlighter}{Highlighter}}(ui-\/>textBrowser-\/>document());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00028}00028     m\_fileModel = \textcolor{keyword}{new} QFileSystemModel(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00030}00030     this-\/>m\_currentComment = \textcolor{keyword}{new} \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00031}00031     this-\/>m\_Comments = \textcolor{keyword}{new} QHash<QString, MultiFileComment*>();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00033}00033     setCorner(Qt::BottomRightCorner, Qt::RightDockWidgetArea);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00034}00034     setCorner(Qt::TopRightCorner, Qt::RightDockWidgetArea);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00036}00036     ui-\/>dockWidget\_2-\/>setAllowedAreas(Qt::RightDockWidgetArea | Qt::LeftDockWidgetArea);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00037}00037     ui-\/>dockWidget\_1-\/>setAllowedAreas(Qt::AllDockWidgetAreas);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00039}00039     addDockWidget(Qt::BottomDockWidgetArea, ui-\/>dockWidget\_1);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00040}00040     addDockWidget(Qt::RightDockWidgetArea, ui-\/>dockWidget\_2);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00041}00041 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00043}\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{00043}} \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{MainWindow::\string~MainWindow}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00044}00044 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00045}00045     \textcolor{keyword}{delete} ui;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00046}00046 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00052}00052 \textcolor{keywordtype}{void} MainWindow::on\_textBrowser\_cursorPositionChanged()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00053}00053 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00054}00054     ui-\/>textBrowser-\/>processCurrentLine(*this-\/>m\_currentComment, this-\/>m\_selectedFile);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00055}00055 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00061}00061 \textcolor{keywordtype}{void} MainWindow::on\_treeFileExplorer\_clicked(\textcolor{keyword}{const} QModelIndex \&index)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00062}00062 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00063}00063     QString sPath = m\_fileModel-\/>fileInfo(index).absoluteFilePath();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00064}00064     this-\/>m\_selectedFile = sPath;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00066}00066     qDebug() << sPath;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00068}00068     loadCurrentFile();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00069}00069 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00075}00075 \textcolor{keywordtype}{void} MainWindow::on\_actionZ\_Folderu\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00076}00076 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00077}00077     this-\/>m\_currentComment = \textcolor{keyword}{new} \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00079}00079     \textcolor{comment}{//clere QHash and dealocate occupied memory}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00080}00080     qDeleteAll(this-\/>m\_Comments-\/>begin(), this-\/>m\_Comments-\/>end());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00081}00081     this-\/>m\_Comments-\/>clear();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00083}00083     this-\/>m\_Comments = \textcolor{keyword}{new} QHash<QString, MultiFileComment*>();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00085}00085     QDir dir = QFileDialog::getExistingDirectory(0, (\textcolor{stringliteral}{"{}Select Project"{}}), QDir::currentPath());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00086}00086     this-\/>m\_selectedDir = dir;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00088}00088     qDebug() << \textcolor{stringliteral}{"{}Initilizing TreeView with "{}} << dir;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00090}00090     \textcolor{comment}{//set root path}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00091}00091     m\_fileModel-\/>setRootPath(dir.path());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00092}00092 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00093}00093     ui-\/>treeFileExplorer-\/>setModel(m\_fileModel);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00094}00094     ui-\/>treeFileExplorer-\/>setRootIndex(m\_fileModel-\/>index(dir.path()));}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00095}00095 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00101}00101 \textcolor{keywordtype}{void} MainWindow::on\_actionKomentarze\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00102}00102 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00103}00103     ui-\/>dockWidget\_1-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00104}00104 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00110}00110 \textcolor{keywordtype}{void} MainWindow::on\_actionPliki\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00111}00111 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00112}00112     ui-\/>dockWidget\_2-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00113}00113 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00119}00119 \textcolor{keywordtype}{void} MainWindow::on\_addingCommentButton\_clicked()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00120}00120 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00121}00121     \textcolor{keywordtype}{bool} ok;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00123}00123     QString text = QInputDialog::getText(\textcolor{keyword}{this}, tr(\textcolor{stringliteral}{"{}Dodawanie Komentarza"{}}), tr(\textcolor{stringliteral}{"{}Wyświetlana Nazwa:"{}}), QLineEdit::Normal,\textcolor{stringliteral}{"{}"{}}, \&ok);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00124}00124     \textcolor{keywordflow}{if}(ok \&\& !text.isEmpty())\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00125}00125         qDebug() << text;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00127}00127         QListWidgetItem* item = \textcolor{keyword}{new} QListWidgetItem();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00129}00129         \mbox{\hyperlink{class_item_display}{ItemDisplay}}* buttons = \textcolor{keyword}{new} \mbox{\hyperlink{class_item_display}{ItemDisplay}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00130}00130         buttons-\/>\mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{setText}}(text);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00131}00131 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00132}00132         \textcolor{keywordflow}{if}(m\_Comments-\/>size() > 0)\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00133}00133             \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}* comment = \textcolor{keyword}{new} \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00134}00134             this-\/>m\_Comments-\/>insert(text, comment);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00135}00135         \}\textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00136}00136             this-\/>m\_Comments-\/>insert(text, this-\/>m\_currentComment);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00138}00138         item-\/>setSizeHint(buttons-\/>sizeHint());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00140}00140         ui-\/>listWidget-\/>addItem(item);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00141}00141         ui-\/>listWidget-\/>setItemWidget(item, buttons);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00142}00142     \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00143}00143 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00151}00151 \textcolor{keywordtype}{void} MainWindow::removeComment(\textcolor{keyword}{const} QString \&text) \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00152}00152     \textcolor{keywordflow}{if}(m\_Comments-\/>size() == 1)\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00153}00153         this-\/>m\_currentComment = \textcolor{keyword}{new} \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00154}00154         loadCurrentFile();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00155}00155     \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00157}00157     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < ui-\/>listWidget-\/>count(); ++i) \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00158}00158         \textcolor{keyword}{auto} item = ui-\/>listWidget-\/>item(i);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00159}00159         \textcolor{keyword}{auto} itemWidget = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{class_item_display}{ItemDisplay}}*\textcolor{keyword}{>}(ui-\/>listWidget-\/>itemWidget(item));}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00160}00160         \textcolor{keywordflow}{if} (itemWidget-\/>getText() == text)\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00161}00161 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00162}00162             \textcolor{keywordflow}{if}(m\_Comments-\/>value(text) == this-\/>m\_currentComment)\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00163}00163                 ui-\/>textBrowser-\/>document()-\/>setPlainText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00164}00164                 ui-\/>commentEdit-\/>document()-\/>setPlainText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00165}00165             \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00167}00167             \textcolor{keyword}{delete} m\_Comments-\/>value(text);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00168}00168             m\_Comments-\/>remove(text);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00169}00169 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00170}00170             \textcolor{keyword}{delete} item;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00171}00171             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00172}00172         \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00173}00173     \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00174}00174 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00175}00175 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00180}00180 \textcolor{keywordtype}{void} MainWindow::selectComment(\textcolor{keyword}{const} QString \&text)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00181}00181 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00182}00182 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00183}00183     this-\/>m\_currentComment = this-\/>m\_Comments-\/>value(text);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00184}00184     \textcolor{comment}{//reloading lines}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00185}00185     \textcolor{keywordflow}{if}(!this-\/>m\_selectedFile.isEmpty())\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00186}00186         this-\/>loadCurrentFile();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00187}00187         ui-\/>textBrowser-\/>loadSelectedLines(*this-\/>m\_currentComment, this-\/>m\_selectedFile);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00188}00188     \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00189}00189     ui-\/>commentEdit-\/>setText(m\_currentComment-\/>\mbox{\hyperlink{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}{getComment}}());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00190}00190 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00191}00191 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00197}00197 \textcolor{keywordtype}{void} MainWindow::doneClonning(\textcolor{keyword}{const} QDir \&clonedDir)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00198}00198 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00199}00199     this-\/>m\_currentComment = \textcolor{keyword}{new} \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00200}00200 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00201}00201     \textcolor{comment}{//clere QHash and dealocate occupied memory}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00202}00202     qDeleteAll(this-\/>m\_Comments-\/>begin(), this-\/>m\_Comments-\/>end());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00203}00203     this-\/>m\_Comments-\/>clear();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00204}00204 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00205}00205     this-\/>m\_Comments = \textcolor{keyword}{new} QHash<QString, MultiFileComment*>();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00206}00206 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00207}00207     this-\/>m\_selectedDir = clonedDir;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00208}00208 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00209}00209     qDebug() << \textcolor{stringliteral}{"{}Initilizing TreeView with "{}} << clonedDir;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00210}00210 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00211}00211     \textcolor{comment}{//set root path}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00212}00212     m\_fileModel-\/>setRootPath(clonedDir.path());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00213}00213 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00214}00214     ui-\/>treeFileExplorer-\/>setModel(m\_fileModel);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00215}00215     ui-\/>treeFileExplorer-\/>setRootIndex(m\_fileModel-\/>index(clonedDir.path()));}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00216}00216 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00217}00217 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00218}00218 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00219}00219 \textcolor{keywordtype}{void} MainWindow::changePositivityOfComment(\textcolor{keyword}{const} QString \&text, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \&isChecked)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00220}00220 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00221}00221     \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}* com = m\_Comments-\/>value(text);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00222}00222     (isChecked)? com-\/>\mbox{\hyperlink{class_multi_file_comment_a3747eb9d2e39f1518b2b7211a930e1d3}{setPositive}}() : com-\/>\mbox{\hyperlink{class_multi_file_comment_a90f3cd599252b68e960f8a29ca409cf7}{setNegative}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00223}00223     qDebug()<<\textcolor{stringliteral}{"{}Positivity changed"{}}<< com<<\textcolor{stringliteral}{"{} "{}}<<com-\/>\mbox{\hyperlink{class_multi_file_comment_a3ae748342269995b5436dea7fa85e1d2}{isPositive}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00224}00224 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00225}00225 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00230}00230 \textcolor{keywordtype}{void} MainWindow::loadCurrentFile()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00231}00231 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00232}00232     QFile file(this-\/>m\_selectedFile);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00233}00233 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00234}00234     \textcolor{keywordflow}{if} (!file.open(QIODevice::ReadOnly))}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00235}00235         QMessageBox::information(0, \textcolor{stringliteral}{"{}Error"{}}, file.errorString()); \textcolor{comment}{// if unable to open throw error in msg box}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00236}00236 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00237}00237     QTextStream in(\&file); \textcolor{comment}{// else open file and put it in browser}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00238}00238 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00239}00239     qDebug() << \textcolor{stringliteral}{"{}Reding File "{}} << this-\/>m\_selectedFile;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00240}00240 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00241}00241     QString text = in.readAll();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00242}00242 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00243}00243     file.close();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00244}00244 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00245}00245     \textcolor{keywordflow}{if}(this-\/>m\_selectedFile.endsWith(\textcolor{stringliteral}{"{}.cpp"{}}, Qt::CaseInsensitive) || this-\/>m\_selectedFile.endsWith(\textcolor{stringliteral}{"{}.h"{}}, Qt::CaseInsensitive) || this-\/>m\_selectedFile.endsWith(\textcolor{stringliteral}{"{}.c"{}}, Qt::CaseInsensitive))}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00246}00246         text.replace(\textcolor{stringliteral}{"{}\(\backslash\)t"{}}, \textcolor{stringliteral}{"{}    "{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00247}00247 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00248}00248     ui-\/>textBrowser-\/>document()-\/>setPlainText(text.toUtf8());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00249}00249 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00250}00250     \textcolor{keywordflow}{if}(m\_currentComment-\/>\mbox{\hyperlink{class_multi_file_comment_a924c956558135031562448b4511c5ced}{containFile}}(this-\/>m\_selectedFile))}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00251}00251         ui-\/>textBrowser-\/>loadSelectedLines(*this-\/>m\_currentComment, this-\/>m\_selectedFile);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00252}00252 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00253}00253 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00258}00258 \textcolor{keywordtype}{void} MainWindow::on\_commentEdit\_textChanged()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00259}00259 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00260}00260     m\_currentComment-\/>\mbox{\hyperlink{class_multi_file_comment_a0c1285b54a0073b530a4644a5ffaa9c9}{setComment}}(ui-\/>commentEdit-\/>toPlainText());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00261}00261 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00262}00262 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00263}00263 \textcolor{keywordtype}{void} MainWindow::on\_actionGeneruj\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00264}00264 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00265}00265     \mbox{\hyperlink{class_generator_window}{GeneratorWindow}}* generatorWindow = \textcolor{keyword}{new} \mbox{\hyperlink{class_generator_window}{GeneratorWindow}}(\textcolor{keyword}{this}, m\_Comments);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00266}00266     generatorWindow-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00267}00267 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00268}00268 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00269}00269 \textcolor{keywordtype}{void} MainWindow::on\_actionPusty\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00270}00270 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00271}00271     this-\/>m\_currentComment = \textcolor{keyword}{new} \mbox{\hyperlink{class_multi_file_comment}{MultiFileComment}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00272}00272     this-\/>m\_Comments = \textcolor{keyword}{new} QHash<QString, MultiFileComment*>();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00273}00273 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00274}00274     ui-\/>textBrowser-\/>document()-\/>setPlainText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00275}00275     ui-\/>commentEdit-\/>document()-\/>setPlainText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00277}00277     ui-\/>listWidget-\/>clear();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00278}00278 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00279}00279 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00284}00284 \textcolor{keywordtype}{void} MainWindow::on\_actionGit\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00285}00285 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00286}00286     \textcolor{comment}{//otworzyc okno do wyboru folderu}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00287}00287     \mbox{\hyperlink{class_git_form}{GitForm}}* gitform = \textcolor{keyword}{new} \mbox{\hyperlink{class_git_form}{GitForm}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00288}00288     gitform-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00289}00289 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00290}00290 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00295}00295 \textcolor{keywordtype}{void} MainWindow::on\_actionEksport\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00296}00296 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00297}00297     qDebug() <<\textcolor{stringliteral}{"{}debug on\_actionEksport\_triggered"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00298}00298     \textcolor{comment}{// extract comments}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00299}00299     \mbox{\hyperlink{class_eksporter}{Eksporter}}* \mbox{\hyperlink{classeksport}{eksport}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_eksporter}{Eksporter}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00300}00300     \mbox{\hyperlink{classeksport}{eksport}}-\/>setComments(this-\/>m\_Comments);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00301}00301     \mbox{\hyperlink{classeksport}{eksport}}-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00302}00302 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00303}00303 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00304}00304 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00309}00309 \textcolor{keywordtype}{void} MainWindow::on\_actionImport\_triggered()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00310}00310 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00311}00311     \mbox{\hyperlink{class_importer}{Importer}}* \textcolor{keyword}{import} = \textcolor{keyword}{new} \mbox{\hyperlink{class_importer}{Importer}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00312}00312     \textcolor{keyword}{import}-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00313}00313 \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00314}00314 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00319}00319 \textcolor{keywordtype}{void} MainWindow::reciveImport(QHash<QString, MultiFileComment*>* s)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00320}00320 \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00321}00321     qDeleteAll(this-\/>m\_Comments-\/>begin(),this-\/>m\_Comments-\/>end());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00322}00322 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00323}00323     this-\/>m\_Comments = s;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00324}00324 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00325}00325     qDebug() << \textcolor{stringliteral}{"{}size imported:"{}}<<this-\/>m\_Comments-\/>size();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00326}00326     QHash<QString, MultiFileComment*>::iterator i;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00327}00327     \textcolor{keywordflow}{for} (i = this-\/>m\_Comments-\/>begin(); i != this-\/>m\_Comments-\/>end(); ++i) \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00328}00328 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00329}00329         QListWidgetItem* item = \textcolor{keyword}{new} QListWidgetItem();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00330}00330 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00331}00331         \mbox{\hyperlink{class_item_display}{ItemDisplay}}* buttons = \textcolor{keyword}{new} \mbox{\hyperlink{class_item_display}{ItemDisplay}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00332}00332 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00333}00333         buttons-\/>\mbox{\hyperlink{class_item_display_a533760ba5ca0c308afb82311b52b86db}{setText}}(i.key());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00334}00334         item-\/>setSizeHint(buttons-\/>sizeHint());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00335}00335         ui-\/>listWidget-\/>addItem(item);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00336}00336         ui-\/>listWidget-\/>setItemWidget(item, buttons);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00337}00337         qDebug() << i.key();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00338}00338         qDebug() <<\textcolor{stringliteral}{"{}comment:"{}}<< i.value()-\/>getComment();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00339}00339     \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00340}00340 }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00341}00341 \}}
+
+\end{DoxyCode}

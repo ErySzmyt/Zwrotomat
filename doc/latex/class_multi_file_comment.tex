@@ -1,0 +1,203 @@
+\hypertarget{class_multi_file_comment}{}\doxysection{Multi\+File\+Comment Class Reference}
+\label{class_multi_file_comment}\index{MultiFileComment@{MultiFileComment}}
+
+
+{\ttfamily \#include $<$multifilecomment.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_multi_file_comment_ad3a2674f4f8baf40cc34974af3fbe704}{Multi\+File\+Comment}} ()
+\item 
+\mbox{\hyperlink{class_multi_file_comment_ab96bb63d1b154ca8c33fe6191c71a7a3}{Multi\+File\+Comment}} (QHash$<$ QString, QList$<$ int $>$ $\ast$ $>$ $\ast$, QString, bool)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_multi_file_comment_ad3a2674f4f8baf40cc34974af3fbe704}{Multi\+File\+Comment\+::\+Multi\+File\+Comment}} All args constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_multi_file_comment_a810e47569c7b1163fd9808f47396b901}{$\sim$\+Multi\+File\+Comment}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_multi_file_comment_a810e47569c7b1163fd9808f47396b901}{Multi\+File\+Comment\+::$\sim$\+Multi\+File\+Comment}} Relesing all multifilecomments. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_multi_file_comment_a924c956558135031562448b4511c5ced}{contain\+File}} (QString file\+Name)
+\item 
+QHash$<$ QString, QList$<$ int $>$ $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_multi_file_comment_ab0906a0e48d5fd3455c161c10ea1c55e}{get\+Data}} ()
+\item 
+QList$<$ int $>$ $\ast$ \mbox{\hyperlink{class_multi_file_comment_a461343b7b6f9b5bf0a971171ba9ecb6b}{get\+Lines\+By\+Name}} (QString file\+Name)
+\item 
+void \mbox{\hyperlink{class_multi_file_comment_a226a914522b9aa51c9f5492b807197e9}{add\+New\+File}} (QString file\+Name)
+\item 
+void \mbox{\hyperlink{class_multi_file_comment_a0c1285b54a0073b530a4644a5ffaa9c9}{set\+Comment}} (QString comment)
+\item 
+bool \mbox{\hyperlink{class_multi_file_comment_a3ae748342269995b5436dea7fa85e1d2}{is\+Positive}} ()
+\item 
+void \mbox{\hyperlink{class_multi_file_comment_a3747eb9d2e39f1518b2b7211a930e1d3}{set\+Positive}} ()
+\item 
+void \mbox{\hyperlink{class_multi_file_comment_a90f3cd599252b68e960f8a29ca409cf7}{set\+Negative}} ()
+\item 
+QString \mbox{\hyperlink{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}{get\+Comment}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8h_source_l00007}{7}} of file \mbox{\hyperlink{multifilecomment_8h_source}{multifilecomment.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_multi_file_comment_ad3a2674f4f8baf40cc34974af3fbe704}\label{class_multi_file_comment_ad3a2674f4f8baf40cc34974af3fbe704}} 
+\index{MultiFileComment@{MultiFileComment}!MultiFileComment@{MultiFileComment}}
+\index{MultiFileComment@{MultiFileComment}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{MultiFileComment()}{MultiFileComment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Multi\+File\+Comment\+::\+Multi\+File\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00003}{3}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_ab96bb63d1b154ca8c33fe6191c71a7a3}\label{class_multi_file_comment_ab96bb63d1b154ca8c33fe6191c71a7a3}} 
+\index{MultiFileComment@{MultiFileComment}!MultiFileComment@{MultiFileComment}}
+\index{MultiFileComment@{MultiFileComment}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{MultiFileComment()}{MultiFileComment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Multi\+File\+Comment\+::\+Multi\+File\+Comment (\begin{DoxyParamCaption}\item[{QHash$<$ QString, QList$<$ int $>$ $\ast$ $>$ $\ast$}]{lines\+And\+Files,  }\item[{QString}]{comment,  }\item[{bool}]{is\+Pos }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_multi_file_comment_ad3a2674f4f8baf40cc34974af3fbe704}{Multi\+File\+Comment\+::\+Multi\+File\+Comment}} All args constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em QHash} & key QString file\+Name and value List of integers with selected lines, QString comment, bool positivity of comment \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_a810e47569c7b1163fd9808f47396b901}\label{class_multi_file_comment_a810e47569c7b1163fd9808f47396b901}} 
+\index{MultiFileComment@{MultiFileComment}!````~MultiFileComment@{$\sim$MultiFileComment}}
+\index{````~MultiFileComment@{$\sim$MultiFileComment}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{$\sim$MultiFileComment()}{~MultiFileComment()}}
+{\footnotesize\ttfamily Multi\+File\+Comment\+::$\sim$\+Multi\+File\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_multi_file_comment_a810e47569c7b1163fd9808f47396b901}{Multi\+File\+Comment\+::$\sim$\+Multi\+File\+Comment}} Relesing all multifilecomments. 
+
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_multi_file_comment_a226a914522b9aa51c9f5492b807197e9}\label{class_multi_file_comment_a226a914522b9aa51c9f5492b807197e9}} 
+\index{MultiFileComment@{MultiFileComment}!addNewFile@{addNewFile}}
+\index{addNewFile@{addNewFile}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{addNewFile()}{addNewFile()}}
+{\footnotesize\ttfamily void Multi\+File\+Comment\+::add\+New\+File (\begin{DoxyParamCaption}\item[{QString}]{file\+Name }\end{DoxyParamCaption})}
+
+Adding given file to the multi\+File\+Comment In case of multi\+File\+Comment already containing file\+Name skiping. 
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_a924c956558135031562448b4511c5ced}\label{class_multi_file_comment_a924c956558135031562448b4511c5ced}} 
+\index{MultiFileComment@{MultiFileComment}!containFile@{containFile}}
+\index{containFile@{containFile}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{containFile()}{containFile()}}
+{\footnotesize\ttfamily bool Multi\+File\+Comment\+::contain\+File (\begin{DoxyParamCaption}\item[{QString}]{file\+Name }\end{DoxyParamCaption})}
+
+Checking is \mbox{\hyperlink{class_multi_file_comment}{Multi\+File\+Comment}} already contain given file 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & file to check \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}\label{class_multi_file_comment_aa6e45a5ff8822ee0d092697fd3cc9f8e}} 
+\index{MultiFileComment@{MultiFileComment}!getComment@{getComment}}
+\index{getComment@{getComment}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{getComment()}{getComment()}}
+{\footnotesize\ttfamily QString Multi\+File\+Comment\+::get\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accesor of m\+\_\+comment value \begin{DoxyReturn}{Returns}
+assigned comment (QString) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_ab0906a0e48d5fd3455c161c10ea1c55e}\label{class_multi_file_comment_ab0906a0e48d5fd3455c161c10ea1c55e}} 
+\index{MultiFileComment@{MultiFileComment}!getData@{getData}}
+\index{getData@{getData}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily QHash$<$ QString, QList$<$ int $>$ $\ast$ $>$ $\ast$ Multi\+File\+Comment\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns data contained in multifilecomment 
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_a461343b7b6f9b5bf0a971171ba9ecb6b}\label{class_multi_file_comment_a461343b7b6f9b5bf0a971171ba9ecb6b}} 
+\index{MultiFileComment@{MultiFileComment}!getLinesByName@{getLinesByName}}
+\index{getLinesByName@{getLinesByName}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{getLinesByName()}{getLinesByName()}}
+{\footnotesize\ttfamily QVector$<$ int $>$ $\ast$ Multi\+File\+Comment\+::get\+Lines\+By\+Name (\begin{DoxyParamCaption}\item[{QString}]{file\+Name }\end{DoxyParamCaption})}
+
+Getting selected lines indexes for given file 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_a3ae748342269995b5436dea7fa85e1d2}\label{class_multi_file_comment_a3ae748342269995b5436dea7fa85e1d2}} 
+\index{MultiFileComment@{MultiFileComment}!isPositive@{isPositive}}
+\index{isPositive@{isPositive}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{isPositive()}{isPositive()}}
+{\footnotesize\ttfamily bool Multi\+File\+Comment\+::is\+Positive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns is m\+\_\+is\+Positvie equal to true 
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_a0c1285b54a0073b530a4644a5ffaa9c9}\label{class_multi_file_comment_a0c1285b54a0073b530a4644a5ffaa9c9}} 
+\index{MultiFileComment@{MultiFileComment}!setComment@{setComment}}
+\index{setComment@{setComment}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{setComment()}{setComment()}}
+{\footnotesize\ttfamily void Multi\+File\+Comment\+::set\+Comment (\begin{DoxyParamCaption}\item[{QString}]{comment }\end{DoxyParamCaption})}
+
+Modifier of m\+\_\+comment variable 
+\begin{DoxyParams}{Parameters}
+{\em comment} & value to assign \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00074}{74}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_a90f3cd599252b68e960f8a29ca409cf7}\label{class_multi_file_comment_a90f3cd599252b68e960f8a29ca409cf7}} 
+\index{MultiFileComment@{MultiFileComment}!setNegative@{setNegative}}
+\index{setNegative@{setNegative}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{setNegative()}{setNegative()}}
+{\footnotesize\ttfamily void Multi\+File\+Comment\+::set\+Negative (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Setts m\+\_\+is\+Positvie to false 
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+\mbox{\Hypertarget{class_multi_file_comment_a3747eb9d2e39f1518b2b7211a930e1d3}\label{class_multi_file_comment_a3747eb9d2e39f1518b2b7211a930e1d3}} 
+\index{MultiFileComment@{MultiFileComment}!setPositive@{setPositive}}
+\index{setPositive@{setPositive}!MultiFileComment@{MultiFileComment}}
+\doxysubsubsection{\texorpdfstring{setPositive()}{setPositive()}}
+{\footnotesize\ttfamily void Multi\+File\+Comment\+::set\+Positive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Setts m\+\_\+is\+Positvie to true 
+
+Definition at line \mbox{\hyperlink{multifilecomment_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{multifilecomment_8cpp_source}{multifilecomment.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{multifilecomment_8h}{multifilecomment.\+h}}\item 
+\mbox{\hyperlink{multifilecomment_8cpp}{multifilecomment.\+cpp}}\end{DoxyCompactItemize}

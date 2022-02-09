@@ -1,0 +1,162 @@
+\hypertarget{class_git_wrapper}{}\doxysection{Git\+Wrapper Class Reference}
+\label{class_git_wrapper}\index{GitWrapper@{GitWrapper}}
+
+
+{\ttfamily \#include $<$gitwrapper.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_git_wrapper_a2bd651dfe8cbd77c30d4e70186c43c03}{Git\+Wrapper}} ()
+\item 
+QDir \mbox{\hyperlink{class_git_wrapper_a9ed88e7c2a9f2c77dd02afe3fd4535f1}{clone}} (QString HTTPS, QDir dir)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_git_wrapper_a9ed88e7c2a9f2c77dd02afe3fd4535f1}{Git\+Wrapper\+::clone}} action to clone given repository. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_git_wrapper_a0995c2a217883c30749d56dc0dec224d}{set\+Email}} (QString email)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_git_wrapper_a0995c2a217883c30749d56dc0dec224d}{Git\+Wrapper\+::set\+Email}} changing default git config\textquotesingle{}s email. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_git_wrapper_a1429293bd07825856db0207a2dec14e1}{set\+User\+Name}} (QString user\+Name)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_git_wrapper_a1429293bd07825856db0207a2dec14e1}{Git\+Wrapper\+::set\+User\+Name}} changing default git config\textquotesingle{}s username. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}{read\+Git\+Credential}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}{Git\+Wrapper\+::read\+Git\+Credential}} reading github credential if avilable. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_git_wrapper_a67913d2f94541f388747ebd8e0346c16}{get\+Username}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_git_wrapper_a67913d2f94541f388747ebd8e0346c16}{Git\+Wrapper\+::get\+Username}} getter for username. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{class_git_wrapper_a3a95aaea7352f89c4a5363c1c1129106}{get\+Email}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_git_wrapper_a3a95aaea7352f89c4a5363c1c1129106}{Git\+Wrapper\+::get\+Email}} getter for git\textquotesingle{}s email. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8h_source_l00006}{6}} of file \mbox{\hyperlink{gitwrapper_8h_source}{gitwrapper.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_git_wrapper_a2bd651dfe8cbd77c30d4e70186c43c03}\label{class_git_wrapper_a2bd651dfe8cbd77c30d4e70186c43c03}} 
+\index{GitWrapper@{GitWrapper}!GitWrapper@{GitWrapper}}
+\index{GitWrapper@{GitWrapper}!GitWrapper@{GitWrapper}}
+\doxysubsubsection{\texorpdfstring{GitWrapper()}{GitWrapper()}}
+{\footnotesize\ttfamily Git\+Wrapper\+::\+Git\+Wrapper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8cpp_source_l00011}{11}} of file \mbox{\hyperlink{gitwrapper_8cpp_source}{gitwrapper.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_git_wrapper_a9ed88e7c2a9f2c77dd02afe3fd4535f1}\label{class_git_wrapper_a9ed88e7c2a9f2c77dd02afe3fd4535f1}} 
+\index{GitWrapper@{GitWrapper}!clone@{clone}}
+\index{clone@{clone}!GitWrapper@{GitWrapper}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily QDir Git\+Wrapper\+::clone (\begin{DoxyParamCaption}\item[{QString}]{HTTPS,  }\item[{QDir}]{dir }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_git_wrapper_a9ed88e7c2a9f2c77dd02afe3fd4535f1}{Git\+Wrapper\+::clone}} action to clone given repository. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em HTTPS} & link to repository \\
+\hline
+{\em dir} & output directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output directory afther clonning 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8cpp_source_l00022}{22}} of file \mbox{\hyperlink{gitwrapper_8cpp_source}{gitwrapper.\+cpp}}.
+
+\mbox{\Hypertarget{class_git_wrapper_a3a95aaea7352f89c4a5363c1c1129106}\label{class_git_wrapper_a3a95aaea7352f89c4a5363c1c1129106}} 
+\index{GitWrapper@{GitWrapper}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!GitWrapper@{GitWrapper}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily QString Git\+Wrapper\+::get\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_git_wrapper_a3a95aaea7352f89c4a5363c1c1129106}{Git\+Wrapper\+::get\+Email}} getter for git\textquotesingle{}s email. 
+
+\begin{DoxyReturn}{Returns}
+git email 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8cpp_source_l00101}{101}} of file \mbox{\hyperlink{gitwrapper_8cpp_source}{gitwrapper.\+cpp}}.
+
+\mbox{\Hypertarget{class_git_wrapper_a67913d2f94541f388747ebd8e0346c16}\label{class_git_wrapper_a67913d2f94541f388747ebd8e0346c16}} 
+\index{GitWrapper@{GitWrapper}!getUsername@{getUsername}}
+\index{getUsername@{getUsername}!GitWrapper@{GitWrapper}}
+\doxysubsubsection{\texorpdfstring{getUsername()}{getUsername()}}
+{\footnotesize\ttfamily QString Git\+Wrapper\+::get\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_git_wrapper_a67913d2f94541f388747ebd8e0346c16}{Git\+Wrapper\+::get\+Username}} getter for username. 
+
+\begin{DoxyReturn}{Returns}
+git username 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{gitwrapper_8cpp_source}{gitwrapper.\+cpp}}.
+
+\mbox{\Hypertarget{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}\label{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}} 
+\index{GitWrapper@{GitWrapper}!readGitCredential@{readGitCredential}}
+\index{readGitCredential@{readGitCredential}!GitWrapper@{GitWrapper}}
+\doxysubsubsection{\texorpdfstring{readGitCredential()}{readGitCredential()}}
+{\footnotesize\ttfamily void Git\+Wrapper\+::read\+Git\+Credential (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_git_wrapper_a986c04a3e2787efe84d46a4935bbc3c8}{Git\+Wrapper\+::read\+Git\+Credential}} reading github credential if avilable. 
+
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{gitwrapper_8cpp_source}{gitwrapper.\+cpp}}.
+
+\mbox{\Hypertarget{class_git_wrapper_a0995c2a217883c30749d56dc0dec224d}\label{class_git_wrapper_a0995c2a217883c30749d56dc0dec224d}} 
+\index{GitWrapper@{GitWrapper}!setEmail@{setEmail}}
+\index{setEmail@{setEmail}!GitWrapper@{GitWrapper}}
+\doxysubsubsection{\texorpdfstring{setEmail()}{setEmail()}}
+{\footnotesize\ttfamily void Git\+Wrapper\+::set\+Email (\begin{DoxyParamCaption}\item[{QString}]{email }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_git_wrapper_a0995c2a217883c30749d56dc0dec224d}{Git\+Wrapper\+::set\+Email}} changing default git config\textquotesingle{}s email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & new email to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{gitwrapper_8cpp_source}{gitwrapper.\+cpp}}.
+
+\mbox{\Hypertarget{class_git_wrapper_a1429293bd07825856db0207a2dec14e1}\label{class_git_wrapper_a1429293bd07825856db0207a2dec14e1}} 
+\index{GitWrapper@{GitWrapper}!setUserName@{setUserName}}
+\index{setUserName@{setUserName}!GitWrapper@{GitWrapper}}
+\doxysubsubsection{\texorpdfstring{setUserName()}{setUserName()}}
+{\footnotesize\ttfamily void Git\+Wrapper\+::set\+User\+Name (\begin{DoxyParamCaption}\item[{QString}]{user\+Name }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_git_wrapper_a1429293bd07825856db0207a2dec14e1}{Git\+Wrapper\+::set\+User\+Name}} changing default git config\textquotesingle{}s username. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Name} & username to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{gitwrapper_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{gitwrapper_8cpp_source}{gitwrapper.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gitwrapper_8h}{gitwrapper.\+h}}\item 
+\mbox{\hyperlink{gitwrapper_8cpp}{gitwrapper.\+cpp}}\end{DoxyCompactItemize}

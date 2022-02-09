@@ -13,6 +13,10 @@
 #include "gitform.h"
 #include "gitwrapper.h"
 #include "eksporter.h"
+<<<<<<< Updated upstream
+=======
+#include "importer.h"
+>>>>>>> Stashed changes
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -44,11 +48,19 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/**
+ * @brief MainWindow::on_textBrowser_cursorPositionChanged
+ * Action on cursor position channged
+ */
 void MainWindow::on_textBrowser_cursorPositionChanged()
 {
     ui->textBrowser->processCurrentLine(*this->m_currentComment, this->m_selectedFile);
 }
 
+/**
+ * @brief MainWindow::on_treeFileExplorer_clicked action on clicked file in treeview
+ * @param index selected index
+ */
 void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
 {
     QString sPath = m_fileModel->fileInfo(index).absoluteFilePath();
@@ -59,6 +71,10 @@ void MainWindow::on_treeFileExplorer_clicked(const QModelIndex &index)
     loadCurrentFile();
 }
 
+/**
+ * @brief MainWindow::on_actionZ_Folderu_triggered
+ * Action on loading files from given folder
+ */
 void MainWindow::on_actionZ_Folderu_triggered()
 {
     this->m_currentComment = new MultiFileComment();
@@ -81,19 +97,27 @@ void MainWindow::on_actionZ_Folderu_triggered()
     ui->treeFileExplorer->setRootIndex(m_fileModel->index(dir.path()));
 }
 
+/**
+ * @brief MainWindow::on_actionKomentarze_triggered
+ * Action for showing cloased docking 'comment' widget
+ */
 void MainWindow::on_actionKomentarze_triggered()
 {
     ui->dockWidget_1->show();
 }
 
-
+/**
+ * @brief MainWindow::on_actionPliki_triggered
+ * Loading given file
+ */
 void MainWindow::on_actionPliki_triggered()
 {
     ui->dockWidget_2->show();
 }
 
-/*
- *  Add new comment
+/**
+ * @brief MainWindow::on_addingCommentButton_clicked
+ * Action for adding comment
  */
 void MainWindow::on_addingCommentButton_clicked()
 {
@@ -111,18 +135,25 @@ void MainWindow::on_addingCommentButton_clicked()
         if(m_Comments->size() > 0){
             MultiFileComment* comment = new MultiFileComment();
             this->m_Comments->insert(text, comment);
-        }else
+        } else
             this->m_Comments->insert(text, this->m_currentComment);
 
         item->setSizeHint(buttons->sizeHint());
 
         ui->listWidget->addItem(item);
         ui->listWidget->setItemWidget(item, buttons);
+
+        buttons->focusWidget();
+
+        selectComment(text);
     }
 }
 
-/*
+/**
+ * @brief MainWindow::removeComment
  * Removes the item from the comment list
+ * @param text
+ * key of the comment to remove
  */
 void MainWindow::removeComment(const QString &text) {
     if(m_Comments->size() == 1){
@@ -149,18 +180,27 @@ void MainWindow::removeComment(const QString &text) {
     }
 }
 
-/*
- * Change selected comment
+/**
+ * @brief MainWindow::selectComment Action for changing selected comment
+ * @param text key of the comment to load
  */
 void MainWindow::selectComment(const QString &text)
 {
-    this->m_currentComment = m_Comments->value(text);
+
+    this->m_currentComment = this->m_Comments->value(text);
     //reloading lines
-    this->loadCurrentFile();
-    ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
+    if(!this->m_selectedFile.isEmpty()){
+        this->loadCurrentFile();
+        ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
+    }
     ui->commentEdit->setText(m_currentComment->getComment());
 }
 
+/**
+ * @brief MainWindow::doneClonning
+ * Action to preform afther git cloning
+ * @param clonedDir cloned dir
+ */
 void MainWindow::doneClonning(const QDir &clonedDir)
 {
     this->m_currentComment = new MultiFileComment();
@@ -190,6 +230,10 @@ void MainWindow::changePositivityOfComment(const QString &text, const bool &isCh
     qDebug()<<"Positivity changed"<< com<<" "<<com->isPositive();
 }
 
+/**
+ * @brief MainWindow::loadCurrentFile
+ * Reloading currently displayed file
+ */
 void MainWindow::loadCurrentFile()
 {
     QFile file(this->m_selectedFile);
@@ -214,6 +258,10 @@ void MainWindow::loadCurrentFile()
         ui->textBrowser->loadSelectedLines(*this->m_currentComment, this->m_selectedFile);
 }
 
+/**
+ * @brief MainWindow::on_commentEdit_textChanged
+ * Updating comment in memory when text in window changes
+ */
 void MainWindow::on_commentEdit_textChanged()
 {
     m_currentComment->setComment(ui->commentEdit->toPlainText());
@@ -236,30 +284,69 @@ void MainWindow::on_actionPusty_triggered()
     ui->listWidget->clear();
 }
 
+/**
+ * @brief MainWindow::on_actionGit_triggered
+ * Opening git export window
+ */
 void MainWindow::on_actionGit_triggered()
 {
-    //otworzyc okno do wyboru folderu i wykonac dzialania
+    //otworzyc okno do wyboru folderu
     GitForm* gitform = new GitForm(this);
     gitform->show();
 }
 
-
-
+/**
+ * @brief MainWindow::on_actionEksport_triggered
+ * Openning export window
+ */
 void MainWindow::on_actionEksport_triggered()
 {
     qDebug() <<"debug on_actionEksport_triggered";
     // extract comments
-    Eksporter* eksport = new Eksporter();
+    Eksporter* eksport = new Eksporter(this);
     eksport->setComments(this->m_Comments);
     eksport->show();
 
-    //extract
-    //eksporter* eksportForm = new eksport();
-   // eksportForm->show();
 }
 
-
+/**
+ * @brief MainWindow::on_actionImport_triggered
+ * Opening import window
+ */
 void MainWindow::on_actionImport_triggered()
 {
+<<<<<<< Updated upstream
     // import
+=======
+    Importer* import = new Importer(this);
+    import->show();
+}
+
+/**
+ * @brief MainWindow::on_actionImport_triggered
+ * Action on reciving Import
+ */
+void MainWindow::reciveImport(QHash<QString, MultiFileComment*>* s)
+{
+    qDeleteAll(this->m_Comments->begin(),this->m_Comments->end());
+
+    this->m_Comments = s;
+
+    qDebug() << "size imported:"<<this->m_Comments->size();
+    QHash<QString, MultiFileComment*>::iterator i;
+    for (i = this->m_Comments->begin(); i != this->m_Comments->end(); ++i) {
+
+        QListWidgetItem* item = new QListWidgetItem();
+
+        ItemDisplay* buttons = new ItemDisplay(this);
+
+        buttons->setText(i.key());
+        item->setSizeHint(buttons->sizeHint());
+        ui->listWidget->addItem(item);
+        ui->listWidget->setItemWidget(item, buttons);
+        qDebug() << i.key();
+        qDebug() <<"comment:"<< i.value()->getComment();
+    }
+
+>>>>>>> Stashed changes
 }

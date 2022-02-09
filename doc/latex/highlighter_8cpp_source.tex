@@ -1,0 +1,98 @@
+\hypertarget{highlighter_8cpp_source}{}\doxysection{highlighter.\+cpp}
+\mbox{\hyperlink{highlighter_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{highlighter_8h}{highlighter.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <QSyntaxHighlighter>}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <QTextCharFormat>}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <QRegularExpression>}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00008}\mbox{\hyperlink{class_highlighter_a0a22ec2168c7da0080cc1c1a244466ef}{00008}} \mbox{\hyperlink{class_highlighter_a0a22ec2168c7da0080cc1c1a244466ef}{Highlighter::Highlighter}}(QTextDocument *parent)}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00009}00009     : QSyntaxHighlighter(parent)}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00010}00010 \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00011}00011     HighlightingRule rule;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00013}00013     keywordFormat.setForeground(Qt::darkBlue);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00014}00014     keywordFormat.setFontWeight(QFont::Bold);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00015}00015     \textcolor{keyword}{const} QString keywordPatterns[] = \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00016}00016         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bclass\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bconst\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bvirtual\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00017}00017         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bdouble\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)benum\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bexplicit\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00018}00018         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bfriend\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)binline\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)btypename\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00019}00019         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bnamespace\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)boperator\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bstruct\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00020}00020         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bprivate\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bprotected\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bpublic\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00021}00021         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bsignals\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bsigned\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00022}00022         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bslots\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bstatic\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00023}00023         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)btemplate\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)btypedef\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00024}00024         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bunion\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bunsigned\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00025}00025         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bvoid\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bvolatile\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00027}00027         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bdelete\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bdelete[]\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bdelete[][]\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00029}00029         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bvoid\(\backslash\)\(\backslash\)b"{}}),QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bchar\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bdouble\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00030}00030         QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)blong\(\backslash\)\(\backslash\)b"{}}),QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bint\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bbool\(\backslash\)\(\backslash\)b"{}}), QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bshort\(\backslash\)\(\backslash\)b"{}}),}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00031}00031     \};}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00032}00032     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} QString \&pattern : keywordPatterns) \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00033}00033         rule.pattern = QRegularExpression(pattern);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00034}00034         rule.format = keywordFormat;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00035}00035         highlightingRules.append(rule);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00036}00036     \}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00038}00038     classFormat.setFontWeight(QFont::Bold);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00039}00039     classFormat.setForeground(Qt::darkMagenta);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00040}00040     rule.pattern = QRegularExpression(QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)bQ[A-\/Za-\/z]+\(\backslash\)\(\backslash\)b"{}}));}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00041}00041     rule.format = classFormat;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00042}00042     highlightingRules.append(rule);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00044}00044     quotationFormat.setForeground(Qt::darkGreen);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00045}00045     rule.pattern = QRegularExpression(QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)"{}.*\(\backslash\)"{}"{}}));}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00046}00046     rule.format = quotationFormat;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00047}00047     highlightingRules.append(rule);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00049}00049     functionFormat.setFontItalic(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00050}00050     functionFormat.setForeground(Qt::blue);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00051}00051     rule.pattern = QRegularExpression(QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)b[A-\/Za-\/z0-\/9\_]+(?=\(\backslash\)\(\backslash\)()"{}}));}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00052}00052     rule.format = functionFormat;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00053}00053     highlightingRules.append(rule);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00055}00055     singleLineCommentFormat.setForeground(Qt::darkGreen);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00056}00056        rule.pattern = QRegularExpression(QStringLiteral(\textcolor{stringliteral}{"{}//[\string^\(\backslash\)n]*"{}}));}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00057}00057        rule.format = singleLineCommentFormat;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00058}00058        highlightingRules.append(rule);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00060}00060        multiLineCommentFormat.setForeground(Qt::darkGreen);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00062}00062        commentStartExpression = QRegularExpression(QStringLiteral(\textcolor{stringliteral}{"{}/\(\backslash\)\(\backslash\)*"{}}));}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00063}00063        commentEndExpression = QRegularExpression(QStringLiteral(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)*/"{}}));}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00064}00064    \}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00070}\mbox{\hyperlink{class_highlighter_a6ff8ff689bc5677a80b03ef6e143c498}{00070}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_highlighter_a6ff8ff689bc5677a80b03ef6e143c498}{Highlighter::highlightBlock}}(\textcolor{keyword}{const} QString \&text)}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00071}00071 \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00072}00072     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} HighlightingRule \&rule : qAsConst(highlightingRules)) \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00073}00073         QRegularExpressionMatchIterator matchIterator = rule.pattern.globalMatch(text);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00074}00074         \textcolor{keywordflow}{while} (matchIterator.hasNext()) \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00075}00075             QRegularExpressionMatch match = matchIterator.next();}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00076}00076             setFormat(match.capturedStart(), match.capturedLength(), rule.format);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00077}00077         \}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00078}00078     \}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00079}00079     setCurrentBlockState(0);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00080}00080     \textcolor{keywordtype}{int} startIndex = 0;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00081}00081     \textcolor{keywordflow}{if} (previousBlockState() != 1)}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00082}00082         startIndex = text.indexOf(commentStartExpression);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00083}00083     \textcolor{keywordflow}{while} (startIndex >= 0) \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00084}00084         QRegularExpressionMatch match = commentEndExpression.match(text, startIndex);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00085}00085         \textcolor{keywordtype}{int} endIndex = match.capturedStart();}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00086}00086         \textcolor{keywordtype}{int} commentLength = 0;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00087}00087         \textcolor{keywordflow}{if} (endIndex == -\/1) \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00088}00088             setCurrentBlockState(1);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00089}00089             commentLength = text.length() -\/ startIndex;}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00090}00090         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00091}00091             commentLength = endIndex -\/ startIndex}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00092}00092                             + match.capturedLength();}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00093}00093         \}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00094}00094         setFormat(startIndex, commentLength, multiLineCommentFormat);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00095}00095         startIndex = text.indexOf(commentStartExpression, startIndex + commentLength);}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00096}00096     \}}
+\DoxyCodeLine{\Hypertarget{highlighter_8cpp_source_l00097}00097 \}}
+
+\end{DoxyCode}

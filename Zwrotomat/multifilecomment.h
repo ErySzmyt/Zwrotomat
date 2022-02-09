@@ -7,8 +7,9 @@
 class MultiFileComment
 {
 public:
-    //TODO still no constructor :)
+
     MultiFileComment();
+    MultiFileComment(QHash<QString, QList<int> *> *, QString, bool);
     ~MultiFileComment();
 
     bool containFile(QString fileName);
